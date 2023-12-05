@@ -5,14 +5,14 @@
 
 typedef struct tReceita {
     eTipoUso tipoUso;
-    char nomePaciente[51];
+    int qtd;
+    char nomePaciente[100];
     char nomeMedicamento[MAX_TAM_NOME_MEDICAMENTO];
     char tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO];
     char instrucoes[MAX_TAM_INSTRUCOES];
     char nomeMedico[21];
     char CRM[13];
     char dataString[11];
-    int qtd;
 };
 
 tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicamento,

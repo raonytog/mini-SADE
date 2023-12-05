@@ -33,9 +33,11 @@ void desalocaDocumento(tDocumento *doc) {
 }
 
 void imprimeNaTelaDocumento(tDocumento *doc) {
-    if (doc) doc->imprimeNaTela(doc->dado);
+    if (!doc) return;
+    doc->imprimeNaTela(doc->dado);
 }
 
 void imprimeEmArquivoDocumento(tDocumento *doc, char *path) {
-    if (doc) doc->ImprimeEmArquivo(doc->dado, path);
+    if (!doc) return;
+    doc->ImprimeEmArquivo(doc->dado, path);
 }

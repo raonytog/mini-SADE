@@ -29,3 +29,12 @@ int main (int agrc, char * argv[]) { /* main oficial */
 
     return 0;
 }
+
+/** metas do dia
+ *  data
+ * relatorio
+ * medico
+ * secretario
+ * cadastro/login
+ * bd
+**/

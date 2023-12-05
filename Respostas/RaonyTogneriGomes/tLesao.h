@@ -1,8 +1,7 @@
-
-//L1 - NEVO - DORSO - 10MM
-
 #ifndef _TLESAO_H_
 #define _TLESAO_H_
+
+#include <stdio.h>
 
 typedef struct tLesao tLesao;
 

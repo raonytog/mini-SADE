@@ -3,12 +3,36 @@
 
 typedef struct tPessoa tPessoa;
 
-tPessoa * CriaPessoa();
+typedef struct tListaPessoa tListaPessoa;
 
-void DesalocaPessoa(tPessoa * pessoa);
+typedef enum {
+    NAO_EXISTE = 0,
+    SECRETARIO = 1,
+    MEDICO = 2,
+    PACIENTE = 3
+} CARGO;
+
+tPessoa * CriaPessoa (int cargo);
+
+void DesalocaPessoa (void * dado);
 
 const char * ObtemNomePessoa (tPessoa * pessoa);
 
 const char * ObtemCPFPessoa (tPessoa * pessoa);
+
+const char * ObtemDataNascimentoPessoa (tPessoa * pessoa);
+
+const char * ObtemTelefonePessoa (tPessoa * pessoa);
+
+const char * ObtemGeneroPessoa (tPessoa * pessoa);
+
+CARGO ObtemCargoPessoa (tPessoa * pessoa);
+
+
+tListaPessoa * CriaListaBusca();
+
+void AdiconaPessoaLista (tListaPessoa * lista);
+
+void DesalocaLista (tListaPessoa * lista);
 
 #endif

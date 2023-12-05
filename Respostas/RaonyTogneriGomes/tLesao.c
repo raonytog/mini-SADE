@@ -14,60 +14,63 @@ struct tLesao {
     int necessitaCrioterapia; //true or false
 };
 
-tLesao * CriaLesao () {
+tLesao * CriaLesao (char * rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao) {
     tLesao * lesao = malloc(sizeof(tLesao));
-    lesao->rotulo[0] = '\0';
-    lesao->diagnosticoClinico[0] = '\0';
-    lesao->regiaoDoCorpo[0] = '\0';
+    if (!lesao) return NULL;
+    
+    strcpy(lesao->rotulo, rotulo);
+    strcpy(lesao->diagnosticoClinico, diagnosticoClinico);
+    strcpy(lesao->regiaoDoCorpo, regiaoDoCorpo);
 
-    lesao->tamanhoLesao = 0;
+    lesao->tamanhoLesao = tamLesao;
     lesao->necessitaCirurgia = 0;
     lesao->necessitaCrioterapia = 0;
-
-    scanf("%s%*c", lesao->rotulo);
-    scanf("%s%*c", lesao->diagnosticoClinico);
-    scanf("%s%*c", lesao->regiaoDoCorpo);
-    scanf("%d%*c", &lesao->tamanhoLesao);
 
     return lesao;
 }
 
 void ImprimeLesaoTela (tLesao * lesao) {
+    if (!lesao) return;
     printf("L%s - %s - %s - %dMM\n", 
             lesao->rotulo, lesao->diagnosticoClinico, lesao->regiaoDoCorpo, lesao->tamanhoLesao);
 }
 
 void ImprimeLesaoArquivo (tLesao * lesao, FILE * arquivo) {
-    sprintf(arquivo, "L%s - %s - %s - %dMM\n", 
+    fprintf(arquivo, "L%s - %s - %s - %dMM\n", 
              lesao->rotulo, lesao->diagnosticoClinico, lesao->regiaoDoCorpo, lesao->tamanhoLesao);
 }
 
 void DesalocaLesao (tLesao * lesao) {
-    if (lesao) free(lesao);
+    if (!lesao) return;
+    free(lesao);
 }
 
-
 const char * ObtemRotulo (tLesao * lesao) {
+    if (!lesao) return '\0';
     return lesao->rotulo;
 }
 
 const char * ObtemDiagnostico (tLesao * lesao) {
+    if (!lesao) return '\0';
     return lesao->diagnosticoClinico;
 }
 
 const char * ObtemRegiaoCorpo (tLesao * lesao) {
+    if (!lesao) return '\0';
     return lesao->regiaoDoCorpo;
 }
 
-
 int NecessitaCirurgia (tLesao * lesao) {
+    if (!lesao) return 0;
     return lesao->necessitaCirurgia;
 }
 
 int NecessitaCrioterapia (tLesao * lesao) {
+    if (!lesao) return 0;
     return lesao->necessitaCrioterapia;
 }
 
 int TamanhoLesao (tLesao * lesao) {
+    if (!lesao) return 0;
     return lesao->tamanhoLesao;
 }

@@ -34,7 +34,8 @@ void insereDocumentoFila(tFila *f, void *dado, func_ptr_imprimeNaTela imprimeNaT
 }
 
 int quantidadeDocumentosNaFila(tFila *f) {
-    if (f) return f->qtdDoc;
+    if (!f) return 0;
+    return f->qtdDoc;
 }
 
 void imprimeFila(tFila *f, char *path) {
