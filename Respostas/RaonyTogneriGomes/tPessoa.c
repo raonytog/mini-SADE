@@ -1,4 +1,6 @@
 #include "tPessoa.h"
+#include "tSecretario.h"
+#include "tMedico.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,11 +69,13 @@ const char * ObtemNomePessoa (tPessoa * pessoa) {
 const char * ObtemNomeMedico (tPessoa * pessoa) {
     if (!pessoa) return '\0';
     if (ObtemCargoPessoa(pessoa) == MEDICO) return pessoa->nome;
+    return '\0';
 }
 
 const char * ObtemNomeSecretario (tPessoa * pessoa) {
     if (!pessoa) return '\0';
     if (ObtemCargoPessoa(pessoa) == SECRETARIO) return pessoa->nome;
+    return '\0';
 }
 
 const char * ObtemCPFPessoa (tPessoa * pessoa) {

@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "tbiopsia.h": "c",
-        "encaminhamento.h": "c"
+        "encaminhamento.h": "c",
+        "tpessoa.h": "c",
+        "tmedico.h": "c"
     }
 }

@@ -5,11 +5,11 @@
 
 typedef struct tLogin tLogin;
 
+
+
 tLogin * CriaLogin ();
 
 void DesalocaLogin (tLogin * login);
-
-void AlteraLogin (tLogin * login);
 
 bool VerificaUser (tLogin * login, char * usuario);
 

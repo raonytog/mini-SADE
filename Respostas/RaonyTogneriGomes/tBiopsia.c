@@ -15,6 +15,9 @@ struct tBiopsia {
 };
 
 tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, char *nomeMedico, char *CRM, char *data) {
+    for (int i = 0; i < qtdLesoes; i++)
+        if (!NecessitaCirurgia(lesoes[i])) return NULL;
+
     tBiopsia * b = malloc(sizeof(tBiopsia));
     if (!b) return NULL;
 
@@ -23,9 +26,8 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     b->qtdLesoes = qtdLesoes;
 
     b->lesoes = malloc(qtdLesoes * sizeof(tLesao *));
-    for (int i = 0; i < qtdLesoes; i++) {
+    for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
-    }
 
     strcpy(b->nomeMedico, nomeMedico);
     strcpy(b->CRM, CRM);
@@ -58,19 +60,26 @@ void ImprimeBiopsiaTela (void * data) {
     printf("%s\n\n", biopsia->data);
 }
 
-void ImprimeBiopsiaArquivo (void * data, FILE * arquivo) {
+void ImprimeBiopsiaArquivo (void * data, char * path) {
     tBiopsia * biopsia = (tBiopsia *) data;
 
-    fprintf(arquivo, "PACIENTE: %s\n", biopsia->nomePaciente);
-    fprintf(arquivo, "CPF: %s\n\n", biopsia->cpf);
+    char diretorio[1001];
+    sprintf(diretorio, "%s/biopsia.txt", path);
+    FILE * fBiopsia = NULL;
+    fBiopsia = fopen(diretorio, "a+b");
 
-    fprintf(arquivo, "SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
+    fprintf(fBiopsia, "PACIENTE: %s\n", biopsia->nomePaciente);
+    fprintf(fBiopsia, "CPF: %s\n\n", biopsia->cpf);
+
+    fprintf(fBiopsia, "SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
     for (int i = 0; i < biopsia->qtdLesoes; i++) {
-        ImprimeLesaoArquivo(biopsia->lesoes[i], arquivo);
+        ImprimeLesaoArquivo(biopsia->lesoes[i], fBiopsia);
     }
 
-    fprintf(arquivo, "\n%s (%s)\n", biopsia->nomeMedico, biopsia->CRM);
-    fprintf(arquivo, "%s\n\n", biopsia->data);
+    fprintf(fBiopsia, "\n%s (%s)\n", biopsia->nomeMedico, biopsia->CRM);
+    fprintf(fBiopsia, "%s\n\n", biopsia->data);
+
+    fclose(fBiopsia);
 }
 
 int ObtemQtdLesoes (tBiopsia * biopsia) {

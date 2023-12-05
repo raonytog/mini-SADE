@@ -23,10 +23,6 @@ void DesalocaLogin (tLogin * login) {
     free(login);
 }
 
-void AlteraLogin (tLogin * login) {
-    // nem vou fazer agora
-}
-
 bool VerificaUser (tLogin * login, char * usuario) {
     return strcmp(login->user, usuario);
 }

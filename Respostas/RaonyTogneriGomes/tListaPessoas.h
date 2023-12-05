@@ -7,8 +7,12 @@ typedef struct tListaPessoas tListaPessoas;
 
 tListaPessoas * CriaListaBusca();
 
-void AdiconaPessoaLista (tListaPessoas ** lista, tPessoa * pessoa);
+void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa);
 
-void DesalocaLista (tListaPessoas ** lista);
+void DesalocaLista (tListaPessoas * lista);
+
+void ImprimeNomeRequisitadoTela (tListaPessoas * lista, char * nome);
+
+void ImprimeNomeRequisitadoArquivo (tListaPessoas * lista, char * nome, char * path);
 
 #endif

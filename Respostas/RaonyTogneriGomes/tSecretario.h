@@ -4,14 +4,21 @@
 #include "tPessoa.h"
 #include "tLogin.h"
 
+typedef enum {
+    ADMIN = 1,
+    USER = 0
+} PODER_USUARIO;
+
 typedef struct tSecretario tSecretario;
 
 tSecretario * CriaSecretario ();
 
 void DesalocaSecretario(tSecretario * secretario);
 
-const char * ObtemCRM (tSecretario * secretario);
+tLogin * ObtemLoginSecretario (tSecretario * secretario);
 
-tLogin * ObtemLogin(tSecretario * secretario);
+bool SecretarioEhUser (tSecretario * secretario);
+
+bool SecretarioEhAdmin (tSecretario * secretario);
 
 #endif

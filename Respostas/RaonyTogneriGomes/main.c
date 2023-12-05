@@ -32,9 +32,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
 
 /** metas do dia
  * data
- * relatorio
- * medico
- * secretario
- * cadastro/login
+ * relatorio 
+ * cadastro/login 
  * bd
 **/

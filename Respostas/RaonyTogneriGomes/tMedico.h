@@ -11,6 +11,6 @@ void DesalocaMedico(tMedico * medico);
 
 const char * ObtemCRM (tMedico * medico);
 
-tLogin * ObtemLogin(tMedico * medico);
+tLogin * ObtemLoginMedico (tMedico * medico);
 
 #endif

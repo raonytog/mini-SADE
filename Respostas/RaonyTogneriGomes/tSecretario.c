@@ -6,10 +6,11 @@
 
 struct tSecretario {
     tLogin * login;
+    PODER_USUARIO poder;
 };
 
 tSecretario * CriaSecretario () {
-    tSecretario * secretario = sizeof(tSecretario);
+    tSecretario * secretario = malloc(sizeof(tSecretario));
     if (!secretario) return NULL;
 
     char user[20], senha[20];
@@ -20,8 +21,27 @@ tSecretario * CriaSecretario () {
     return secretario;
 }
 
-void DesalocaSecretario(tSecretario * secretario);
+void DesalocaSecretario(tSecretario * secretario) {
+    if (!secretario) return;
+    DesalocaLogin(secretario->login);
+    free(secretario);
+}
 
-const char * ObtemCRM (tSecretario * secretario);
+tLogin * ObtemLoginSecretario (tSecretario * secretario) {
+    if (!secretario) return NULL;
+    return secretario->login;
+}
 
-tLogin * ObtemLogin(tSecretario * secretario);
+bool SecretarioEhUser (tSecretario * secretario) {
+    if (!secretario) return false;
+    
+    if (secretario->poder == USER) return true;
+    return false;
+}
+
+bool SecretarioEhAdmin (tSecretario * secretario) {
+    if (!secretario) return false;
+
+    if (secretario->poder == ADMIN) return true;
+    return false;
+}
