@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 struct tLesao {
-    char rotulo[5];
+    int rotulo;
     char diagnosticoClinico[20];
     char regiaoDoCorpo[20];
 
@@ -14,11 +14,11 @@ struct tLesao {
     int necessitaCrioterapia; //true or false
 };
 
-tLesao * CriaLesao (char * rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao) {
+tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao) {
     tLesao * lesao = malloc(sizeof(tLesao));
     if (!lesao) return NULL;
     
-    strcpy(lesao->rotulo, rotulo);
+    lesao->rotulo = rotulo;
     strcpy(lesao->diagnosticoClinico, diagnosticoClinico);
     strcpy(lesao->regiaoDoCorpo, regiaoDoCorpo);
 
@@ -31,12 +31,12 @@ tLesao * CriaLesao (char * rotulo, char * diagnosticoClinico, char * regiaoDoCor
 
 void ImprimeLesaoTela (tLesao * lesao) {
     if (!lesao) return;
-    printf("L%s - %s - %s - %dMM\n", 
+    printf("L%d - %s - %s - %dMM\n", 
             lesao->rotulo, lesao->diagnosticoClinico, lesao->regiaoDoCorpo, lesao->tamanhoLesao);
 }
 
 void ImprimeLesaoArquivo (tLesao * lesao, FILE * arquivo) {
-    fprintf(arquivo, "L%s - %s - %s - %dMM\n", 
+    fprintf(arquivo, "L%d - %s - %s - %dMM\n", 
              lesao->rotulo, lesao->diagnosticoClinico, lesao->regiaoDoCorpo, lesao->tamanhoLesao);
 }
 
@@ -45,8 +45,8 @@ void DesalocaLesao (tLesao * lesao) {
     free(lesao);
 }
 
-const char * ObtemRotulo (tLesao * lesao) {
-    if (!lesao) return '\0';
+int ObtemRotulo (tLesao * lesao) {
+    if (!lesao) return 0;
     return lesao->rotulo;
 }
 

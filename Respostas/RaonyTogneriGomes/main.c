@@ -31,7 +31,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
 }
 
 /** metas do dia
- *  data
+ * data
  * relatorio
  * medico
  * secretario

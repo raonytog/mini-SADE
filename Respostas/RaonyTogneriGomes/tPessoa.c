@@ -1,4 +1,5 @@
 #include "tPessoa.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,11 +12,6 @@ struct tPessoa {
     char genero[9];
     CARGO cargo;
     void * cargoOcupado;
-};
-
-struct tListaPessoa {
-    tPessoa ** pessoas;
-    int qtdPessoas;
 };
 
 tPessoa * CriaPessoa(int cargo) {
@@ -68,6 +64,16 @@ const char * ObtemNomePessoa (tPessoa * pessoa) {
     return pessoa->nome;
 }
 
+const char * ObtemNomeMedico (tPessoa * pessoa) {
+    if (!pessoa) return '\0';
+    if (ObtemCargoPessoa(pessoa) == MEDICO) return pessoa->nome;
+}
+
+const char * ObtemNomeSecretario (tPessoa * pessoa) {
+    if (!pessoa) return '\0';
+    if (ObtemCargoPessoa(pessoa) == SECRETARIO) return pessoa->nome;
+}
+
 const char * ObtemCPFPessoa (tPessoa * pessoa) {
     if (!pessoa) return '\0';
     return pessoa->cpf;
@@ -92,10 +98,3 @@ CARGO ObtemCargoPessoa (tPessoa * pessoa) {
     if (!pessoa) return NAO_EXISTE;
     return pessoa->cargo;
 }
-
-
-tListaPessoa * CriaLista();
-
-void AdiconaPessoaLista (tListaPessoa * lista);
-
-void DesalocaLista (tListaPessoa * lista);

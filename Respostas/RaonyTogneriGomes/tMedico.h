@@ -1,16 +1,16 @@
 #ifndef _TMEDICO_H_
 #define _TMEDICO_H_
 
-#include "tPessoa.h"
+#include "tLogin.h"
 
 typedef struct tMedico tMedico;
 
-tMedico * CriaMedico (tPessoa * pessoa, char *CRM);
+tMedico * CriaMedico ();
 
 void DesalocaMedico(tMedico * medico);
 
-const char * ObtemNomeMedico (tMedico * medico);
-
 const char * ObtemCRM (tMedico * medico);
+
+tLogin * ObtemLogin(tMedico * medico);
 
 #endif

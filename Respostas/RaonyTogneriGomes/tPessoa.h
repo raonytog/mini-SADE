@@ -18,6 +18,10 @@ void DesalocaPessoa (void * dado);
 
 const char * ObtemNomePessoa (tPessoa * pessoa);
 
+const char * ObtemNomeMedico (tPessoa * pessoa);
+
+const char * ObtemNomeSecretario (tPessoa * pessoa);
+
 const char * ObtemCPFPessoa (tPessoa * pessoa);
 
 const char * ObtemDataNascimentoPessoa (tPessoa * pessoa);
@@ -27,12 +31,5 @@ const char * ObtemTelefonePessoa (tPessoa * pessoa);
 const char * ObtemGeneroPessoa (tPessoa * pessoa);
 
 CARGO ObtemCargoPessoa (tPessoa * pessoa);
-
-
-tListaPessoa * CriaListaBusca();
-
-void AdiconaPessoaLista (tListaPessoa * lista);
-
-void DesalocaLista (tListaPessoa * lista);
 
 #endif

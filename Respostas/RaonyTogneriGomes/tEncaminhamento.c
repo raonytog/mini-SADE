@@ -1,4 +1,5 @@
 #include "tEncaminhamento.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +11,7 @@ struct tEncaminhamento {
     char motivo[300];
     char nomeMedico[20];
     char CRM[12];
-    char data[10];
+    char data[11];
 };
 
 tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * especialidade, char * motivo, char * nomeMedico, char *CRM, char *data) {

@@ -1,4 +1,6 @@
 #include "tBiopsia.h"
+
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -8,7 +10,7 @@ struct tBiopsia {
     char cpf[15];
     char nomeMedico[20];
     char CRM[12];
-    char data[10];
+    char data[11];
     int qtdLesoes;
 };
 
