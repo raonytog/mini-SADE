@@ -19,6 +19,11 @@ tListaPessoas * CriaListaBusca() {
     return lista;
 }
 
+tPessoa * ObtemPessoaIndice (tListaPessoas * lista, int indice) {
+    if (!lista) return NULL;
+    return lista->pessoas[indice];
+}
+
 int ObtemNumeroPessoasLista (tListaPessoas * lista) {
     if (!lista) return 0;
     return lista->qtdPessoas;

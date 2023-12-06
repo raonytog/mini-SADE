@@ -16,11 +16,11 @@ tPessoa * CriaPessoa ();
 
 void DesalocaPessoa (void * dado);
 
+tData * ObtemDataPessoa (tPessoa * pessoa);
+
 const char * ObtemNomePessoa (tPessoa * pessoa);
 
 const char * ObtemCPFPessoa (tPessoa * pessoa);
-
-const char * ObtemDataNascimentoPessoa (tPessoa * pessoa);
 
 const char * ObtemTelefonePessoa (tPessoa * pessoa);
 

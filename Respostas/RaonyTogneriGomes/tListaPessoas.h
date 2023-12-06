@@ -7,6 +7,8 @@ typedef struct tListaPessoas tListaPessoas;
 
 tListaPessoas * CriaListaBusca();
 
+tPessoa * ObtemPessoaIndice (tListaPessoas * lista, int indice);
+
 int ObtemNumeroPessoasLista (tListaPessoas * lista);
 
 void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa, char * nome);

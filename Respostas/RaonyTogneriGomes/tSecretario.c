@@ -11,22 +11,18 @@ struct tSecretario {
 };
 
 tSecretario * CriaSecretario () {
-    char user[20] = '\0', senha[20] = '\0';
     tSecretario * secretario = malloc(sizeof(tSecretario));
     if (!secretario) return NULL;
 
     tPessoa * pessoa = CriaPessoa();
     secretario->pessoa = pessoa;
     
-    printf("NOME DE USUARIO: ");
-    scanf("%[\n]%*c", user);
-
-    printf("SENHA: ");
-    scanf("%[\n]%*c", senha);
-    secretario->login = CriaLogin(user, senha);
+    secretario->login = CriaLogin();
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[\n]%*c", secretario->nivelAcesso);
+
+    
     return secretario;
 }
 

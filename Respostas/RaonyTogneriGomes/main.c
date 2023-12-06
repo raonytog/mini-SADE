@@ -141,14 +141,9 @@ int main (int agrc, char * argv[]) { /* main oficial */
 }
 
 /** metas do dia
- * data
- * relatorio 
- * cadastro/login 
- * bd 
  * consulta
+ * cadastro/login
+ * main
+ * relatorio geral
+ * binario
 **/
-
-/**
- * melhorar a forma de escrever o login
- * ta danso segf pos usuario
-*/

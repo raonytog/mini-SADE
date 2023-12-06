@@ -9,12 +9,15 @@ struct tLogin {
     char password[20];
 };
 
-tLogin * CriaLogin (char * user, char * password) {
+tLogin * CriaLogin () {
     tLogin * login = malloc(sizeof(tLogin));
     if (!login) return NULL;
 
-    strcpy(login->user, user);
-    strcpy(login->password, password);
+    printf("NOME DE USUARIO: ");
+    scanf("%[\n]%*c", login->user);
+
+    printf("SENHA: ");
+    scanf("%[\n]%*c", login->password);
 
     return login;
 }

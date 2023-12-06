@@ -11,7 +11,6 @@ struct tMedico {
 };
 
 tMedico * CriaMedico () {
-    char user[20], senha[20];
     tMedico * medico = malloc(sizeof(tMedico));
     if (!medico) return NULL;
 
@@ -21,12 +20,7 @@ tMedico * CriaMedico () {
     printf("CRM: ");
     scanf("%[^\n]%*c", medico->CRM);
 
-    printf("NOME DE USUARIO: ");
-    scanf("%[\n]%*c", user);
-
-    printf("SENHA: ");
-    scanf("%[\n]%*c", senha);
-    tLogin * login = CriaLogin(user, senha);
+    tLogin * login = CriaLogin();
     medico->login = login;
 
     return medico;

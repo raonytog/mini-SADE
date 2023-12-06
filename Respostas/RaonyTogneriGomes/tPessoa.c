@@ -1,6 +1,7 @@
 #include "tPessoa.h"
 #include "tSecretario.h"
 #include "tMedico.h"
+#include "tData.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +10,7 @@
 struct tPessoa {
     char nome[100];
     char cpf[15];
-    char dataNascimento[10];
+    tData * data;
     char telefone[14];
     char genero[9];
 };
@@ -18,9 +19,9 @@ tPessoa * CriaPessoa() {
     tPessoa * pessoa = malloc(sizeof(tPessoa));
     if (!pessoa) return NULL;
 
-    printf("NOME COMPLETO: ");           scanf("%[^\n]%*c", pessoa->nome);
+    printf("NOME COMPLETO: ");          scanf("%[^\n]%*c", pessoa->nome);
     printf("CPF: ");                    scanf("%[^\n]%*c", pessoa->cpf);
-    printf("DATA DE NASCIMENTO: ");     scanf("%[^\n]%*c", pessoa->dataNascimento);
+    pessoa->data = LeData();
     printf("TELEFONE: ");               scanf("%[^\n]%*c", pessoa->telefone);
     printf("GENERO: ");                 scanf("%[^\n]%*c", pessoa->genero);
     return pessoa;
@@ -30,6 +31,11 @@ void DesalocaPessoa(void * dado) {
     tPessoa * pessoa = (tPessoa *) dado;
     if (!pessoa) return;
     free(pessoa);
+}
+
+tData * ObtemDataPessoa (tPessoa * pessoa) {
+    if (!pessoa) return NULL;
+    return pessoa->data;
 }
 
 const char * ObtemNomePessoa (tPessoa * pessoa) {
@@ -42,12 +48,6 @@ const char * ObtemCPFPessoa (tPessoa * pessoa) {
     if (!pessoa) return '\0';
     char * cpf = pessoa->cpf;
     return cpf;
-}
-
-const char * ObtemDataNascimentoPessoa (tPessoa * pessoa) {
-    if (!pessoa) return '\0';
-    char * data = pessoa->dataNascimento;
-    return data;
 }
 
 const char * ObtemTelefonePessoa (tPessoa * pessoa) {
