@@ -39,8 +39,9 @@ void DesalocaMedico(tMedico * medico) {
 }
 
 const char * ObtemCRM (tMedico * medico) {
-    if (!medico) return NULL;
-    return medico->CRM;
+    if (!medico) return '\0';
+    char * crm = medico->CRM;
+    return crm;
 }
 
 tLogin * ObtemLoginMedico (tMedico * medico) {
