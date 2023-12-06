@@ -40,13 +40,13 @@ tLogin * ObtemLoginSecretario (tSecretario * secretario) {
 bool SecretarioEhUser (tSecretario * secretario) {
     if (!secretario) return false;
     
-    if (secretario->nivelAcesso == "USER") return true;
+    if (strcmp(secretario->nivelAcesso, "USER") == 0) return true;
     return false;
 }
 
 bool SecretarioEhAdmin (tSecretario * secretario) {
     if (!secretario) return false;
 
-    if (secretario->nivelAcesso == "ADMIN") return true;
+    if (strcmp(secretario->nivelAcesso, "ADMIN") == 0) return true;
     return false;
 }

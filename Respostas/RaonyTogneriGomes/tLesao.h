@@ -16,9 +16,9 @@ void DesalocaLesao (tLesao * lesao);
 
 int ObtemRotulo (tLesao * lesao);
 
-const char * ObtemDiagnostico (tLesao * lesao);
+char * ObtemDiagnostico (tLesao * lesao);
 
-const char * ObtemRegiaoCorpo (tLesao * lesao);
+char * ObtemRegiaoCorpo (tLesao * lesao);
 
 int NecessitaCirurgia (tLesao * lesao);
 

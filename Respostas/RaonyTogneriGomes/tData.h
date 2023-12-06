@@ -7,7 +7,9 @@ tData * LeData ();
 
 tData * LeDataConsulta ();
 
-const char * ObtemDataString (tData * data);
+void DesalocaData (tData * data);
+
+char * ObtemDataString (tData * data);
 
 void ImprimeData (tData * data);
 

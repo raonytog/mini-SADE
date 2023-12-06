@@ -37,14 +37,10 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     return b;
 }
 
-void DesalocaBiopsia (tBiopsia * biopsia) {
-    if (!biopsia) return;
-
-    for (int i = 0; i < biopsia->qtdLesoes; i++) 
-        DesalocaLesao(biopsia->lesoes[i]);
-    
-    free(biopsia->lesoes);
-    free(biopsia);
+void DesalocaBiopsia (void * data) {
+    tBiopsia * b = (tBiopsia *) data;
+    if (!b) return;
+    free(b);
 }
 
 void ImprimeBiopsiaTela (void * data) {

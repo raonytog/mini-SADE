@@ -32,13 +32,13 @@ void DesalocaMedico(tMedico * medico) {
     free(medico);
 }
 
-const char * ObtemNomeMedico (tMedico * medico) {
+char * ObtemNomeMedico (tMedico * medico) {
     if (!medico) return NULL;
     char * nomemed = ObtemNomePessoa(medico->pessoa);
     return nomemed;
 }
 
-const char * ObtemCRM (tMedico * medico) {
+char * ObtemCRM (tMedico * medico) {
     if (!medico) return '\0';
     char * crm = medico->CRM;
     return crm;

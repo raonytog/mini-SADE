@@ -1,7 +1,6 @@
 #include "tPessoa.h"
 #include "tSecretario.h"
 #include "tMedico.h"
-#include "tData.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,25 +37,25 @@ tData * ObtemDataPessoa (tPessoa * pessoa) {
     return pessoa->data;
 }
 
-const char * ObtemNomePessoa (tPessoa * pessoa) {
+char * ObtemNomePessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
     char * nome = pessoa->nome;
     return nome;
 }
 
-const char * ObtemCPFPessoa (tPessoa * pessoa) {
+char * ObtemCPFPessoa (tPessoa * pessoa) {
     if (!pessoa) return '\0';
     char * cpf = pessoa->cpf;
     return cpf;
 }
 
-const char * ObtemTelefonePessoa (tPessoa * pessoa) {
+char * ObtemTelefonePessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
     char * telefone = pessoa->telefone;
     return telefone;
 }
 
-const char * ObtemGeneroPessoa (tPessoa * pessoa) {
+char * ObtemGeneroPessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
     char * genero = pessoa->genero;
     return genero;

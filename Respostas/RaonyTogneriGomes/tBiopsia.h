@@ -11,7 +11,7 @@ typedef struct tBiopsia tBiopsia;
 tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, 
                         char *nomeMedico, char *CRM, char *data);
 
-void DesalocaBiopsia (tBiopsia * biopsia);
+void DesalocaBiopsia (void * data);
 
 void ImprimeBiopsiaTela (void * data);
 

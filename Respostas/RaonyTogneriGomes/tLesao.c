@@ -50,13 +50,13 @@ int ObtemRotulo (tLesao * lesao) {
     return lesao->rotulo;
 }
 
-const char * ObtemDiagnostico (tLesao * lesao) {
+char * ObtemDiagnostico (tLesao * lesao) {
     if (!lesao) return NULL;
     char * diagnostico = lesao->diagnosticoClinico;
     return diagnostico;
 }
 
-const char * ObtemRegiaoCorpo (tLesao * lesao) {
+char * ObtemRegiaoCorpo (tLesao * lesao) {
     if (!lesao) return NULL;
     char * regiao = lesao->regiaoDoCorpo;
     return regiao;

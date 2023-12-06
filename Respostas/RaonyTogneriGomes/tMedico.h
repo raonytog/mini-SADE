@@ -10,9 +10,9 @@ tMedico * CriaMedico ();
 
 void DesalocaMedico(tMedico * medico);
 
-const char * ObtemNomeMedico (tMedico * medico);
+char * ObtemNomeMedico (tMedico * medico);
 
-const char * ObtemCRM (tMedico * medico);
+char * ObtemCRM (tMedico * medico);
 
 tLogin * ObtemLoginMedico (tMedico * medico);
 

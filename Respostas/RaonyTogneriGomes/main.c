@@ -36,19 +36,20 @@ typedef enum {
     FINALIZAR_O_PROGRAMA = 8
 } OPCOES_MENU;
 
-int main (int agrc, char * argv[]) { /* main oficial */
-    if (agrc <= 1) {
-        printf("ERRO: diretorio de arquivos nao informado\n");
-        exit(1);
-    }
+// int main (int agrc, char * argv[]) { /* main oficial */
+//     if (agrc <= 1) {
+//         printf("ERRO: diretorio de arquivos nao informado\n");
+//         exit(1);
+//     }
+
+//     sprintf(path, "%s", argv[1]);
+//     sprintf(pathSaida, "%s/saida", argv[1]);
+
+int main () { /* main de testes */
 
     char path[1001], bdPath[1001], pathSaida[1001];
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", path);
+    char diretorio[1001] = "Casos/1";
 
-// int main () { /* main de testes */
-//     char diretorio[1001] = "Casos/1";
-// 
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0;
     tPessoa ** pessoas = NULL;

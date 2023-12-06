@@ -4,6 +4,7 @@
         "encaminhamento.h": "c",
         "tpessoa.h": "c",
         "tmedico.h": "c",
-        "tsecretario.h": "c"
+        "tsecretario.h": "c",
+        "stdio.h": "c"
     }
 }

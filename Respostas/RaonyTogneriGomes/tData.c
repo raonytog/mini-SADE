@@ -14,7 +14,7 @@ tData * LeData() {
     tData * data = malloc(sizeof(tData));
 
     printf("DATA DE NASCIMENTO: ");
-    scanf("%d/%d/%d", &data->dia, &data->mes, &data->ano);
+    scanf("%d/%d/%d%*c", &data->dia, &data->mes, &data->ano);
     sprintf(data->dataString, "%d/%d/%d", data->dia, data->mes, data->ano);
 
     return data;
@@ -22,12 +22,28 @@ tData * LeData() {
 
 tData * LeDataConsulta () {
     tData * data = malloc(sizeof(tData));
+    if (!data) {
+        printf("\nDATA EH NULL\n"); 
+        return NULL;
+    }
 
     printf("DATA DA CONSULTA: ");
     scanf("%d/%d/%d", &data->dia, &data->mes, &data->ano);
     sprintf(data->dataString, "%d/%d/%d", data->dia, data->mes, data->ano);
 
     return data;
+}
+
+void DesalocaData (tData * data) {
+    if (!data) return;
+    free(data);
+}
+
+char * ObtemDataString (tData * data) {
+    char datastring[10];
+    sprintf(datastring, "%d/%d/%d", data->dia, data->mes, data->ano);
+    char * d = datastring;
+    return d;
 }
 
 void ImprimeData (tData * data) {
