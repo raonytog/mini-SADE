@@ -9,6 +9,14 @@
 
 typedef struct tConsulta tConsulta;
 
+typedef enum {
+    CADASTRAR_LESAO = 1,
+    GERAR_RECEITA_MEDICA = 2,
+    SOLICITACAO_DE_BIOPSIA = 3,
+    ENCAMINHAMENTO = 4,
+    ENCERRAR_CONSULTA =5
+} OPCOES_CONSULTA;
+
 tConsulta * CriaConsulta ();
 
 void DesalocaConsulta (tConsulta * consulta);
@@ -16,6 +24,10 @@ void DesalocaConsulta (tConsulta * consulta);
 bool EstaCadastradoPacienteCpf (tListaPessoas * lista, char * cpf);
 
 void ImprimeMenuConsulta ();
+
+void ExecutaConsulta (tConsulta * consulta);
+
+void ImprimeErroConsulta (char * cpf);
 
 void LeReceitaConsulta (tConsulta * consulta, tFila * fila);
 

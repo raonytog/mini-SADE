@@ -48,6 +48,7 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     printf("ALERGIA A MEDICAMENTO: ");              scanf("%d",  &consulta->alergico);
     printf("HISTORICO DE CANCER: ");                scanf("%d",  &consulta->historicoCancerigeno);
     printf("TIPO DE PELE: ");                       scanf("%[^\n]%*c",  consulta->tipoPele);
+    printf("############################################################\n");
 
     return consulta;
 }
@@ -79,12 +80,10 @@ bool EstaCadastradoPacienteCpf (tListaPessoas * lista, char * cpf) {
             ImprimeData( ObtemDataPessoa(p) );
             printf("---\n");
             return true;
+        
         }
     }
-    printf("PACIENTE SEM CADASTRO\n");
-    printf("############################################################");
     return false;
-
 }
 
 void ImprimeMenuConsulta () {
@@ -95,7 +94,40 @@ void ImprimeMenuConsulta () {
 	printf("\t(3) SOLICITACAO DE BIOPSIA\n");
 	printf("\t(4) ENCAMINHAMENTO\n");
 	printf("\t(5) ENCERRAR CONSULTA\n");
-    printf("############################################################");
+    printf("############################################################\n");
+}
+
+void ExecutaConsulta (tConsulta * consulta) {
+    int opcao = 0;
+    while (1) {
+        scanf("%d%*c", &opcao);
+        switch (opcao) {
+            case CADASTRAR_LESAO:
+                break;
+
+            case GERAR_RECEITA_MEDICA:
+                break;
+
+            case SOLICITACAO_DE_BIOPSIA:
+                break;
+
+            case ENCAMINHAMENTO:
+                break;
+
+            case ENCERRAR_CONSULTA:
+                return;
+                break;
+        
+        }
+    }
+}
+
+void ImprimeErroConsulta (char * cpf) {
+    printf("#################### CONSULTA MEDICA #######################\n");
+    printf("CPF DO PACIENTE: %s\n", cpf);
+    printf("PACIENTE SEM CADASTRO\n");
+    printf("PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+    printf("############################################################\n");
 }
 
 void LeReceitaConsulta (tConsulta * consulta, tFila * fila) {

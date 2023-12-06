@@ -14,6 +14,7 @@ tSecretario * CriaSecretario () {
     tSecretario * secretario = malloc(sizeof(tSecretario));
     if (!secretario) return NULL;
 
+    printf("#################### CADASTRO SECRETARIO #######################\n");
     tPessoa * pessoa = CriaPessoa();
     secretario->pessoa = pessoa;
     
@@ -21,8 +22,9 @@ tSecretario * CriaSecretario () {
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", secretario->nivelAcesso);
+    print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+    printf("###############################################################\n");
 
-    
     return secretario;
 }
 

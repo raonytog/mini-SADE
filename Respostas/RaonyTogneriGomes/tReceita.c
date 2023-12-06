@@ -21,7 +21,7 @@ tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicament
                       char *nomeMedico, char *CRM, char *dataStr) {
 
     tReceita * receita = malloc (sizeof(tReceita));
-    if (receita == NULL) exit(1);
+    if (receita == NULL) return NULL;
 
     receita->tipoUso = tipoUso;
     receita->qtd = qntd;
