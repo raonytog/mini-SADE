@@ -25,6 +25,20 @@
 #include "tSecretario.h"
 #include "tLogin.h"
 
+void ImprimeMenuInicial () {
+    printf("####################### MENU PRINCIPAL #########################\n");
+    printf("ESCOLHA UMA OPCAO:\n");
+    printf("    (1) CADASTRAR SECRETARIO\n");
+    printf("    (2) CADASTRAR MEDICO\n");
+    printf("    (3) CADASTRAR PACIENTE\n");
+    printf("    (4) REALIZAR CONSULTA\n");
+    printf("    (5) BUSCAR PACIENTES\n");
+    printf("    (6) RELATORIO GERAL\n");
+    printf("    (7) FILA DE IMPRESSAO\n");
+    printf("    (8) FINALIZAR O PROGRAMA\n");
+    printf("###############################################################\n");
+}
+
 typedef enum {
     CADASTRAR_SECRETARIO = 1,
     CADASTRAR_MEDICO = 2,
@@ -71,37 +85,39 @@ int main () { /* main de testes */
 
     printf("#################### CADASTRO SECRETARIO #######################\n");
     qtdSecretarios++;
-    secretarios[qtdSecretarios] = CriaSecretario();
-    printf("###############################################################");
+    secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
+    secretarios[qtdSecretarios-1] = CriaSecretario();
+    printf("###############################################################\n");
 
-    int opcaoMenu = 0; char nomePacienteBusca[100];
+    int opcaoMenu = 0;
+    char nomePacienteBusca[100], cpf[15];
     while (1) {
-        /* menu*/
+        ImprimeMenuInicial();
         scanf("%d", &opcaoMenu);
         switch (opcaoMenu) {
             case CADASTRAR_SECRETARIO:
                 qtdSecretarios++;
                 secretarios = malloc(qtdSecretarios * sizeof(tSecretario *));
-                secretarios[qtdSecretarios-1] = malloc(sizeof(tSecretario *));
+                secretarios[qtdSecretarios-1] = CriaSecretario();
                 /* to do*/
                 break;
 
             case CADASTRAR_MEDICO:
                 qtdMedicos++;
                 medicos = malloc(qtdMedicos * sizeof(tMedico *));
-                medicos[qtdMedicos-1] = malloc(sizeof(tMedico *));
+                medicos[qtdMedicos-1] = CriaMedico();
                 /* to do*/
                 break;
 
             case CADASTRAR_PACIENTE:
                 qtdPessoas++;
                 pessoas = malloc(qtdPessoas * sizeof(tPessoa *));
-                pessoas[qtdPessoas-1] = malloc(sizeof(tPessoa *));
+                pessoas[qtdPessoas-1] = CriaPessoa();
                 /* to do*/
                 break;
 
             case REALIZAR_CONSULTA:
-                /* to do*/
+                scanf("%[^\n]%*c", cpf)
                 break;
 
             case BUSCAR_PACIENTES:

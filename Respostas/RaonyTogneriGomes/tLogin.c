@@ -14,10 +14,10 @@ tLogin * CriaLogin () {
     if (!login) return NULL;
 
     printf("NOME DE USUARIO: ");
-    scanf("%[\n]%*c", login->user);
+    scanf("%[^\n]%*c", login->user);
 
     printf("SENHA: ");
-    scanf("%[\n]%*c", login->password);
+    scanf("%[^\n]%*c", login->password);
 
     return login;
 }

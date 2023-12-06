@@ -20,7 +20,7 @@ tSecretario * CriaSecretario () {
     secretario->login = CriaLogin();
 
     printf("NIVEL DE ACESSO: ");
-    scanf("%[\n]%*c", secretario->nivelAcesso);
+    scanf("%[^\n]%*c", secretario->nivelAcesso);
 
     
     return secretario;
