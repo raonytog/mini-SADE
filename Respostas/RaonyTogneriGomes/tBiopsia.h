@@ -8,13 +8,14 @@
 
 typedef struct tBiopsia tBiopsia;
 
-tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, char *nomeMedico, char *CRM, char *data);
+tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, 
+                        char *nomeMedico, char *CRM, char *data);
 
 void DesalocaBiopsia (tBiopsia * biopsia);
 
 void ImprimeBiopsiaTela (void * data);
 
-void ImprimeBiopsiaArquivo (void * data, FILE * arquivo);
+void ImprimeBiopsiaArquivo (void * data, char * path);
 
 int ObtemQtdLesoes (tBiopsia * biopsia);
 

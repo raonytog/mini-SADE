@@ -51,13 +51,15 @@ int ObtemRotulo (tLesao * lesao) {
 }
 
 const char * ObtemDiagnostico (tLesao * lesao) {
-    if (!lesao) return '\0';
-    return lesao->diagnosticoClinico;
+    if (!lesao) return NULL;
+    char * diagnostico = lesao->diagnosticoClinico;
+    return diagnostico;
 }
 
 const char * ObtemRegiaoCorpo (tLesao * lesao) {
-    if (!lesao) return '\0';
-    return lesao->regiaoDoCorpo;
+    if (!lesao) return NULL;
+    char * regiao = lesao->regiaoDoCorpo;
+    return regiao;
 }
 
 int NecessitaCirurgia (tLesao * lesao) {

@@ -2,6 +2,7 @@
 #define _TMEDICO_H_
 
 #include "tLogin.h"
+#include "tPessoa.h"
 
 typedef struct tMedico tMedico;
 

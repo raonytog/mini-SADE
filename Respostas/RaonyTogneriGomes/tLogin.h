@@ -5,8 +5,6 @@
 
 typedef struct tLogin tLogin;
 
-
-
 tLogin * CriaLogin ();
 
 void DesalocaLogin (tLogin * login);
@@ -14,6 +12,8 @@ void DesalocaLogin (tLogin * login);
 bool VerificaUser (tLogin * login, char * usuario);
 
 bool VerificaSenha (tLogin * login, char * senha);
+
+bool VerificaLogin (tLogin * login, char * usuario, char * senha);
 
 #endif 
  

@@ -12,15 +12,11 @@ typedef enum {
     PACIENTE = 3
 } CARGO;
 
-tPessoa * CriaPessoa (int cargo);
+tPessoa * CriaPessoa ();
 
 void DesalocaPessoa (void * dado);
 
 const char * ObtemNomePessoa (tPessoa * pessoa);
-
-const char * ObtemNomeMedico (tPessoa * pessoa);
-
-const char * ObtemNomeSecretario (tPessoa * pessoa);
 
 const char * ObtemCPFPessoa (tPessoa * pessoa);
 

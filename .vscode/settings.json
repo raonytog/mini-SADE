@@ -3,6 +3,7 @@
         "tbiopsia.h": "c",
         "encaminhamento.h": "c",
         "tpessoa.h": "c",
-        "tmedico.h": "c"
+        "tmedico.h": "c",
+        "tsecretario.h": "c"
     }
 }

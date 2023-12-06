@@ -14,7 +14,8 @@ struct tBiopsia {
     int qtdLesoes;
 };
 
-tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, char *nomeMedico, char *CRM, char *data) {
+tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, 
+                        char *nomeMedico, char *CRM, char *data) {
     for (int i = 0; i < qtdLesoes; i++)
         if (!NecessitaCirurgia(lesoes[i])) return NULL;
 

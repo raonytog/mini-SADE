@@ -24,9 +24,16 @@ void DesalocaLogin (tLogin * login) {
 }
 
 bool VerificaUser (tLogin * login, char * usuario) {
-    return strcmp(login->user, usuario);
+    if (strcmp(login->user, usuario) == 0) return true;
+    else return false;
 }
 
 bool VerificaSenha (tLogin * login, char * senha) {
-    return strcmp(login->password, senha);
+    if (strcmp(login->password, senha) == 0) return true;
+    else return false;
+}
+
+bool VerificaLogin (tLogin * login, char * usuario, char * senha) {
+    if (VerificaUser(login, usuario) && VerificaSenha(login, senha)) return true;
+    else return false;
 }

@@ -4,11 +4,6 @@
 #include "tPessoa.h"
 #include "tLogin.h"
 
-typedef enum {
-    ADMIN = 1,
-    USER = 0
-} PODER_USUARIO;
-
 typedef struct tSecretario tSecretario;
 
 tSecretario * CriaSecretario ();
