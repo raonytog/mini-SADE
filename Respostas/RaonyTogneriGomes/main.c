@@ -106,7 +106,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
             case BUSCAR_PACIENTES:
                 listaBusca =  CriaListaBusca();
                 printf("#################### BUSCAR PACIENTES #######################\n");
-                printf("NOME DO PACIENTE:");        scanf("%[^\n]\n", nomePacienteBusca);
+                printf("NOME DO PACIENTE:");        scanf("%[^\n]%*c", nomePacienteBusca);
 
                 for (int i = 0; i < qtdPessoas; i++) 
                     AdiconaPessoaLista(listaBusca, pessoas[i], nomePacienteBusca);

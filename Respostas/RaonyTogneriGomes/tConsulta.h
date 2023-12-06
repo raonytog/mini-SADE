@@ -10,6 +10,8 @@ typedef struct tConsulta tConsulta;
 
 tConsulta * CriaConsulta ();
 
+void DesalocaConsulta (tConsulta * consulta);
+
 bool EstaCadastradoPacienteCpf (tListaPessoas * lista, char * cpf);
 
 void ImprimeMenuConsulta ();
@@ -22,4 +24,4 @@ void LeBiopsiaConsulta (tConsulta * consulta);
 
 void LeEncaminhamentoConsulta (tConsulta * consulta);
 
-#endif // !_TCONSULTA_H_
+#endif 
