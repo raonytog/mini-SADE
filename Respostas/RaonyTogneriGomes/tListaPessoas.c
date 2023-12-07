@@ -54,6 +54,22 @@ void ImprimeNomeRequisitadoTela (void * data) {
     printf("PACIENTES ENCONTRADOS:\n");
     for (int i = 0; i < lista->qtdPessoas; i++)
         printf("%d - %s (%s)\n", i+1, ObtemNomePessoa(lista->pessoas[i]), ObtemCPFPessoa(lista->pessoas[i]));
+    printf("\n");
+}
+
+void ImprimeMenuBuscarPacientes () {
+    int opcao = 0;
+    printf("#################### BUSCAR PACIENTES #######################\n");
+    printf("ESCOLHA UMA OPCAO:\n");
+    printf("\t(1) ENVIAR LISTA PARA IMPRESSAO\n");
+    printf("\t(2) RETORNAR AO MENU PRINCIPAL\n");
+    printf("############################################################\n");
+    scanf("%d%*c", &opcao);
+
+    if (opcao == 1) {
+        printf("LISTA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU PRINCIPAL\n");
+        printf("############################################################\n");
+    }
 }
 
 void ImprimeNomeRequisitadoArquivo (void * data, char * path) {

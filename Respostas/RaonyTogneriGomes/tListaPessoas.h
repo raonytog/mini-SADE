@@ -7,6 +7,8 @@ typedef struct tListaPessoas tListaPessoas;
 
 tListaPessoas * CriaListaBusca();
 
+void ImprimeMenuBuscarPacientes ();
+
 tPessoa * ObtemPessoaIndice (tListaPessoas * lista, int indice);
 
 int ObtemNumeroPessoasLista (tListaPessoas * lista);

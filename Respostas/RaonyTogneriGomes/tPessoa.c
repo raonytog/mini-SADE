@@ -11,7 +11,7 @@ struct tPessoa {
     char cpf[15];
     tData * data;
     char telefone[14];
-    char genero[9];
+    char genero[10];
 };
 
 tPessoa * CriaPessoa() {

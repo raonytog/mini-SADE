@@ -29,14 +29,14 @@
 void ImprimeMenuInicial () {
     printf("####################### MENU PRINCIPAL #########################\n");
     printf("ESCOLHA UMA OPCAO:\n");
-    printf("    (1) CADASTRAR SECRETARIO\n");
-    printf("    (2) CADASTRAR MEDICO\n");
-    printf("    (3) CADASTRAR PACIENTE\n");
-    printf("    (4) REALIZAR CONSULTA\n");
-    printf("    (5) BUSCAR PACIENTES\n");
-    printf("    (6) RELATORIO GERAL\n");
-    printf("    (7) FILA DE IMPRESSAO\n");
-    printf("    (8) FINALIZAR O PROGRAMA\n");
+    printf("\t(1) CADASTRAR SECRETARIO\n");
+    printf("\t(2) CADASTRAR MEDICO\n");
+    printf("\t(3) CADASTRAR PACIENTE\n");
+    printf("\t(4) REALIZAR CONSULTA\n");
+    printf("\t(5) BUSCAR PACIENTES\n");
+    printf("\t(6) RELATORIO GERAL\n");
+    printf("\t(7) FILA DE IMPRESSAO\n");
+    printf("\t(8) FINALIZAR O PROGRAMA\n");
     printf("###############################################################\n");
 }
 
@@ -61,10 +61,9 @@ typedef enum {
 //     sprintf(pathSaida, "%s/saida", argv[1]);
 
 int main () { /* main de testes */
+     char path[1001], bdPath[1001], pathSaida[1001];
     char diretorio[1001] = "Casos/1";
 
-
-    char path[1001], bdPath[1001], pathSaida[1001];
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0;
     tPessoa ** pessoas = NULL;
     tMedico ** medicos = NULL;
@@ -93,13 +92,13 @@ int main () { /* main de testes */
      * tem q verificar login
     */
 
-    int opcaoMenu = 0;
     char nomePacienteBusca[100], cpf[15];
+    int opcaoMenu = 0;
     while (1) {
         ImprimeMenuInicial();
         scanf("%d%*c", &opcaoMenu);
+
         switch (opcaoMenu) {
-            
             case CADASTRAR_SECRETARIO:
                 printf("#################### CADASTRO SECRETARIO #######################\n");
                 qtdSecretarios++;
@@ -143,11 +142,10 @@ int main () { /* main de testes */
                 scanf("%[^\n]%*c", cpf);
                 break;
 
-
-
             case BUSCAR_PACIENTES:
+                printf("#################### BUSCAR PACIENTES #######################\n");
                 listaBusca =  CriaListaBusca();
-                printf("NOME DO PACIENTE: ");        scanf("%[^\n]%*c", nomePacienteBusca);
+                printf("NOME DO PACIENTE: ");               scanf("%[^\n]%*c", nomePacienteBusca);
 
                 for (int i = 0; i < qtdPessoas; i++) {
                     if (strcmp(nomePacienteBusca, ObtemNomePessoa(pessoas[i])) == 0) AdiconaPessoaLista(listaBusca, pessoas[i]);
@@ -157,14 +155,11 @@ int main () { /* main de testes */
                     printf("NENHUM PACIENTE FOI ENCONTRADO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                     printf("############################################################\n");
 
-
-                } else {  
-                    
+                } else {                      
                     ImprimeNomeRequisitadoTela(listaBusca);
                     ImprimeNomeRequisitadoArquivo(listaBusca, path); 
+                    ImprimeMenuBuscarPacientes();
                 }
-
-
                 break;
 
 
@@ -198,23 +193,28 @@ int main () { /* main de testes */
             case FINALIZAR_O_PROGRAMA:
                 for (int i = 0; i < qtdPessoas; i++)
                     DesalocaPessoa(pessoas[i]);
-                if (pessoas) free(pessoas);
+                free(pessoas);
 
                 for (int i = 0; i < qtdMedicos; i++)
                     DesalocaMedico(medicos[i]);
-                if (medicos) free(medicos);
+                free(medicos);
 
                 for (int i = 0; i < qtdSecretarios; i++)
                     DesalocaSecretario(secretarios[i]);
-                if (secretarios) free(secretarios);
+                free(secretarios);
 
                 DesalocaLista(listaBusca);
                 DesalocaConsulta(consulta);
                 desalocaFila(fila);
                 exit(1);
                 break;
+
+
+
+            default:
+                break;
         }
-    }
+   }
     
     return 0;
 }
