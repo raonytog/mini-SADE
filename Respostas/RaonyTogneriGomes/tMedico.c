@@ -31,6 +31,16 @@ void DesalocaMedico(tMedico * medico) {
     free(medico);
 }
 
+bool ExisteMedicoCpf(tMedico ** medicos, int qtdMedicos, tMedico * medicoEmAnalise) {
+    int contagem = 0;
+    for (int i = 0; i < qtdMedicos; i++) 
+        if (strcmp(ObtemCPFPessoa(medicos[i]->pessoa), ObtemCPFPessoa(medicoEmAnalise->pessoa)) == 0) {
+            contagem++;
+            if (contagem >= 2) return true;
+        }
+    return false;
+}
+
 char * ObtemNomeMedico (tMedico * medico) {
     if (!medico) return NULL;
     char * nomemed = ObtemNomePessoa(medico->pessoa);

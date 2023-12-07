@@ -81,12 +81,15 @@ void ImprimeMenuConsulta () {
 void ExecutaConsulta (tConsulta * consulta) {
     int opcao = 0;
     while (1) {
+        ImprimeMenuConsulta();
         scanf("%d%*c", &opcao);
         switch (opcao) {
             case CADASTRAR_LESAO:
+                LeLesaoConsulta(consulta);
                 break;
 
             case GERAR_RECEITA_MEDICA:
+                
                 break;
 
             case SOLICITACAO_DE_BIOPSIA:

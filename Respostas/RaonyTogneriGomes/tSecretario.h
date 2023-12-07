@@ -4,11 +4,15 @@
 #include "tPessoa.h"
 #include "tLogin.h"
 
+#include <stdbool.h>
+
 typedef struct tSecretario tSecretario;
 
 tSecretario * CriaSecretario ();
 
 void DesalocaSecretario(tSecretario * secretario);
+
+bool ExisteSecretarioCpf(tSecretario ** secretarios, int qtdSecretarios, tSecretario * secretarioEmAnalise);
 
 bool SecretarioEhUser (tSecretario * secretario);
 

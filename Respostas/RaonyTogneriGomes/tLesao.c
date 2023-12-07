@@ -26,6 +26,10 @@ tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo,
     lesao->necessitaCirurgia = 0;
     lesao->necessitaCrioterapia = 0;
 
+    printf("LESAO REGISTRADA COM SUCESSO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+    printf("############################################################\n");
+    scanf("%*c");
+    
     return lesao;
 }
 

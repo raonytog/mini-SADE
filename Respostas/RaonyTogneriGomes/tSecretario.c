@@ -30,6 +30,16 @@ void DesalocaSecretario(tSecretario * secretario) {
     free(secretario);
 }
 
+bool ExisteSecretarioCpf(tSecretario ** secretarios, int qtdSecretarios, tSecretario * secretarioEmAnalise) {
+    int contagem = 0;
+    for (int i = 0; i < qtdSecretarios; i++) 
+        if (strcmp(ObtemCPFPessoa(secretarios[i]->pessoa), ObtemCPFPessoa(secretarioEmAnalise->pessoa)) == 0) {
+            contagem++;
+            if (contagem >= 2) return true;
+        }
+    return false;
+}
+
 char * ObtemSecretarioCPF (tSecretario * secretario) {
     if (!secretario) return '\0';
     char * cpf = ObtemCPFPessoa(secretario->pessoa);

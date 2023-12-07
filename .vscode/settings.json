@@ -5,6 +5,10 @@
         "tpessoa.h": "c",
         "tmedico.h": "c",
         "tsecretario.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "tfila.h": "c",
+        "tlogin.h": "c"
     }
 }

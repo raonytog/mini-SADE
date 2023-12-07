@@ -5,9 +5,15 @@ typedef struct tPessoa tPessoa;
 
 #include "tData.h"
 
+#include <stdbool.h>
+
 tPessoa * CriaPessoa ();
 
 void DesalocaPessoa (void * dado);
+
+bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnalise);
+
+bool EhCpfPessoa(tPessoa * pessoa, char * cpf);
 
 tData * ObtemDataPessoa (tPessoa * pessoa);
 

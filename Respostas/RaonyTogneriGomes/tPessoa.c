@@ -32,6 +32,16 @@ void DesalocaPessoa(void * dado) {
     free(pessoa);
 }
 
+bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnalise) {
+    int contagem = 0;
+    for (int i = 0; i < qtdPessoas; i++) 
+        if (strcmp(ObtemCPFPessoa(pessoas[i]), ObtemCPFPessoa(pessoaEmAnalise)) == 0) {
+            contagem++;
+            if (contagem >= 2) return true;
+        }
+    return false;
+}
+
 tData * ObtemDataPessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
     return pessoa->data;
