@@ -71,6 +71,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
     tSecretario ** secretarios = NULL;
     tListaPessoas * listaBusca =  NULL;
     tConsulta * consulta = NULL;
+    tFila * fila = NULL;
 
     printf("################################################\n");
     printf("DIGITE O CAMINHO DO BANCO DE DADOS: ");
@@ -183,7 +184,21 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 break;
 
             case FILA_DE_IMPRESSAO:
-                /* to do*/
+                printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
+                printf("ESCOLHA UMA OPCAO:\n")
+                printf("(1) EXECUTAR FILA DE IMPRESSAO\n");
+                printf("(2) RETORNAR AO MENU PRINCIPAL\n");
+                printf("############################################################\n");
+                scanf("%d", &opcaoMenu);
+
+                switch (opcaoMenu) {
+                case 1:
+                    imprimeFila(fila)
+                    break;
+                
+                default:
+                    break;
+                }
                 break;
 
             case FINALIZAR_O_PROGRAMA:
