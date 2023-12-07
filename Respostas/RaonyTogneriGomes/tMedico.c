@@ -14,8 +14,6 @@ tMedico * CriaMedico () {
     tMedico * medico = malloc(sizeof(tMedico));
     if (!medico) return NULL;
 
-    printf("#################### CADASTRO MEDICO #######################\n");
-
     tPessoa * pessoa = CriaPessoa();
     medico->pessoa = pessoa;
 
@@ -24,9 +22,6 @@ tMedico * CriaMedico () {
 
     tLogin * login = CriaLogin();
     medico->login = login;
-    printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
-    printf("###############################################################\n");
-
     return medico;
 }
 
@@ -48,7 +43,8 @@ char * ObtemCRM (tMedico * medico) {
     return crm;
 }
 
-tLogin * ObtemLoginMedico (tMedico * medico) {
-    if (!medico) return NULL;
-    return medico->login;
+char * ObtemMedicoCPF (tMedico * medico) {
+    if (!medico) return '\0';
+    char * cpf = ObtemCPFPessoa(medico->pessoa);
+    return cpf;
 }

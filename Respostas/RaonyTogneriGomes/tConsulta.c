@@ -67,25 +67,6 @@ void DesalocaConsulta (tConsulta * consulta) {
     free(consulta);
 }
 
-bool EstaCadastradoPacienteCpf (tListaPessoas * lista, char * cpf) {
-    printf("#################### CONSULTA MEDICA #######################\n");
-    printf("CPF DO PACIENTE: %s\n", cpf);
-    int tam = ObtemNumeroPessoasLista(lista);
-
-    for (int i = 0; i < tam; i++) {
-        tPessoa * p = ObtemPessoaIndice(lista, i);
-        if (strcmp( ObtemCPFPessoa(p), cpf ) == 0) {
-            printf("---\n");
-            printf("-NOME: %s", ObtemNomePessoa(p));
-            ImprimeData( ObtemDataPessoa(p) );
-            printf("---\n");
-            return true;
-        
-        }
-    }
-    return false;
-}
-
 void ImprimeMenuConsulta () {
     printf("#################### CONSULTA MEDICA #######################\n");
     printf("ESCOLHA UMA OPCAO: ");

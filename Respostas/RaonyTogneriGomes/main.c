@@ -51,20 +51,20 @@ typedef enum {
     FINALIZAR_O_PROGRAMA = 8
 } OPCOES_MENU;
 
-int main (int agrc, char * argv[]) { /* main oficial */
+// int main (int agrc, char * argv[]) {
+//     if (agrc <= 1) {
+//         printf("ERRO: diretorio de arquivos nao informado\n");
+//         exit(1);
+//     }
+
+//     sprintf(path, "%s", argv[1]);
+//     sprintf(pathSaida, "%s/saida", argv[1]);
+
+int main () { /* main de testes */
+    char diretorio[1001] = "Casos/1";
+
+
     char path[1001], bdPath[1001], pathSaida[1001];
-    if (agrc <= 1) {
-        printf("ERRO: diretorio de arquivos nao informado\n");
-        exit(1);
-    }
-
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", argv[1]);
-
-// int main () { /* main de testes */
-//     char diretorio[1001] = "Casos/1";
-
-
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0;
     tPessoa ** pessoas = NULL;
     tMedico ** medicos = NULL;
@@ -97,78 +97,34 @@ int main (int agrc, char * argv[]) { /* main oficial */
     char nomePacienteBusca[100], cpf[15];
     while (1) {
         ImprimeMenuInicial();
-        scanf("%d", &opcaoMenu);
+        scanf("%d%*c", &opcaoMenu);
         switch (opcaoMenu) {
+            
             case CADASTRAR_SECRETARIO:
+                printf("#################### CADASTRO SECRETARIO #######################\n");
                 qtdSecretarios++;
                 secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
                 secretarios[qtdSecretarios-1] = CriaSecretario();
 
-                /** A FASER IZZO AQQQQ!!!!!
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                */
-                if (CadastradoAnteriormenteSecretario(secretarios, medicos, pessoas, secretarios[qtdSecretarios-1])) {
-                    DesalocaSecretario(secretarios[qtdSecretarios-1]);
-                    secretarios[qtdSecretarios-1] = NULL;
-                    qtdSecretarios--;
-                    secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
-                    printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
-
-                } else printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
+                scanf("%*c");
                 break;
 
+
+
             case CADASTRAR_MEDICO:
+                printf("#################### CADASTRO MEDICO #######################\n");
                 qtdMedicos++;
                 medicos = realloc(medicos, qtdMedicos * sizeof(tMedico *));
                 medicos[qtdMedicos-1] = CriaMedico();
 
-                if (CadastradoAnteriormente()) {
-                    DesalocaMedico(medicos[qtdMedicos-1]);
-                    medicos[qtdMedicos-1] = NULL;
-                    qtdMedicos--;
-                    medicos = realloc(medicos, qtdMedicos * sizeof(tMedico *));
-                    printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
-
-                } else printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
+                scanf("%*c");
                 break;
+
+
 
             case CADASTRAR_PACIENTE:
                 printf("#################### CADASTRO PACIENTE #######################\n");
@@ -176,51 +132,48 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 pessoas = realloc(pessoas, qtdPessoas * sizeof(tPessoa *));
                 pessoas[qtdPessoas-1] = CriaPessoa();
 
-                if (CadastradoAnteriormente()) {
-                    DesalocaPessoa(pessoas[qtdPessoas-1]);
-                    pessoas[qtdPessoas-1] = NULL;
-                    qtdPessoas--;
-                    pessoas = realloc(pessoas, qtdPessoas * sizeof(tPessoa *));
-                    printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
-
-                } else  printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
+                scanf("%*c");
                 break;
+
+
 
             case REALIZAR_CONSULTA:
                 scanf("%[^\n]%*c", cpf);
-                if (!EstaCadastradoPacienteCpf(listaBusca, cpf)) {
-                    ImprimeErroConsulta(cpf);
-                    break;
-
-                } else if (EstaCadastradoPacienteCpf(listaBusca, cpf)) {
-                    consulta = CriaConsulta();
-                    ExecutaConsulta(consulta);
-                }
                 break;
+
+
 
             case BUSCAR_PACIENTES:
                 listaBusca =  CriaListaBusca();
-                printf("#################### BUSCAR PACIENTES #######################\n");
-                printf("NOME DO PACIENTE:");        scanf("%[^\n]%*c", nomePacienteBusca);
+                printf("NOME DO PACIENTE: ");        scanf("%[^\n]%*c", nomePacienteBusca);
 
-                for (int i = 0; i < qtdPessoas; i++) 
-                    AdiconaPessoaLista(listaBusca, pessoas[i], nomePacienteBusca);
-            
-                printf("#################### BUSCAR PACIENTES #######################\n");
-                if (ObtemNumeroPessoasLista(listaBusca) == 0) 
-                    printf("NENHUM PACIENTE FOI ENCONTRADO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR ");
-
-                else {
-                    ImprimeNomeRequisitadoTela(listaBusca, nomePacienteBusca);
-                    ImprimeNomeRequisitadoArquivo(listaBusca, nomePacienteBusca, pathSaida);
+                for (int i = 0; i < qtdPessoas; i++) {
+                    if (strcmp(nomePacienteBusca, ObtemNomePessoa(pessoas[i])) == 0) AdiconaPessoaLista(listaBusca, pessoas[i]);
                 }
-                printf("############################################################\n");
+
+                if (ObtemNumeroPessoasLista(listaBusca) == 0) {
+                    printf("NENHUM PACIENTE FOI ENCONTRADO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                    printf("############################################################\n");
+
+
+                } else {  
+                    
+                    ImprimeNomeRequisitadoTela(listaBusca);
+                    ImprimeNomeRequisitadoArquivo(listaBusca, path); 
+                }
+
+
                 break;
+
+
 
             case RELATORIO_GERAL:
                 /* to do*/
                 break;
+
+
 
             case FILA_DE_IMPRESSAO:
                 printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
@@ -231,14 +184,16 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 scanf("%d", &opcaoMenu);
 
                 switch (opcaoMenu) {
-                case 1:
-                    imprimeFila(fila, path);
-                    break;
-                
-                default:
-                    break;
+                    case 1:
+                        imprimeFila(fila, path);
+                        break;
+
+                    case 2:
+                        break;
                 }
                 break;
+
+
 
             case FINALIZAR_O_PROGRAMA:
                 for (int i = 0; i < qtdPessoas; i++)

@@ -10,8 +10,6 @@ tSecretario * CriaSecretario ();
 
 void DesalocaSecretario(tSecretario * secretario);
 
-tLogin * ObtemLoginSecretario (tSecretario * secretario);
-
 bool SecretarioEhUser (tSecretario * secretario);
 
 bool SecretarioEhAdmin (tSecretario * secretario);

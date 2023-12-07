@@ -44,7 +44,7 @@ char * ObtemNomePessoa (tPessoa * pessoa) {
 }
 
 char * ObtemCPFPessoa (tPessoa * pessoa) {
-    if (!pessoa) return '\0';
+    if (!pessoa) return NULL;
     char * cpf = pessoa->cpf;
     return cpf;
 }

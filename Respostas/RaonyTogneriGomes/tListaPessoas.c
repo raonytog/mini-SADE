@@ -29,10 +29,8 @@ int ObtemNumeroPessoasLista (tListaPessoas * lista) {
     return lista->qtdPessoas;
 }
 
-void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa, char * nome) {
+void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa) {
     if (!lista) return;
-
-    if (strcmp(ObtemNomePessoa(pessoa), nome) != 0) return; 
 
     (lista->qtdPessoas)++;
     lista->pessoas = realloc(lista->pessoas, lista->qtdPessoas * sizeof(tPessoa *));
@@ -49,31 +47,34 @@ void DesalocaLista (tListaPessoas * lista) {
     free(lista);
 }
 
-void ImprimeNomeRequisitadoTela (tListaPessoas * lista, char * nome) {
+void ImprimeNomeRequisitadoTela (void * data) {
+    tListaPessoas * lista = (tListaPessoas *) data;
     if (!lista) return;
 
-    for (int i = 0; i < lista->qtdPessoas; i++) {
-        if (strcmp(ObtemNomePessoa(lista->pessoas[i]), nome) == 0)
-            printf("%d - %s (%s)\n", i+1, 
-                    ObtemNomePessoa(lista->pessoas[i]), ObtemCPFPessoa(lista->pessoas[i]));
-    }
+    printf("PACIENTES ENCONTRADOS:\n");
+    for (int i = 0; i < lista->qtdPessoas; i++)
+        printf("%d - %s (%s)\n", i+1, ObtemNomePessoa(lista->pessoas[i]), ObtemCPFPessoa(lista->pessoas[i]));
 }
 
-void ImprimeNomeRequisitadoArquivo (tListaPessoas * lista, char * nome, char * path) {
-    if (!lista) return;
+void ImprimeNomeRequisitadoArquivo (void * data, char * path) {
+    // tListaPessoas * lista = (tListaPessoas *) data;
+    // if (!lista) return;
 
-    int req = 0;
-    char diretorio[1001];
-    sprintf(diretorio, "%s/lista_busca.txt", path);
-    FILE * fListaBusca = NULL;
-    fListaBusca = fopen(diretorio, "a+b");
+    // char diretorio[1001];
+    // sprintf(diretorio, "%s/lista_busca.txt", path);
+    
+    // FILE * fListaBusca = NULL;
+    // fListaBusca = fopen(diretorio, "a+b");
+    // if (!fListaBusca) 
+    //     printf("NAO ABRIU");
 
-    for (int i = 0; i < lista->qtdPessoas; i++) {
-        if (strcmp(ObtemNomePessoa(lista->pessoas[i]), nome) == 0) {
-            req++;
-            fprintf(fListaBusca, "%d - %s (%s)\n", req, ObtemNomePessoa(lista->pessoas[i]), ObtemCPFPessoa(lista->pessoas[i]));
-        }
-    }
+    // char nome[100], cpf[15];
 
-    fclose(fListaBusca);
+    // for (int i = 0; i < lista->qtdPessoas; i++) {
+    //     strcpy(nome, ObtemNomePessoa(lista->pessoas[i]));
+    //     strcpy(cpf, ObtemCPFPessoa(lista->pessoas[i]));
+    //     fprintf(fListaBusca, "%d - %s (%s)\n", i+1, nome, cpf);
+    // }
+
+    // fclose(fListaBusca);
 }

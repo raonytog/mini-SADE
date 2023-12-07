@@ -14,6 +14,6 @@ char * ObtemNomeMedico (tMedico * medico);
 
 char * ObtemCRM (tMedico * medico);
 
-tLogin * ObtemLoginMedico (tMedico * medico);
+char * ObtemMedicoCPF (tMedico * medico);
 
 #endif

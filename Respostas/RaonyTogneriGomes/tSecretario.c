@@ -14,7 +14,6 @@ tSecretario * CriaSecretario () {
     tSecretario * secretario = malloc(sizeof(tSecretario));
     if (!secretario) return NULL;
 
-    printf("#################### CADASTRO SECRETARIO #######################\n");
     tPessoa * pessoa = CriaPessoa();
     secretario->pessoa = pessoa;
     
@@ -22,9 +21,6 @@ tSecretario * CriaSecretario () {
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", secretario->nivelAcesso);
-    printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
-    printf("###############################################################\n");
-
     return secretario;
 }
 
@@ -34,9 +30,10 @@ void DesalocaSecretario(tSecretario * secretario) {
     free(secretario);
 }
 
-tLogin * ObtemLoginSecretario (tSecretario * secretario) {
-    if (!secretario) return NULL;
-    return secretario->login;
+char * ObtemSecretarioCPF (tSecretario * secretario) {
+    if (!secretario) return '\0';
+    char * cpf = ObtemCPFPessoa(secretario->pessoa);
+    return cpf;
 }
 
 bool SecretarioEhUser (tSecretario * secretario) {

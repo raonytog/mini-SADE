@@ -3,7 +3,6 @@
 
 #include "tLesao.h"
 #include "tFila.h"
-#include "tListaPessoas.h"
 
 #include <stdbool.h>
 
@@ -20,8 +19,6 @@ typedef enum {
 tConsulta * CriaConsulta ();
 
 void DesalocaConsulta (tConsulta * consulta);
-
-bool EstaCadastradoPacienteCpf (tListaPessoas * lista, char * cpf);
 
 void ImprimeMenuConsulta ();
 

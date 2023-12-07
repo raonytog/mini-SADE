@@ -11,12 +11,12 @@ tPessoa * ObtemPessoaIndice (tListaPessoas * lista, int indice);
 
 int ObtemNumeroPessoasLista (tListaPessoas * lista);
 
-void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa, char * nome);
+void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa);
 
 void DesalocaLista (tListaPessoas * lista);
 
-void ImprimeNomeRequisitadoTela (tListaPessoas * lista, char * nome);
+void ImprimeNomeRequisitadoTela (void * data);
 
-void ImprimeNomeRequisitadoArquivo (tListaPessoas * lista, char * nome, char * path);
+void ImprimeNomeRequisitadoArquivo (void * data, char * path);
 
 #endif
