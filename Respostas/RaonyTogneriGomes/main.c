@@ -185,7 +185,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
 
             case FILA_DE_IMPRESSAO:
                 printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
-                printf("ESCOLHA UMA OPCAO:\n")
+                printf("ESCOLHA UMA OPCAO:\n");
                 printf("(1) EXECUTAR FILA DE IMPRESSAO\n");
                 printf("(2) RETORNAR AO MENU PRINCIPAL\n");
                 printf("############################################################\n");
@@ -193,7 +193,7 @@ int main (int agrc, char * argv[]) { /* main oficial */
 
                 switch (opcaoMenu) {
                 case 1:
-                    imprimeFila(fila)
+                    imprimeFila(fila, path);
                     break;
                 
                 default:
@@ -202,7 +202,21 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 break;
 
             case FINALIZAR_O_PROGRAMA:
-                /* precisa desalocar */
+                for (int i = 0; i < qtdPessoas; i++)
+                    DesalocaPessoa(pessoas[i]);
+                if (pessoas) free(pessoas);
+
+                for (int i = 0; i < qtdMedicos; i++)
+                    DesalocaMedico(medicos[i]);
+                if (medicos) free(medicos);
+
+                for (int i = 0; i < qtdSecretarios; i++)
+                    DesalocaSecretario(secretarios[i]);
+                if (secretarios) free(secretarios);
+
+                DesalocaLista(listaBusca);
+                DesalocaConsulta(consulta);
+                desalocaFila(fila);
                 exit(1);
                 break;
         }
