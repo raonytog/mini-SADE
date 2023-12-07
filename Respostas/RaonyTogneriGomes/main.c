@@ -104,14 +104,53 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
                 secretarios[qtdSecretarios-1] = CriaSecretario();
 
-                if (CadastradoAnteriormente()) {
+                /** A FASER IZZO AQQQQ!!!!!
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                */
+                if (CadastradoAnteriormenteSecretario(secretarios, medicos, pessoas, secretarios[qtdSecretarios-1])) {
                     DesalocaSecretario(secretarios[qtdSecretarios-1]);
                     secretarios[qtdSecretarios-1] = NULL;
                     qtdSecretarios--;
                     secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
                     printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
 
-                } else print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                } else printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
                 break;
 
@@ -121,13 +160,13 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 medicos[qtdMedicos-1] = CriaMedico();
 
                 if (CadastradoAnteriormente()) {
-                    DesalocaSecretario(medicos[qtdMedicos-1]);
+                    DesalocaMedico(medicos[qtdMedicos-1]);
                     medicos[qtdMedicos-1] = NULL;
                     qtdMedicos--;
-                    medicos = realloc(medicos, qtdMedicos * sizeof(tSecretario *));
+                    medicos = realloc(medicos, qtdMedicos * sizeof(tMedico *));
                     printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
 
-                } else print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                } else printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
                 break;
 
@@ -138,13 +177,13 @@ int main (int agrc, char * argv[]) { /* main oficial */
                 pessoas[qtdPessoas-1] = CriaPessoa();
 
                 if (CadastradoAnteriormente()) {
-                    DesalocaSecretario(medicos[qtdMedicos-1]);
-                    medicos[qtdMedicos-1] = NULL;
-                    qtdMedicos--;
-                    medicos = realloc(medicos, qtdMedicos * sizeof(tSecretario *));
+                    DesalocaPessoa(pessoas[qtdPessoas-1]);
+                    pessoas[qtdPessoas-1] = NULL;
+                    qtdPessoas--;
+                    pessoas = realloc(pessoas, qtdPessoas * sizeof(tPessoa *));
                     printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA\n");
 
-                } else  print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                } else  printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                 printf("###############################################################\n");
                 break;
 

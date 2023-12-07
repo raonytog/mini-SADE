@@ -22,7 +22,7 @@ tSecretario * CriaSecretario () {
 
     printf("NIVEL DE ACESSO: ");
     scanf("%[^\n]%*c", secretario->nivelAcesso);
-    print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+    printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
     printf("###############################################################\n");
 
     return secretario;

@@ -24,7 +24,7 @@ tMedico * CriaMedico () {
 
     tLogin * login = CriaLogin();
     medico->login = login;
-    print("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+    printf("CADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
     printf("###############################################################\n");
 
     return medico;
