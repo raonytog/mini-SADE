@@ -9,6 +9,7 @@
         "string.h": "c",
         "stdlib.h": "c",
         "tfila.h": "c",
-        "tlogin.h": "c"
+        "tlogin.h": "c",
+        "stdbool.h": "c"
     }
 }

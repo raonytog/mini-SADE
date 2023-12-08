@@ -58,3 +58,8 @@ char * ObtemMedicoCPF (tMedico * medico) {
     char * cpf = ObtemCPFPessoa(medico->pessoa);
     return cpf;
 }
+
+tLogin * ObtemMedicoLogin (tMedico * medico) {
+    if (!medico) return NULL;
+    return medico->login;
+}

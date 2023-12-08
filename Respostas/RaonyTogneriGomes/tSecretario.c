@@ -59,3 +59,8 @@ bool SecretarioEhAdmin (tSecretario * secretario) {
     if (strcmp(secretario->nivelAcesso, "ADMIN") == 0) return true;
     return false;
 }
+
+tLogin * ObtemSecretarioLogin (tSecretario * secretario) {
+    if (!secretario) return NULL;
+    return secretario->login;
+}

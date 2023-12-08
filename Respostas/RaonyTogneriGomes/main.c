@@ -15,7 +15,6 @@
 #include "tReceita.h"
 /** faltando:
  * relatorio geral 
- * saida 
  * **/
 
 /* tipos auxiliares criados*/
@@ -26,17 +25,6 @@
 #include "tLogin.h"
 #include "tConsulta.h"
 #include "tMenu.h"
-
-typedef enum {
-    CADASTRAR_SECRETARIO = 1,
-    CADASTRAR_MEDICO = 2,
-    CADASTRAR_PACIENTE = 3,
-    REALIZAR_CONSULTA = 4,
-    BUSCAR_PACIENTES = 5,
-    RELATORIO_GERAL = 6,
-    FILA_DE_IMPRESSAO = 7,
-    FINALIZAR_O_PROGRAMA = 8
-} OPCOES_MENU;
 
 int main (int agrc, char * argv[]) {
     char path[1001], bdPath[1001], pathSaida[1001];
@@ -53,7 +41,7 @@ int main (int agrc, char * argv[]) {
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
-    tMedico ** medicos = NULL;
+    tMedico ** medicos = NULL;          tMedico * medicoNULL = NULL;
     tSecretario ** secretarios = NULL;
     tListaPessoas * listaBusca =  NULL;
     tConsulta ** consultas = NULL;
@@ -77,14 +65,30 @@ int main (int agrc, char * argv[]) {
     secretarios[qtdSecretarios-1] = CriaSecretario();
     printf("###############################################################\n");
 
-    /**
-     * tem q verificar login
-    */
+    /* verifica o login*/
+    CARGO_LOGADO cargo;
+    char login[20], password[20];
+    while (1) {
+        printf("######################## ACESSO MINI-SADE ######################\n");
+        printf("DIGITE SEU LOGIN: ");       scanf("%[^\n]%*c", login);
+        printf("DIGITE SUA SENHA: ");       scanf("%[^\n]%*c", password);
+
+        cargo = VerificaAutenticacao(medicos, qtdMedicos, secretarios, qtdSecretarios, login, password);
+        if (cargo != FALHA) break;
+        printf("###############################################################\n");
+        printf("SENHA INCORRETA OU USUARIO INEXISTENTE\n");
+    }
+
+    int indiceMedicoLogado = 0, indiceSecretarioLogado = 0;
+    if (cargo == MEDICO) {
+        indiceMedicoLogado = EncontraIndiceMedicoLogado(medicos, qtdMedicos, login, password);
+
+    } else indiceSecretarioLogado = EncontraIndiceSecretarioLogado(secretarios, qtdSecretarios, login, password);
 
     char nomePacienteBusca[100], cpf[15];
     int opcaoMenu = 0;
     while (1) {
-        ImprimeMenuInicial();
+        ImprimeMenu(cargo);
         scanf("%d%*c", &opcaoMenu);
 
         switch (opcaoMenu) {
@@ -159,17 +163,24 @@ int main (int agrc, char * argv[]) {
                 if (strcmp(ObtemCPFPessoa(pessoas[i]), cpf) == 0) {
                     qtdConsultas++;
                     consultas = realloc(consultas, qtdConsultas * sizeof(tConsulta *));
-                    // TENHO Q MEXER AQ PQ SE FOR UM SECRETARIO ADMIN, TERIE Q IMPOR UM MEDICO NULL
-                    consultas[i] = CriaConsulta(pessoas[i], medicos);
-                    ExecutaConsulta(consultas[qtdConsultas-1]);
+
+                    if (cargo != MEDICO) { // se for secretario
+                       consultas[i] = CriaConsulta(pessoas[i], medicoNULL);
+                        ExecutaConsulta(consultas[qtdConsultas-1]);
+
+                    } else { // se for medico mesmo
+                        consultas[i] = CriaConsulta(pessoas[i], medicos[indiceMedicoLogado]);
+                        ExecutaConsulta(consultas[qtdConsultas-1]);
+                    }
 
                 } else {
+                    qtdConsultas--;
+                    consultas = realloc(consultas, qtdConsultas * sizeof(tConsulta *));
                     printf("PACIENTE SEM CADASTRO\n");
                     printf("PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                     printf("###############################################################\n");
                     scanf("%*c");
                 }
-
                 break;
 
             case BUSCAR_PACIENTES:
@@ -233,7 +244,7 @@ int main (int agrc, char * argv[]) {
                 free(secretarios);
 
                 for (int i = 0; i < qtdConsultas; i++)
-                    DesalocaConsulta(consultas);
+                    DesalocaConsulta(consultas[i]);
                 free(consultas);
 
                 DesalocaLista(listaBusca);

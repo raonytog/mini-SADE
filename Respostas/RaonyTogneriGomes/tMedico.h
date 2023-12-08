@@ -1,6 +1,8 @@
 #ifndef _TMEDICO_H_
 #define _TMEDICO_H_
 
+typedef struct tLogin tLogin;
+
 #include "tLogin.h"
 #include "tPessoa.h"
 
@@ -19,5 +21,7 @@ char * ObtemNomeMedico (tMedico * medico);
 char * ObtemCRM (tMedico * medico);
 
 char * ObtemMedicoCPF (tMedico * medico);
+
+tLogin * ObtemMedicoLogin (tMedico * medico);
 
 #endif

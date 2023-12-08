@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct tReceita {
+struct tReceita {
     eTipoUso tipoUso;
     int qtd;
     char nomePaciente[100];

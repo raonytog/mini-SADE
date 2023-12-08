@@ -67,10 +67,16 @@ void ImprimeMenuBuscarPacientes (tFila * fila, tListaPessoas * lista) {
     printf("############################################################\n");
     scanf("%d%*c", &opcao);
 
-    if (opcao == 1) {
-        insereDocumentoFila(fila, lista, ImprimeNomeRequisitadoTela, ImprimeNomeRequisitadoArquivo, DesalocaLista);
-        printf("LISTA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU PRINCIPAL\n");
-        printf("############################################################\n");
+    while (1) {
+        if (opcao == 1) {
+            insereDocumentoFila(fila, lista, ImprimeNomeRequisitadoTela, ImprimeNomeRequisitadoArquivo, DesalocaLista);
+            printf("LISTA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU PRINCIPAL\n");
+            printf("############################################################\n");
+
+        } else if (opcao == 2) {
+            printf("############################################################\n");
+            return;
+        }
     }
 }
 

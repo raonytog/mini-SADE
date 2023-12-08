@@ -4,6 +4,7 @@
 #include "tMedico.h"
 #include "tFila.h"
 #include "tDocumento.h"
+#include "tMenu.h"
 
 #include "tLesao.h"
 #include "tReceita.h"
@@ -43,10 +44,10 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
 
     consulta->dataConsulta = LeDataConsulta();;
 
-    printf("POSSUI DIABETES: ");                    scanf("%d",  &consulta->diabetico);
-    printf("FUMANTE: ");                            scanf("%d",  &consulta->fumante);
-    printf("ALERGIA A MEDICAMENTO: ");              scanf("%d",  &consulta->alergico);
-    printf("HISTORICO DE CANCER: ");                scanf("%d",  &consulta->historicoCancerigeno);
+    printf("POSSUI DIABETES: ");                    scanf("%d%*c",  &consulta->diabetico);
+    printf("FUMANTE: ");                            scanf("%d%*c",  &consulta->fumante);
+    printf("ALERGIA A MEDICAMENTO: ");              scanf("%d%*c",  &consulta->alergico);
+    printf("HISTORICO DE CANCER: ");                scanf("%d%*c",  &consulta->historicoCancerigeno);
     printf("TIPO DE PELE: ");                       scanf("%[^\n]%*c",  consulta->tipoPele);
     printf("############################################################\n");
 
@@ -65,17 +66,6 @@ void DesalocaConsulta (tConsulta * consulta) {
     free(consulta->lesao);
 
     free(consulta);
-}
-
-void ImprimeMenuConsulta () {
-    printf("#################### CONSULTA MEDICA #######################\n");
-    printf("ESCOLHA UMA OPCAO: ");
-	printf("\t(1) CADASTRAR LESAO\n");
-	printf("\t(2) GERAR RECEITA MEDICA\n");
-	printf("\t(3) SOLICITACAO DE BIOPSIA\n");
-	printf("\t(4) ENCAMINHAMENTO\n");
-	printf("\t(5) ENCERRAR CONSULTA\n");
-    printf("############################################################\n");
 }
 
 void ExecutaConsulta (tConsulta * consulta) {
@@ -153,9 +143,9 @@ void LeLesaoConsulta (tConsulta * consulta) {
     printf("CADASTRO DE LESAO:\n");
     printf("DIAGONISTICO CLINICO: ");               scanf("%[^\n]%*c", diagonostico);
     printf("REGIAO DO CORPO: ");                    scanf("%[^\n]%*c", regiao);
-    printf("TAMANHO: ");                            scanf("%d", &tamanho);
-    printf("ENVIAR PARA CIRURGIA: ");               scanf("%d", &cirurgia);
-    printf("ENVIAR PARA A CRIOTERAPIA: ");          scanf("%d", &crioterapia);
+    printf("TAMANHO: ");                            scanf("%d%*c", &tamanho);
+    printf("ENVIAR PARA CIRURGIA: ");               scanf("%d%*c", &cirurgia);
+    printf("ENVIAR PARA A CRIOTERAPIA: ");          scanf("%d%*c", &crioterapia);
     printf("LESAO REGISTRADA COM SUCESSO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
     printf("############################################################\n");
     scanf("%*c");

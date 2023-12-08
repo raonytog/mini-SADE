@@ -18,4 +18,6 @@ bool SecretarioEhUser (tSecretario * secretario);
 
 bool SecretarioEhAdmin (tSecretario * secretario);
 
+tLogin * ObtemSecretarioLogin (tSecretario * secretario);
+
 #endif

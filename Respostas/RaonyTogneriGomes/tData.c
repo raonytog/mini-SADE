@@ -50,5 +50,13 @@ void ImprimeData (tData * data) {
     printf("%d/%d/%d", data->dia, data->mes, data->ano);
 }
 
-int CalculaIdade(tData * data);
+int CalculaIdade(tData * data) {
+    int dia = data->dia, 
+        mes = data->mes, 
+        ano = data->ano,
+        idade = 2023 - ano;
+
+    if (mes > 11 || (mes == 11 && dia >= 9)) idade++; 
+    return idade;
+}
 //09/11/2023
