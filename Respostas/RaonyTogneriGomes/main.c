@@ -26,18 +26,18 @@
 #include "tConsulta.h"
 #include "tMenu.h"
 
-int main (int agrc, char * argv[]) {
-    char path[1001], bdPath[1001], pathSaida[1001];
-    if (agrc <= 1) {
-        printf("ERRO: diretorio de arquivos nao informado\n");
-        exit(1);
-    }
+// int main (int agrc, char * argv[]) { /* main ofc */
+//     char path[1001], bdPath[1001], pathSaida[1001];
+//     if (agrc <= 1) {
+//         printf("ERRO: diretorio de arquivos nao informado\n");
+//         exit(1);
+//     }
 
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", argv[1]);
+// sprintf(path, "%s", argv[1]);
+// sprintf(pathSaida, "%s/saida", argv[1]);
 
-    // int main () { /* main de testes */
-    // char path[1001], bdPath[1001], pathSaida[1001] = "Casos/1";
+    int main () { /* main de testes */
+    char path[1001], bdPath[1001], pathSaida[1001] = "Casos/1";
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
@@ -85,7 +85,7 @@ int main (int agrc, char * argv[]) {
     } else indiceSecretarioLogado = EncontraIndiceSecretarioLogado(secretarios, qtdSecretarios, login, password);
 
     char nomePacienteBusca[100], cpf[15];
-    int opcaoMenu = 0, indiceConsulta = 0;
+    int opcaoMenu = 0, indiceConsulta = 0, sair = 0, achouPessoa = 0;
     while (1) {
         ImprimeMenu(cargo);
         scanf("%d%*c", &opcaoMenu);
@@ -180,31 +180,38 @@ int main (int agrc, char * argv[]) {
                             ExecutaConsulta(consultas[qtdConsultas-1], fila);
                         }
 
-                        break;
+                        sair++;
                     }
+                    if (sair) break;
                 }
 
-                printf("PACIENTE SEM CADASTRO\n");
-                printf("PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
-                printf("###############################################################\n");
-                scanf("%*c");
+                if (!sair) {
+                    printf("PACIENTE SEM CADASTRO\n");
+                    printf("PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
+                    printf("###############################################################\n");
+                    scanf("%*c");
+                }
                 break;
 
             case BUSCAR_PACIENTES:
+                achouPessoa = 0;
                 printf("#################### BUSCAR PACIENTES #######################\n");
                 listaBusca =  CriaListaBusca();
                 printf("NOME DO PACIENTE: ");               scanf("%[^\n]%*c", nomePacienteBusca);
 
                 for (int i = 0; i < qtdPessoas; i++)
-                    if (strcmp(nomePacienteBusca, ObtemNomePessoa(pessoas[i])) == 0) AdiconaPessoaLista(listaBusca, pessoas[i]);
+                    if (strcmp(nomePacienteBusca, ObtemNomePessoa(pessoas[i])) == 0) {
+                        AdiconaPessoaLista(listaBusca, pessoas[i]);
+                        achouPessoa++;
+                    }
 
-                if (ObtemNumeroPessoasLista(listaBusca) == 0) {
+                if (!achouPessoa) {
                     printf("NENHUM PACIENTE FOI ENCONTRADO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                     printf("############################################################\n");
+                    scanf("%*c");
 
                 } else {
                     ImprimeNomeRequisitadoTela(listaBusca);
-                    ImprimeNomeRequisitadoArquivo(listaBusca, pathSaida); 
                     ImprimeMenuBuscarPacientes(fila, listaBusca);
                 }
                 break;
@@ -212,19 +219,14 @@ int main (int agrc, char * argv[]) {
 
 
             case RELATORIO_GERAL:
-                /* to do*/
+                ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, qtdConsultas);
                 break;
 
 
 
             case FILA_DE_IMPRESSAO:
-                printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
-                printf("ESCOLHA UMA OPCAO:\n");
-                printf("(1) EXECUTAR FILA DE IMPRESSAO\n");
-                printf("(2) RETORNAR AO MENU PRINCIPAL\n");
-                printf("############################################################\n");
-                scanf("%d", &opcaoMenu);
-
+                ImprimeMenuFilaImpressao();
+                scanf("%d%*c", &opcaoMenu);
                 switch (opcaoMenu) {
                     case 1:
                         imprimeFila(fila, pathSaida);

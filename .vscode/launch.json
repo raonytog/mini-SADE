@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "enter program name, for example ${workspaceFolder}/a.out",
-            "args": ["Casos/1"],
+            "args": ["/home/rtgomes/mini-SADE/Respostas/RaonyTogneriGomes/Casos"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

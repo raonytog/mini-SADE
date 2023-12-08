@@ -24,4 +24,6 @@ void ImprimeMenu(CARGO_LOGADO cargo);
 
 void ImprimeMenuConsulta ();
 
+void ImprimeRelatorioGeral ();
+
 #endif // !_TMENU_H_

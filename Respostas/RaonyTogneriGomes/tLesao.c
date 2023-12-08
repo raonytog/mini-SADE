@@ -72,7 +72,7 @@ int NecessitaCrioterapia (tLesao * lesao) {
     return lesao->necessitaCrioterapia;
 }
 
-int TamanhoLesao (tLesao * lesao) {
+int ObtemTamanhoLesao (tLesao * lesao) {
     if (!lesao) return 0;
     return lesao->tamanhoLesao;
 }

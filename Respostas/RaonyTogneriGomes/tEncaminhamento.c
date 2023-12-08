@@ -22,8 +22,11 @@ tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * es
     strcpy(e->CPF, CPF);
     strcpy(e->especialidade, especialidade);
     strcpy(e->motivo, motivo);
-    strcpy(e->nomeMedico, nomeMedico);
-    strcpy(e->CRM, CRM);
+    if (nomeMedico != NULL) strcpy(e->nomeMedico, nomeMedico);
+    else e->nomeMedico[0] = '\0';
+
+    if (CRM != NULL) strcpy(e->CRM, CRM);
+    else e->CRM[0] = '\0';
     strcpy(e->data, data);
 
     return e;

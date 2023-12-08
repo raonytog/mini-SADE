@@ -105,6 +105,7 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
                                     imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
                 printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                 printf("############################################################\n");
+                scanf("%*c");
                 break;
 
             case SOLICITACAO_DE_BIOPSIA:
@@ -115,6 +116,7 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
                 
                 printf("\nSOLICITACAO DE BIOPSIA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                 printf("############################################################\n");
+                scanf("%*c");
                 break;
 
             case ENCAMINHAMENTO:
@@ -129,6 +131,7 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
 
                 printf("\nENCAMINHAMENTO ENVIADO PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                 printf("############################################################\n");
+                scanf("%*c");
                 break;
 
             case ENCERRAR_CONSULTA:

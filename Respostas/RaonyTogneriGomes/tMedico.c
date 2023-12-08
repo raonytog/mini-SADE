@@ -42,7 +42,7 @@ bool ExisteMedicoCpf(tMedico ** medicos, int qtdMedicos, tMedico * medicoEmAnali
 }
 
 char * ObtemNomeMedico (tMedico * medico) {
-    if (!medico) return NULL;
+    if (!medico) return '\0';
     char * nomemed = ObtemNomePessoa(medico->pessoa);
     return nomemed;
 }

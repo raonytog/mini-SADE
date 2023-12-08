@@ -30,8 +30,13 @@ tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicament
     strcpy(receita->nomeMedicamento, nomeMedicamento);
     strcpy(receita->tipoMedicamento, tipoMedicamento);
     strcpy(receita->instrucoes, instrucoes);
-    strcpy(receita->nomeMedico, nomeMedico);
-    strcpy(receita->CRM, CRM);
+
+    if (nomeMedico != NULL) strcpy(receita->nomeMedico, nomeMedico);
+    else receita->nomeMedicamento[0] = '\0';
+
+    if (CRM != NULL) strcpy(receita->CRM, CRM);
+    else receita->CRM[0] = '\0';
+
     strcpy(receita->dataString, dataStr);
 
     return receita;

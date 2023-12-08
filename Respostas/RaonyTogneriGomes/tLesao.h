@@ -24,6 +24,6 @@ int NecessitaCirurgia (tLesao * lesao);
 
 int NecessitaCrioterapia (tLesao * lesao);
 
-int TamanhoLesao (tLesao * lesao);
+int ObtemTamanhoLesao (tLesao * lesao);
 
 #endif

@@ -30,8 +30,12 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
 
-    strcpy(b->nomeMedico, nomeMedico);
-    strcpy(b->CRM, CRM);
+    if (nomeMedico != NULL) strcpy(b->nomeMedico, nomeMedico);
+    else b->nomeMedico[0] = '\0';
+
+    if (CRM != NULL) strcpy(b->CRM, CRM);
+    else b->CRM[0] = '\0';
+    
     strcpy(b->data, data);
 
     return b;

@@ -65,3 +65,11 @@ void ImprimeMenuConsulta () {
 	printf("\t(5) ENCERRAR CONSULTA\n");
     printf("############################################################\n");
 }
+
+void ImprimeMenuFilaImpressao () {
+    printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
+    printf("ESCOLHA UMA OPCAO:\n");
+    printf("(1) EXECUTAR FILA DE IMPRESSAO\n");
+    printf("(2) RETORNAR AO MENU PRINCIPAL\n");
+    printf("############################################################\n");
+}

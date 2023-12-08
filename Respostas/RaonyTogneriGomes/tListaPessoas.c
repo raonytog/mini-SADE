@@ -91,8 +91,10 @@ void ImprimeNomeRequisitadoArquivo (void * data, char * path) {
     
     FILE * fListaBusca = NULL;
     fListaBusca = fopen(diretorio, "a");
-    if (fListaBusca == NULL) 
+    if (fListaBusca == NULL) {
         printf("fListaBusca nao abriu\n");
+        return;
+    }
     
 
     for (int i = 0; i < lista->qtdPessoas; i++)
