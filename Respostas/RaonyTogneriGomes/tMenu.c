@@ -52,6 +52,9 @@ void ImprimeMenu(CARGO_LOGADO cargo) {
         case USER:
             ImprimeMenuUser();
             break;
+
+        case FALHA:
+            break;
     }
 }
 

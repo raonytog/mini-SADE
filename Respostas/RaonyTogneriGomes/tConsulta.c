@@ -91,7 +91,7 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
             case GERAR_RECEITA_MEDICA:
                 printf("#################### CONSULTA MEDICA #######################\n");
                 printf("RECEITA MEDICA:\n");
-                printf("TIPO DE USO: ");                        scanf("%[^\n]%*c", tipo);
+                printf("TIPO DE USO: ");                        scanf("%s%*c", tipo);
                 printf("NOME DO MEDICAMENTO: ");                scanf("%[^\n]%*c", nomeMedicamento);
                 printf("TIPO DE MEDICAMENTO: ");                scanf("%[^\n]%*c", tipoMedicamento);
                 printf("QUANTIDADE: ");                         scanf("%d%*c", &qtd);
@@ -100,9 +100,11 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
                 if (strcmp(tipo, "ORAL")) tipoUso = ORAL;
                 else if (strcmp(tipo, "TOPICO")) tipoUso = TOPICO;
 
-                insereDocumentoFila(fila, criaReceita(ObtemNomePessoa(consulta->paciente), tipoUso, nomeMedicamento, tipoMedicamento, 
-                                    instrucoes, qtd, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), ObtemDataString(consulta->dataConsulta)), 
-                                    imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
+                tReceita * r = criaReceita(ObtemNomePessoa(consulta->paciente), tipoUso, nomeMedicamento, 
+                                    tipoMedicamento, instrucoes, qtd, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
+                                    ObtemDataString(consulta->dataConsulta));
+
+                insereDocumentoFila(fila, r, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
                 printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                 printf("############################################################\n");
                 scanf("%*c");

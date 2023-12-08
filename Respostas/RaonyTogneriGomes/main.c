@@ -26,18 +26,19 @@
 #include "tConsulta.h"
 #include "tMenu.h"
 
-// int main (int agrc, char * argv[]) { /* main ofc */
-//     char path[1001], bdPath[1001], pathSaida[1001];
-//     if (agrc <= 1) {
-//         printf("ERRO: diretorio de arquivos nao informado\n");
-//         exit(1);
-//     }
+int main (int agrc, char * argv[]) { /* main ofc */
+    char path[1001], bdPath[1001], pathSaida[1001];
+    if (agrc <= 1) {
+        printf("ERRO: diretorio de arquivos nao informado\n");
+        exit(1);
+    }
 
-// sprintf(path, "%s", argv[1]);
-// sprintf(pathSaida, "%s/saida", argv[1]);
+    sprintf(path, "%s", argv[1]);
+    sprintf(pathSaida, "%s/saida", argv[1]);
 
-    int main () { /* main de testes */
-    char path[1001], bdPath[1001], pathSaida[1001] = "Casos/1";
+    // int main () { /* main de testes */
+    // char path[1001], bdPath[1001], pathSaida[1001];
+    // strcpy(pathSaida, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
@@ -45,7 +46,7 @@
     tSecretario ** secretarios = NULL;
     tListaPessoas * listaBusca =  NULL;
     tConsulta ** consultas = NULL;
-    tFila * fila = NULL;
+    tFila * fila = criaFila();
 
     printf("################################################\n");
     printf("DIGITE O CAMINHO DO BANCO DE DADOS: ");
@@ -170,7 +171,6 @@
                         printf("-DATA DE NASCIMENTO: %s\n", ObtemDataString( ObtemDataPessoa(pessoas[indiceConsulta]) ));
                         printf("---\n");
 
-
                         if (cargo != MEDICO) { // se for secretario
                             consultas[qtdConsultas-1] = CriaConsulta(pessoas[indiceConsulta], medicoNULL);
                             ExecutaConsulta(consultas[qtdConsultas-1], fila);
@@ -219,7 +219,7 @@
 
 
             case RELATORIO_GERAL:
-                ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, qtdConsultas);
+                // ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, consultas, qtdConsultas, pathSaida);
                 break;
 
 

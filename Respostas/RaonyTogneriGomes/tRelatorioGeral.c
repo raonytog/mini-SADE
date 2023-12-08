@@ -44,7 +44,6 @@ void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tL
                 insereDocumentoFila(fila, CriaRelatorioGeral(pessoas, qtdPessoas, lesoes, qtdLesoes, qtdConsultas), 
                                     ImprimeRelatorioGeralTela, ImprimeRelatorioGeralArquivo, DesalocaRelatorioGeral);
 
-                imprimeFila(fila, pathSaida);
 
             case 2:
                 return;
