@@ -29,7 +29,8 @@ tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * es
     return e;
 }
 
-void DesalocaEncaminhamento (tEncaminhamento * encaminhamento) {
+void DesalocaEncaminhamento (void * data) {
+    tEncaminhamento * encaminhamento = (tEncaminhamento *) data;
     if (!encaminhamento) return;
     free(encaminhamento);
 }
@@ -52,7 +53,7 @@ void ImprimeEncaminhamentoArquivo (void * data, char * path) {
     char diretorio[1001];
     sprintf(diretorio, "%s/encaminhamento.txt", path);
     FILE * fEncaminhamento = NULL;
-    fEncaminhamento = fopen(diretorio, "a+b");
+    fEncaminhamento = fopen(diretorio, "a");
 
     fprintf(fEncaminhamento, "PACIENTE: %s\n", e->nomePaciente);
     fprintf(fEncaminhamento, "CPF: %s\n\n", e->nomeMedico);

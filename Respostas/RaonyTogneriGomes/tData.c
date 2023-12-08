@@ -41,8 +41,7 @@ void DesalocaData (tData * data) {
 
 char * ObtemDataString (tData * data) {
     char datastring[10];
-    sprintf(datastring, "%d/%d/%d", data->dia, data->mes, data->ano);
-    char * d = datastring;
+    char * d = data->dataString;
     return d;
 }
 

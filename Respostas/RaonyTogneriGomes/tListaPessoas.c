@@ -65,13 +65,15 @@ void ImprimeMenuBuscarPacientes (tFila * fila, tListaPessoas * lista) {
     printf("\t(1) ENVIAR LISTA PARA IMPRESSAO\n");
     printf("\t(2) RETORNAR AO MENU PRINCIPAL\n");
     printf("############################################################\n");
-    scanf("%d%*c", &opcao);
 
     while (1) {
+        scanf("%d%*c", &opcao);
         if (opcao == 1) {
             insereDocumentoFila(fila, lista, ImprimeNomeRequisitadoTela, ImprimeNomeRequisitadoArquivo, DesalocaLista);
-            printf("LISTA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU PRINCIPAL\n");
+            printf("\nLISTA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU PRINCIPAL\n");
             printf("############################################################\n");
+            scanf("%*c");
+            return;
 
         } else if (opcao == 2) {
             printf("############################################################\n");
@@ -88,17 +90,14 @@ void ImprimeNomeRequisitadoArquivo (void * data, char * path) {
     sprintf(diretorio, "%s/lista_busca.txt", path);
     
     FILE * fListaBusca = NULL;
-    fListaBusca = fopen(diretorio, "a+b");
-    if (!fListaBusca) 
-        printf("NAO ABRIU");
+    fListaBusca = fopen(diretorio, "a");
+    if (fListaBusca == NULL) 
+        printf("fListaBusca nao abriu\n");
+    
 
-    char nome[100], cpf[15];
-
-    for (int i = 0; i < lista->qtdPessoas; i++) {
-        strcpy(nome, ObtemNomePessoa(lista->pessoas[i]));
-        strcpy(cpf, ObtemCPFPessoa(lista->pessoas[i]));
-        fprintf(fListaBusca, "%d - %s (%s)\n", i+1, nome, cpf);
-    }
-
+    for (int i = 0; i < lista->qtdPessoas; i++)
+        fprintf(fListaBusca, "%d - %s (%s)\n", i+1, ObtemNomePessoa(lista->pessoas[i]), ObtemCPFPessoa(lista->pessoas[i]));
+    
+    fprintf(fListaBusca, "\n");
     fclose(fListaBusca);
 }

@@ -49,7 +49,7 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     printf("ALERGIA A MEDICAMENTO: ");              scanf("%d%*c",  &consulta->alergico);
     printf("HISTORICO DE CANCER: ");                scanf("%d%*c",  &consulta->historicoCancerigeno);
     printf("TIPO DE PELE: ");                       scanf("%[^\n]%*c",  consulta->tipoPele);
-    printf("############################################################\n");
+    printf("\n############################################################\n");
 
     return consulta;
 }
@@ -68,30 +68,72 @@ void DesalocaConsulta (tConsulta * consulta) {
     free(consulta);
 }
 
-void ExecutaConsulta (tConsulta * consulta) {
-    int opcao = 0;
+void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
+    char tipo[7], 
+         nomeMedicamento[21], 
+         tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO], 
+         instrucoes[MAX_TAM_INSTRUCOES], motivo[300], 
+         especialidade[50];
+    int opcao = 0, qtd = 0;
+    eTipoUso tipoUso;
     while (1) {
         ImprimeMenuConsulta();
         scanf("%d%*c", &opcao);
         switch (opcao) {
             case CADASTRAR_LESAO:
+                printf("#################### CONSULTA MEDICA #######################\n");
                 LeLesaoConsulta(consulta);
+                printf("\nLESAO REGISTRADA COM SUCESSO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                printf("############################################################\n");
+                scanf("%*c");
                 break;
 
             case GERAR_RECEITA_MEDICA:
-                
+                printf("#################### CONSULTA MEDICA #######################\n");
+                printf("RECEITA MEDICA:\n");
+                printf("TIPO DE USO: ");                        scanf("%[^\n]%*c", tipo);
+                printf("NOME DO MEDICAMENTO: ");                scanf("%[^\n]%*c", nomeMedicamento);
+                printf("TIPO DE MEDICAMENTO: ");                scanf("%[^\n]%*c", tipoMedicamento);
+                printf("QUANTIDADE: ");                         scanf("%d%*c", &qtd);
+                printf("INSTRUCOES DE USO: ");                  scanf("%[^\n]%*c", instrucoes);
+
+                if (strcmp(tipo, "ORAL")) tipoUso = ORAL;
+                else if (strcmp(tipo, "TOPICO")) tipoUso = TOPICO;
+
+                insereDocumentoFila(fila, criaReceita(ObtemNomePessoa(consulta->paciente), tipoUso, nomeMedicamento, tipoMedicamento, 
+                                    instrucoes, qtd, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), ObtemDataString(consulta->dataConsulta)), 
+                                    imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
+                printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                printf("############################################################\n");
                 break;
 
             case SOLICITACAO_DE_BIOPSIA:
+                printf("#################### CONSULTA MEDICA #######################\n");
+                insereDocumentoFila(fila, CriaBiopsia(ObtemNomePessoa(consulta->paciente), ObtemCPFPessoa(consulta->paciente), 
+                                    consulta->lesao, consulta->qtdLesoes, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
+                                    ObtemDataString(consulta->dataConsulta)), ImprimeBiopsiaTela, ImprimeBiopsiaArquivo, DesalocaBiopsia);
+                
+                printf("\nSOLICITACAO DE BIOPSIA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                printf("############################################################\n");
                 break;
 
             case ENCAMINHAMENTO:
+                printf("#################### CONSULTA MEDICA #######################\n");
+                printf("ENCAMINHAMENTO:\n");
+                printf("ESPECIALIDADE ENCAMINHADA: ");          scanf("%[^\n]%*c", especialidade);
+                printf("MOTIVO: ");                             scanf("%[^\n]%*c", motivo);
+                insereDocumentoFila(fila, CriaEncaminhamento(ObtemNomePessoa(consulta->paciente), ObtemCPFPessoa(consulta->paciente), 
+                                    especialidade, motivo, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
+                                    ObtemDataString(consulta->dataConsulta)), ImprimeEncaminhamentoTela, ImprimeEncaminhamentoArquivo, 
+                                    DesalocaEncaminhamento);
+
+                printf("\nENCAMINHAMENTO ENVIADO PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                printf("############################################################\n");
                 break;
 
             case ENCERRAR_CONSULTA:
                 return;
                 break;
-        
         }
     }
 }

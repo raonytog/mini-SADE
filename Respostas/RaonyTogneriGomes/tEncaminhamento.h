@@ -5,7 +5,7 @@ typedef struct tEncaminhamento tEncaminhamento;
 
 tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * especialidade, char * motivo, char *nomeMedico, char *CRM, char *data);
 
-void DesalocaEncaminhamento (tEncaminhamento * encaminhamento);
+void DesalocaEncaminhamento (void * data);
 
 void ImprimeEncaminhamentoTela (void * data);
 

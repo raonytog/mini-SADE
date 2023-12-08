@@ -20,7 +20,7 @@ tConsulta * CriaConsulta ();
 
 void DesalocaConsulta (tConsulta * consulta);
 
-void ExecutaConsulta (tConsulta * consulta);
+void ExecutaConsulta (tConsulta * consulta, tFila * fila);
 
 void ImprimeErroConsulta (char * cpf);
 

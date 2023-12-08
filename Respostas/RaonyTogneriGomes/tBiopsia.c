@@ -63,7 +63,7 @@ void ImprimeBiopsiaArquivo (void * data, char * path) {
     char diretorio[1001];
     sprintf(diretorio, "%s/biopsia.txt", path);
     FILE * fBiopsia = NULL;
-    fBiopsia = fopen(diretorio, "a+b");
+    fBiopsia = fopen(diretorio, "a");
 
     fprintf(fBiopsia, "PACIENTE: %s\n", biopsia->nomePaciente);
     fprintf(fBiopsia, "CPF: %s\n\n", biopsia->cpf);

@@ -75,7 +75,7 @@ void imprimeEmArquivoReceita(void *dado, char *path) {
     sprintf(diretorio, "%s/receita.txt", path);
     tReceita * r = (tReceita *) dado;
     FILE * fReceita = NULL;
-    fReceita = fopen(diretorio, "a+b");
+    fReceita = fopen(diretorio, "a");
 
     fprintf(fReceita, "RECEITUARIO\n");
     fprintf(fReceita, "NOME: %s\n\n", r->nomePaciente);

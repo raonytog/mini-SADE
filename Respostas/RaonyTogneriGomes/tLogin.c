@@ -51,7 +51,7 @@ int EncontraIndiceMedicoLogado (tMedico ** medicos, int qtdMedicos, char * user,
             return i;
         }
     }
-    return -1;
+    return 0;
 }
 
 int EncontraIndiceSecretarioLogado (tSecretario ** secretarios, int qtdSecretarios, char * user, char * password) {
@@ -60,7 +60,7 @@ int EncontraIndiceSecretarioLogado (tSecretario ** secretarios, int qtdSecretari
             return i;
         }
     }
-    return -1;
+    return 0;
 }
 
 bool VerificaUser (tLogin * login, char * usuario) {
