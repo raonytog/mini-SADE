@@ -44,10 +44,8 @@ void DesalocaLista (void * data) {
     // for (int i = 0; i < lista->qtdPessoas; i++)
     //     DesalocaPessoa(lista->pessoas[i]);
 
-    lista->pessoas = NULL;
-    free(lista->pessoas);
+    if (lista && lista->pessoas) free(lista->pessoas);
     
-    lista = NULL;
     free(lista);
 }
 
