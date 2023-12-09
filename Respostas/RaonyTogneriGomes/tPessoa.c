@@ -15,7 +15,7 @@ struct tPessoa {
 };
 
 tPessoa * CriaPessoa() {
-    tPessoa * pessoa = malloc(sizeof(tPessoa));
+    tPessoa * pessoa = calloc(1, sizeof(tPessoa));
     if (!pessoa) return NULL;
 
     printf("NOME COMPLETO: ");          scanf("%[^\n]%*c", pessoa->nome);

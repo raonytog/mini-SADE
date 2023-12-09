@@ -15,7 +15,7 @@ struct tEncaminhamento {
 };
 
 tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * especialidade, char * motivo, char * nomeMedico, char *CRM, char *data) {
-    tEncaminhamento * e = malloc(sizeof(tEncaminhamento));
+    tEncaminhamento * e = calloc(1, sizeof(tEncaminhamento));
     if (!e) return NULL;
 
     strcpy(e->nomePaciente, nomePaciente);

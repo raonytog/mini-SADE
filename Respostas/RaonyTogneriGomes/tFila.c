@@ -10,7 +10,7 @@ struct tFila {
 };
 
 tFila *criaFila() {
-    tFila * fila = malloc(sizeof(tFila));
+    tFila * fila = calloc(1, sizeof(tFila));
     fila->documentos = NULL;
     fila->qtdDoc = 0;
     return fila;

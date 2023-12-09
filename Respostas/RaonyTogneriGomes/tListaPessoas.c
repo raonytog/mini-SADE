@@ -10,7 +10,7 @@ struct tListaPessoas {
 };
 
 tListaPessoas * CriaListaBusca() {
-    tListaPessoas * lista = malloc(sizeof(tListaPessoas));
+    tListaPessoas * lista = calloc(1, sizeof(tListaPessoas));
     if (!lista) return NULL;
 
     lista->qtdPessoas = 0;

@@ -10,7 +10,7 @@ struct tLogin {
 };
 
 tLogin * CriaLogin () {
-    tLogin * login = malloc(sizeof(tLogin));
+    tLogin * login = calloc(1, sizeof(tLogin));
     if (!login) return NULL;
 
     printf("NOME DE USUARIO: ");

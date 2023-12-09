@@ -18,7 +18,7 @@ struct tRelatorioGeral {
 };
 
 tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, int qtdConsultas) {
-    tRelatorioGeral * relatorio = malloc(sizeof(tRelatorioGeral));
+    tRelatorioGeral * relatorio = calloc(1, sizeof(tRelatorioGeral));
     relatorio->pacientesAtendidos = qtdConsultas;
     relatorio->idadeMedia = CalculaMediaIdadeRelatorioGeral(pessoas, qtdPessoas);
     relatorio->qtdFem = RetornaQtdMulheresRelatorioGeral(pessoas, qtdPessoas);
@@ -45,7 +45,7 @@ void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tC
         case 1:
             insereDocumentoFila(fila, relatorio, ImprimeRelatorioGeralTela, 
                                 ImprimeRelatorioGeralArquivo, DesalocaRelatorioGeral);
-            printf("\nRELATORIO ENVIADO PARA FILA DE IMPRESSAO. PRESIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            printf("RELATORIO ENVIADO PARA FILA DE IMPRESSAO. PRESIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
             printf("############################################################\n");
             scanf("%*c");
             return;
@@ -67,14 +67,14 @@ void ImprimeRelatorioGeralTela (void * data) {
     printf("TAMANHO MEDIO DAS LESOES: %d\n", relatorio->tamMedioLesao);
     printf("NUMERO TOTAL DE LESOES: %d\n", relatorio->qtdLesoes);
     printf("NUMERO TOTAL DE CIRURGIAS: %d\n", relatorio->qtdCirurgias);
-    printf("NUMERO TOTAL DE CRIOTERAPIA: %d\n",relatorio->qtdCrioterapias);
+    printf("NUMERO TOTAL DE CRIOTERAPIA: %d\n\n",relatorio->qtdCrioterapias);
 }
 
 void ImprimeRelatorioGeralArquivo (void * data, char * path) {
     char diretorio[1001];
-    tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
     sprintf(diretorio, "%s/relatorio_geral", path);
 
+    tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
     FILE * fRelatorio = NULL;
     fRelatorio = fopen(diretorio, "a");
     if (!fRelatorio) {
@@ -91,7 +91,7 @@ void ImprimeRelatorioGeralArquivo (void * data, char * path) {
     fprintf(fRelatorio, "TAMANHO MEDIO DAS LESOES: %d\n", relatorio->tamMedioLesao);
     fprintf(fRelatorio, "NUMERO TOTAL DE LESOES: %d\n", relatorio->qtdLesoes);
     fprintf(fRelatorio, "NUMERO TOTAL DE CIRURGIAS: %d\n", relatorio->qtdCirurgias);
-    fprintf(fRelatorio, "NUMERO TOTAL DE CRIOTERAPIA: %d\n",relatorio->qtdCrioterapias);
+    fprintf(fRelatorio, "NUMERO TOTAL DE CRIOTERAPIA: %d\n\n",relatorio->qtdCrioterapias);
 
     fclose(fRelatorio);
 }
@@ -168,7 +168,7 @@ int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsulta
 }
 
 int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
-    int cont = 0, qtd = 0;
+    int qtd = 0;
     for (int i = 0; i < qtdConsultas; i++) {
         for (int j = 0; j < RetornaQtdLesoesConsulta(consultas[i]); j++) {
             qtd++;

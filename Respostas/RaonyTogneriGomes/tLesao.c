@@ -15,7 +15,7 @@ struct tLesao {
 };
 
 tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao, int precisaCirurgia, int precisaCrioterapia) {
-    tLesao * lesao = malloc(sizeof(tLesao));
+    tLesao * lesao = calloc(1, sizeof(tLesao));
     if (!lesao) return NULL;
     
     lesao->rotulo = rotulo;

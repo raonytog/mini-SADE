@@ -11,7 +11,7 @@ struct tSecretario {
 };
 
 tSecretario * CriaSecretario () {
-    tSecretario * secretario = malloc(sizeof(tSecretario));
+    tSecretario * secretario = calloc(1, sizeof(tSecretario));
     if (!secretario) return NULL;
 
     tPessoa * pessoa = CriaPessoa();

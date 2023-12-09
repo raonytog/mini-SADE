@@ -32,7 +32,7 @@ struct tConsulta {
 
 tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     
-    tConsulta * consulta = malloc(sizeof(tConsulta));
+    tConsulta * consulta = calloc(1, sizeof(tConsulta));
     if (!consulta) return NULL;
  
     consulta->paciente = pessoa;

@@ -11,7 +11,7 @@ struct tMedico {
 };
 
 tMedico * CriaMedico () {
-    tMedico * medico = malloc(sizeof(tMedico));
+    tMedico * medico = calloc(1, sizeof(tMedico));
     if (!medico) return NULL;
 
     tPessoa * pessoa = CriaPessoa();

@@ -17,7 +17,7 @@ tDocumento *criaDocumento(void *dado,
                           func_ptr_desaloca desaloca) {
 
         
-    tDocumento * documento = malloc (sizeof(tDocumento));
+    tDocumento * documento = calloc (1, sizeof(tDocumento));
 
     documento->dado = dado;
     documento->imprimeNaTela = imprimeNaTela;

@@ -23,14 +23,14 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
 
     if (!peloMenosUma) return NULL;
 
-    tBiopsia * b = malloc(sizeof(tBiopsia));
+    tBiopsia * b = calloc(1, sizeof(tBiopsia));
     if (!b) return NULL;
 
     strcpy(b->nomePaciente, nomePaciente);
     strcpy(b->cpf, CPF);
     b->qtdLesoes = qtdLesoes;
 
-    b->lesoes = malloc(qtdLesoes * sizeof(tLesao *));
+    b->lesoes = calloc(1, qtdLesoes * sizeof(tLesao *));
     for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
 

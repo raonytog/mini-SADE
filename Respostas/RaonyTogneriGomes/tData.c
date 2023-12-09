@@ -11,7 +11,7 @@ struct tData {
 
 
 tData * LeData() {
-    tData * data = malloc(sizeof(tData));
+    tData * data = calloc(1, sizeof(tData));
 
     printf("DATA DE NASCIMENTO: ");
     scanf("%d/%d/%d%*c", &data->dia, &data->mes, &data->ano);
@@ -21,7 +21,7 @@ tData * LeData() {
 }
 
 tData * LeDataConsulta () {
-    tData * data = malloc(sizeof(tData));
+    tData * data = calloc(1, sizeof(tData));
     if (!data) {
         printf("\nDATA EH NULL\n"); 
         return NULL;
@@ -40,7 +40,6 @@ void DesalocaData (tData * data) {
 }
 
 char * ObtemDataString (tData * data) {
-    char datastring[10];
     char * d = data->dataString;
     return d;
 }
