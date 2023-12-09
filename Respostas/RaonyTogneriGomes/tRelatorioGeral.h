@@ -1,17 +1,16 @@
 #ifndef _TRELATORIOGERAL_H_
 #define _TRELATORIOGERAL_H_
 
-#include "tLesao.h"
+#include "tConsulta.h"
 #include "tPessoa.h"
 #include "tFila.h"
 
 typedef struct tRelatorioGeral tRelatorioGeral;
 
-tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, 
-                                      tLesao ** lesoes, int qtdLesoes, int qtdConsultas);
+tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, int qtdConsultas);
 
-void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tLesao ** lesoes, 
-                            int qtdLesoes, int qtdConsultas, char * pathSaida);
+void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, 
+                            int qtdConsultas, char * pathSaida);
 
 void ImprimeRelatorioGeralTela (void * data);
 
@@ -19,19 +18,21 @@ void ImprimeRelatorioGeralArquivo (void * data, char * path);
 
 void DesalocaRelatorioGeral (void * data);
 
-int CalculaMediaIdade (tPessoa ** pessoas, int qtdPessoas);
+int CalculaMediaIdadeRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
-int RetornaQtdMulheres (tPessoa ** pessoas, int qtdPessoas);
+int RetornaQtdMulheresRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
-int RetornaQtdHomens (tPessoa ** pessoas, int qtdPessoas);
+int RetornaQtdHomensRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
-int RetornaQtdOutros (tPessoa ** pessoas, int qtdPessoas);
+int RetornaQtdOutrosRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
-int TamanhoMedioLesoes (tLesao ** lesoes, int qtdLesoes);
+int TamanhoMedioLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
 
-int RetornaQtdCirurgias (tLesao ** lesoes, int qtdLesoes);
+int RetornaQtdCirurgiasRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
 
-int RetornaQtdCrioterapia (tLesao ** lesoes, int qtdLesoes);
+int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
+
+int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
 
 #endif // !_TRELATORIOGERAL_H_
 

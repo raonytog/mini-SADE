@@ -254,3 +254,18 @@ void LeEncaminhamentoConsulta (tConsulta * consulta, tFila * fila) {
                                                                especialidade, motivo, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
                                                                ObtemDataString(consulta->dataConsulta));
 }
+
+int RetornaQtdLesoesConsulta (tConsulta * consulta) {
+    if (!consulta) return 0;
+    return consulta->qtdLesoes;
+}
+
+int RetornaQtdReceitasConsulta (tConsulta * consulta) {
+    if (!consulta) return 0;
+    return consulta->qtdReceitas;
+}
+
+int RetornaQtdEncaminhamentosConsulta (tConsulta * consulta) {
+    if (!consulta) return 0;
+    return consulta->qtdEncaminhamentos;
+}

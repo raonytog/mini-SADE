@@ -32,4 +32,10 @@ void LeBiopsiaConsulta (tConsulta * consulta, tFila * fila);
 
 void LeEncaminhamentoConsulta (tConsulta * consulta, tFila * fila);
 
+int RetornaQtdLesoesConsulta (tConsulta * consulta);
+
+int RetornaQtdReceitasConsulta (tConsulta * consulta);
+
+int RetornaQtdEncaminhamentosConsulta (tConsulta * consulta);
+
 #endif 

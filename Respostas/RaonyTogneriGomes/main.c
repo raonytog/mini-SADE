@@ -13,9 +13,7 @@
 #include "tEncaminhamento.h"
 #include "tListaPessoas.h"
 #include "tReceita.h"
-/** faltando:
- * relatorio geral 
- * **/
+#include "tRelatorioGeral.h"
 
 /* tipos auxiliares criados*/
 #include "tLesao.h"
@@ -214,7 +212,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case RELATORIO_GERAL:
-                //ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, consultas, qtdConsultas, pathSaida);
+                ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, consultas, qtdConsultas, pathSaida);
                 break;
 
 
