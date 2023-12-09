@@ -78,9 +78,14 @@ void imprimeNaTelaReceita(void *dado) {
 void imprimeEmArquivoReceita(void *dado, char *path) {
     char diretorio[1001];
     sprintf(diretorio, "%s/receita.txt", path);
+
     tReceita * r = (tReceita *) dado;
     FILE * fReceita = NULL;
-    fReceita = fopen(diretorio, "a");
+    fReceita = fopen(diretorio, "a+b");
+    if (!fReceita) {
+        printf("fReceita nao abriu\n");
+        return;
+    }
 
     fprintf(fReceita, "RECEITUARIO\n");
     fprintf(fReceita, "NOME: %s\n\n", r->nomePaciente);

@@ -70,7 +70,7 @@ void ImprimeMenuConsulta () {
 }
 
 void ImprimeMenuRelatorio () {
-    printf("ESCOLHA UMA OPCAO:\n");
+    printf("\nESCOLHA UMA OPCAO:\n");
     printf("(1) ENVIAR PARA IMPRESSAO\n");
     printf("(2) RETORNAR AO MENU PRINCIPAL\n");
     printf("############################################################\n");

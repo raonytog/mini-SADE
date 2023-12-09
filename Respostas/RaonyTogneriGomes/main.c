@@ -24,19 +24,19 @@
 #include "tConsulta.h"
 #include "tMenu.h"
 
-int main (int agrc, char * argv[]) { /* main ofc */
+// int main (int agrc, char * argv[]) { /* main ofc */
+//     char path[1001], bdPath[1001], pathSaida[1001];
+//     if (agrc <= 1) {
+//         printf("ERRO: diretorio de arquivos nao informado\n");
+//         exit(1);
+//     }
+
+//     sprintf(path, "%s", argv[1]);
+//     sprintf(pathSaida, "%s/saida", argv[1]);
+
+    int main () { /* main de testes */
     char path[1001], bdPath[1001], pathSaida[1001];
-    if (agrc <= 1) {
-        printf("ERRO: diretorio de arquivos nao informado\n");
-        exit(1);
-    }
-
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", argv[1]);
-
-    // int main () { /* main de testes */
-    // char path[1001], bdPath[1001], pathSaida[1001];
-    // strcpy(pathSaida, "Casos/1");
+    strcpy(pathSaida, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
@@ -224,14 +224,15 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     scanf("%d%*c", &opcaoMenu);
                     switch (opcaoMenu) {
                         case 1:
+                            printf("################ FILA DE IMPRESSAO MEDICA ##################\n");
                             imprimeFila(fila, pathSaida);
-
-                            printf("PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU ANTERIOR\n");
+                            printf("\nPRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU ANTERIOR\n");
+                            printf("############################################################\n");
                             scanf("%*c");
-                            sair++;
                             break;
 
                         case 2:
+                            sair++;
                             break;
                     }
                     if (sair) break;
@@ -241,24 +242,35 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case FINALIZAR_O_PROGRAMA:
-                for (int i = 0; i < qtdPessoas; i++)
+                for (int i = 0; i < qtdPessoas; i++) {
+                    pessoas[i] = NULL;
                     DesalocaPessoa(pessoas[i]);
+                }
                 pessoas = NULL;
                 free(pessoas);
 
-                for (int i = 0; i < qtdMedicos; i++)
+                for (int i = 0; i < qtdMedicos; i++) {
+                    medicos[i] = NULL;
                     DesalocaMedico(medicos[i]);
+                }
                 free(medicos);
 
-                for (int i = 0; i < qtdSecretarios; i++)
+                for (int i = 0; i < qtdSecretarios; i++) {
+                    secretarios[i] = NULL;
                     DesalocaSecretario(secretarios[i]);
+                }
                 free(secretarios);
 
-                for (int i = 0; i < qtdConsultas; i++)
+                for (int i = 0; i < qtdConsultas; i++) {
+                    consultas[i] = NULL;
                     DesalocaConsulta(consultas[i]);
+                }
                 free(consultas);
 
+                listaBusca = NULL;
                 DesalocaLista(listaBusca);
+                
+                fila = NULL;
                 desalocaFila(fila);
                 exit(1);
                 break;

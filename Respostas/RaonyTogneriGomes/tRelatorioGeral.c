@@ -35,23 +35,24 @@ tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, tConsu
 void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, 
                             int qtdConsultas, char * pathSaida) {
     int opcaoMenu = 0;
-    while (1) {
-        ImprimeMenuRelatorio();
-        scanf("%d", &opcaoMenu);
-        switch (opcaoMenu) {
-            case 1:
-                tRelatorioGeral * relatorio = CriaRelatorioGeral(pessoas, qtdPessoas, consultas, qtdConsultas);
-                insereDocumentoFila(fila, relatorio, ImprimeRelatorioGeralTela, 
-                                    ImprimeRelatorioGeralArquivo, DesalocaRelatorioGeral);
-                ImprimeRelatorioGeralTela(relatorio);
-                printf("RELATORIO ENVIADO PARA FILA DE IMPRESSAO. PRESIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-                scanf("%*c");
-                return;
+    tRelatorioGeral * relatorio = CriaRelatorioGeral(pessoas, qtdPessoas, consultas, qtdConsultas);
+    printf("#################### RELATORIO GERAL #######################\n");
+    ImprimeRelatorioGeralTela(relatorio);
+
+    ImprimeMenuRelatorio();
+    scanf("%d%*c", &opcaoMenu);
+    switch (opcaoMenu) {
+        case 1:
+            insereDocumentoFila(fila, relatorio, ImprimeRelatorioGeralTela, 
+                                ImprimeRelatorioGeralArquivo, DesalocaRelatorioGeral);
+            printf("\nRELATORIO ENVIADO PARA FILA DE IMPRESSAO. PRESIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+            printf("############################################################\n");
+            scanf("%*c");
+            return;
                 
-            case 2:
-                return;
-                break;
-        }
+        case 2:
+            return;
+            break;
     }
 }
 
@@ -70,10 +71,12 @@ void ImprimeRelatorioGeralTela (void * data) {
 }
 
 void ImprimeRelatorioGeralArquivo (void * data, char * path) {
+    char diretorio[1001];
     tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
+    sprintf(diretorio, "%s/relatorio_geral", path);
 
     FILE * fRelatorio = NULL;
-    fRelatorio = fopen(path, "a");
+    fRelatorio = fopen(diretorio, "a");
     if (!fRelatorio) {
         printf("fRelatorio nao abriu\n");
         return;

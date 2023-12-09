@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "enter program name, for example ${workspaceFolder}/a.out",
             "args": ["/home/rtgomes/mini-SADE/Respostas/RaonyTogneriGomes/Casos"],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
