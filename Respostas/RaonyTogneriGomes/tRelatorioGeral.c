@@ -20,14 +20,14 @@ struct tRelatorioGeral {
 tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, int qtdConsultas) {
     tRelatorioGeral * relatorio = malloc(sizeof(tRelatorioGeral));
     relatorio->pacientesAtendidos = qtdConsultas;
-    relatorio->idadeMedia = CalculaMediaIdade(pessoas, qtdPessoas);
-    relatorio->qtdFem = RetornaQtdMulheres(pessoas, qtdPessoas);
-    relatorio->qtdMasc = RetornaQtdHomens(pessoas, qtdPessoas);
-    relatorio->qtdOutro = RetornaQtdOutros(pessoas, qtdPessoas);
-    relatorio->tamMedioLesao = TamanhoMedioLesoes(consultas, qtdConsultas);
-    relatorio->qtdLesoes = RetornaQtdLesoes(consultas, qtdConsultas);
-    relatorio->qtdCirurgias = RetornaQtdCirurgias(consultas, qtdConsultas);
-    relatorio->qtdCrioterapias = RetornaQtdCrioterapia(consultas, qtdConsultas);
+    relatorio->idadeMedia = CalculaMediaIdadeRelatorioGeral(pessoas, qtdPessoas);
+    relatorio->qtdFem = RetornaQtdMulheresRelatorioGeral(pessoas, qtdPessoas);
+    relatorio->qtdMasc = RetornaQtdHomensRelatorioGeral(pessoas, qtdPessoas);
+    relatorio->qtdOutro = RetornaQtdOutrosRelatorioGeral(pessoas, qtdPessoas);
+    relatorio->tamMedioLesao = TamanhoMedioLesoesRelatorioGeral(consultas, qtdConsultas);
+    relatorio->qtdLesoes = RetornaQtdLesoesRelatorioGeral(consultas, qtdConsultas);
+    relatorio->qtdCirurgias = RetornaQtdCirurgiasRelatorioGeral(consultas, qtdConsultas);
+    relatorio->qtdCrioterapias = RetornaQtdCrioterapiaRelatorioGeral(consultas, qtdConsultas);
     return relatorio;
 }
 
@@ -72,6 +72,7 @@ void ImprimeRelatorioGeralArquivo (void * data, char * path) {
     fRelatorio = fopen(path, "a");
     if (!fRelatorio) {
         printf("fRelatorio nao abriu\n");
+        return;
     }
 
     fprintf(fRelatorio, "NUMERO TOTAL DE PACIENTES ATENDIDOS: %d\n", relatorio->pacientesAtendidos);

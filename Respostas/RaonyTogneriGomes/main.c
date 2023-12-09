@@ -24,19 +24,19 @@
 #include "tConsulta.h"
 #include "tMenu.h"
 
-int main (int agrc, char * argv[]) { /* main ofc */
+// int main (int agrc, char * argv[]) { /* main ofc */
+//     char path[1001], bdPath[1001], pathSaida[1001];
+//     if (agrc <= 1) {
+//         printf("ERRO: diretorio de arquivos nao informado\n");
+//         exit(1);
+//     }
+
+//     sprintf(path, "%s", argv[1]);
+//     sprintf(pathSaida, "%s/saida", argv[1]);
+
+    int main () { /* main de testes */
     char path[1001], bdPath[1001], pathSaida[1001];
-    if (agrc <= 1) {
-        printf("ERRO: diretorio de arquivos nao informado\n");
-        exit(1);
-    }
-
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", argv[1]);
-
-    // int main () { /* main de testes */
-    // char path[1001], bdPath[1001], pathSaida[1001];
-    // strcpy(pathSaida, "Casos/1");
+    strcpy(pathSaida, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;

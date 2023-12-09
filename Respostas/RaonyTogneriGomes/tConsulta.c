@@ -120,7 +120,6 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
                                     tipoMedicamento, instrucoes, qtd, nomeMedico, crmMedico, 
                                     stringDataConsulta);
 
-                consulta->receita = r;
                 insereDocumentoFila(fila, r, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
                 printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
                 printf("############################################################\n");
