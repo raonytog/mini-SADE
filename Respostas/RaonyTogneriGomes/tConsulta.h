@@ -24,6 +24,8 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila);
 
 void ImprimeErroConsulta (char * cpf);
 
+
+
 void LeReceitaConsulta (tConsulta * consulta, tFila * fila);
 
 void LeLesaoConsulta (tConsulta * consulta);
@@ -32,10 +34,15 @@ void LeBiopsiaConsulta (tConsulta * consulta, tFila * fila);
 
 void LeEncaminhamentoConsulta (tConsulta * consulta, tFila * fila);
 
+
 int RetornaQtdLesoesConsulta (tConsulta * consulta);
 
 int RetornaQtdReceitasConsulta (tConsulta * consulta);
 
 int RetornaQtdEncaminhamentosConsulta (tConsulta * consulta);
+
+int RetornaPrecisaDeCirurgiaConsulta (tConsulta * consulta);
+
+int RetornaPrecisaDeCrioterapiaConsulrta (tConsulta * consulta);
 
 #endif 

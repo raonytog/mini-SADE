@@ -128,17 +128,42 @@ int RetornaQtdOutrosRelatorioGeral (tPessoa ** pessoas, int qtdPessoas) {
 }
 
 int TamanhoMedioLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
-    
+    int cont = 0, qtd = 0;
+    for (int i = 0; i < qtdConsultas; i++) {
+        for (int j = 0; j < RetornaQtdLesoesConsulta(consultas[i]); j++) {
+            cont += RetornaQtdLesoesConsulta(consultas[i]);
+            qtd++;
+        }
+    }
+    if (qtd != 0) return cont/qtd;
+    return 0;
 }
 
 int RetornaQtdCirurgiasRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
-    
+    int cont = 0, qtd = 0;
+    for (int i = 0; i < qtdConsultas; i++) {
+        cont += RetornaPrecisaDeCirurgiaConsulta(consultas[i]);
+    }
+    if (qtd != 0) return cont/qtd;
+    return 0;
 }
 
 int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
-
+    int cont = 0, qtd = 0;
+    for (int i = 0; i < qtdConsultas; i++) {
+        cont += RetornaPrecisaDeCrioterapiaConsulrta(consultas[i]);
+    }
+    if (qtd != 0) return cont/qtd;
+    return 0;
 }
 
 int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
+    int cont = 0, qtd = 0;
+    for (int i = 0; i < qtdConsultas; i++) {
+        for (int j = 0; j < RetornaQtdLesoesConsulta(consultas[i]); j++) {
+            qtd++;
+        }
+    }
 
+    return qtd;
 }

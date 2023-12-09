@@ -269,3 +269,22 @@ int RetornaQtdEncaminhamentosConsulta (tConsulta * consulta) {
     if (!consulta) return 0;
     return consulta->qtdEncaminhamentos;
 }
+
+int RetornaPrecisaDeCirurgiaConsulta (tConsulta * consulta) {
+    int cont = 0;
+    if (!consulta) return 0;
+    for (int i = 0; i < consulta->qtdLesoes; i++) 
+        cont += NecessitaCirurgia(consulta->lesao[i]);
+
+    return cont;
+}
+
+
+int RetornaPrecisaDeCrioterapiaConsulrta (tConsulta * consulta) {
+     int cont = 0;
+    if (!consulta) return 0;
+    for (int i = 0; i < consulta->qtdLesoes; i++) 
+        cont += NecessitaCrioterapia(consulta->lesao[i]);
+
+    return cont;
+}
