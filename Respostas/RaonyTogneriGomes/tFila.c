@@ -17,7 +17,7 @@ tFila *criaFila() {
 }
 
 void desalocaFila(tFila *f) {
-    if (!f) return;
+    // if (!f) return;
     for (int i = 0; i < f->qtdDoc; i++)
         desalocaDocumento(f->documentos[i]);
 

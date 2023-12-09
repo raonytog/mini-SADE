@@ -47,7 +47,7 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
 
 void DesalocaBiopsia (void * data) {
     tBiopsia * b = (tBiopsia *) data;
-    if (!b) return;
+    // if (!b) return;
     free(b);
 }
 

@@ -55,7 +55,7 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
 }
 
 void DesalocaConsulta (tConsulta * consulta) {
-    if (!consulta) return;
+    // if (!consulta) return;
 
     // if (consulta->paciente) DesalocaPessoa(consulta->paciente);
     // if (consulta->medico) DesalocaMedico(consulta->medico);

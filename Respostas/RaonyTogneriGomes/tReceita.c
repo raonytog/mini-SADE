@@ -44,7 +44,7 @@ tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicament
 
 
 void desalocaReceita(void *dado) {
-    if (dado == NULL) return;
+    if (!dado) return;
 
     tReceita * receita = (tReceita*) dado;
     free(receita);

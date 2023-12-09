@@ -72,7 +72,7 @@ void ImprimeRelatorioGeralTela (void * data) {
 
 void ImprimeRelatorioGeralArquivo (void * data, char * path) {
     char diretorio[1001];
-    sprintf(diretorio, "%s/relatorio_geral", path);
+    sprintf(diretorio, "%s/relatorio_geral.txt", path);
 
     tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
     FILE * fRelatorio = NULL;
@@ -99,6 +99,7 @@ void ImprimeRelatorioGeralArquivo (void * data, char * path) {
 
 void DesalocaRelatorioGeral (void * data) {
     tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
+    if (!relatorio) return;
     free(relatorio);
 }
 
