@@ -45,4 +45,6 @@ int RetornaPrecisaDeCirurgiaConsulta (tConsulta * consulta);
 
 int RetornaPrecisaDeCrioterapiaConsulrta (tConsulta * consulta);
 
+int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice);
+
 #endif 

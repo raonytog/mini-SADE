@@ -81,6 +81,7 @@
     char nomePacienteBusca[100], cpf[15];
     int opcaoMenu = 0, indiceConsulta = 0, sair = 0, achouPessoa = 0;
     while (1) {
+        sair = 0;
         ImprimeMenu(cargo);
         scanf("%d%*c", &opcaoMenu);
 
@@ -218,15 +219,22 @@
 
 
             case FILA_DE_IMPRESSAO:
-                ImprimeMenuFilaImpressao();
-                scanf("%d%*c", &opcaoMenu);
-                switch (opcaoMenu) {
-                    case 1:
-                        imprimeFila(fila, pathSaida);
-                        break;
+                while (1) {
+                    ImprimeMenuFilaImpressao();
+                    scanf("%d%*c", &opcaoMenu);
+                    switch (opcaoMenu) {
+                        case 1:
+                            imprimeFila(fila, pathSaida);
 
-                    case 2:
-                        break;
+                            printf("PRESSIONE QUALQUER TECLA PARA VOLTAR AO MENU ANTERIOR\n");
+                            scanf("%*c");
+                            sair++;
+                            break;
+
+                        case 2:
+                            break;
+                    }
+                    if (sair) break;
                 }
                 break;
 
@@ -235,6 +243,7 @@
             case FINALIZAR_O_PROGRAMA:
                 for (int i = 0; i < qtdPessoas; i++)
                     DesalocaPessoa(pessoas[i]);
+                pessoas = NULL;
                 free(pessoas);
 
                 for (int i = 0; i < qtdMedicos; i++)

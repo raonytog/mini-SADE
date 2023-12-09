@@ -36,14 +36,18 @@ void ExecutaRelatorioGeral (tFila * fila, tPessoa ** pessoas, int qtdPessoas, tC
                             int qtdConsultas, char * pathSaida) {
     int opcaoMenu = 0;
     while (1) {
-        ImprimeMenuFilaImpressao();
+        ImprimeMenuRelatorio();
         scanf("%d", &opcaoMenu);
         switch (opcaoMenu) {
             case 1:
                 tRelatorioGeral * relatorio = CriaRelatorioGeral(pessoas, qtdPessoas, consultas, qtdConsultas);
                 insereDocumentoFila(fila, relatorio, ImprimeRelatorioGeralTela, 
                                     ImprimeRelatorioGeralArquivo, DesalocaRelatorioGeral);
-
+                ImprimeRelatorioGeralTela(relatorio);
+                printf("RELATORIO ENVIADO PARA FILA DE IMPRESSAO. PRESIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
+                scanf("%*c");
+                return;
+                
             case 2:
                 return;
                 break;
@@ -132,7 +136,7 @@ int TamanhoMedioLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) 
     int cont = 0, qtd = 0;
     for (int i = 0; i < qtdConsultas; i++) {
         for (int j = 0; j < RetornaQtdLesoesConsulta(consultas[i]); j++) {
-            cont += RetornaQtdLesoesConsulta(consultas[i]);
+            cont += RetornaTamanhoLesaoConsulta(consultas[i], j);
             qtd++;
         }
     }
@@ -144,6 +148,7 @@ int RetornaQtdCirurgiasRelatorioGeral (tConsulta ** consultas, int qtdConsultas)
     int cont = 0, qtd = 0;
     for (int i = 0; i < qtdConsultas; i++) {
         cont += RetornaPrecisaDeCirurgiaConsulta(consultas[i]);
+        qtd++;
     }
     if (qtd != 0) return cont/qtd;
     return 0;
@@ -153,6 +158,7 @@ int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsulta
     int cont = 0, qtd = 0;
     for (int i = 0; i < qtdConsultas; i++) {
         cont += RetornaPrecisaDeCrioterapiaConsulrta(consultas[i]);
+        qtd++;
     }
     if (qtd != 0) return cont/qtd;
     return 0;

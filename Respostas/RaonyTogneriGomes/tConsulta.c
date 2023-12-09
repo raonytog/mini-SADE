@@ -27,7 +27,7 @@ struct tConsulta {
     int qtdLesoes, qtdReceitas, qtdEncaminhamentos;
     
     int diabetico, fumante, alergico, historicoCancerigeno;
-    char tipoPele[2];
+    char tipoPele[3];
 };
 
 tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
@@ -57,9 +57,9 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
 void DesalocaConsulta (tConsulta * consulta) {
     if (!consulta) return;
 
-    DesalocaPessoa(consulta->paciente);
-    DesalocaMedico(consulta->medico);
-    DesalocaData(consulta->dataConsulta);
+    // if (consulta->paciente) DesalocaPessoa(consulta->paciente);
+    // if (consulta->medico) DesalocaMedico(consulta->medico);
+    if (consulta->dataConsulta) DesalocaData(consulta->dataConsulta);
 
     for (int i = 0; i < consulta->qtdLesoes; i++) 
         DesalocaLesao(consulta->lesao[i]);
@@ -286,4 +286,9 @@ int RetornaPrecisaDeCrioterapiaConsulrta (tConsulta * consulta) {
         cont += NecessitaCrioterapia(consulta->lesao[i]);
 
     return cont;
+}
+
+int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice) {
+    if (!consulta) return 0;
+    return ObtemTamanhoLesao(consulta->lesao[indice]);
 }
