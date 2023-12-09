@@ -59,7 +59,7 @@ void ImprimeEncaminhamentoArquivo (void * data, char * path) {
     fEncaminhamento = fopen(diretorio, "a");
 
     fprintf(fEncaminhamento, "PACIENTE: %s\n", e->nomePaciente);
-    fprintf(fEncaminhamento, "CPF: %s\n\n", e->nomeMedico);
+    fprintf(fEncaminhamento, "CPF: %s\n\n", e->CPF);
 
     fprintf(fEncaminhamento, "ESPECIALIDADE ENCAMINHADA: %s\n", e->especialidade);
     fprintf(fEncaminhamento, "MOTIVO: %s\n\n", e->motivo);

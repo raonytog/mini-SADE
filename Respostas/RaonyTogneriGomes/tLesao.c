@@ -14,7 +14,7 @@ struct tLesao {
     int necessitaCrioterapia; //true or false
 };
 
-tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao) {
+tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao, int precisaCirurgia, int precisaCrioterapia) {
     tLesao * lesao = malloc(sizeof(tLesao));
     if (!lesao) return NULL;
     
@@ -23,8 +23,8 @@ tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo,
     strcpy(lesao->regiaoDoCorpo, regiaoDoCorpo);
 
     lesao->tamanhoLesao = tamLesao;
-    lesao->necessitaCirurgia = 0;
-    lesao->necessitaCrioterapia = 0;
+    lesao->necessitaCirurgia = precisaCirurgia;
+    lesao->necessitaCrioterapia = precisaCrioterapia;
     
     return lesao;
 }

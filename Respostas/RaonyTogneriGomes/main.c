@@ -55,11 +55,6 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("Caminho do banco de dados: %s\n", bdPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
 
-    /** verificar se existe um bd 
-     * caso exista, verificar login até o user e senha serem validos
-     * caso nao, obrigar criar um secretario de nivel adm
-     * **/
-
     printf("#################### CADASTRO SECRETARIO #######################\n");
     qtdSecretarios++;
     secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
@@ -219,7 +214,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case RELATORIO_GERAL:
-                // ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, consultas, qtdConsultas, pathSaida);
+                //ExecutaRelatorioGeral(fila, pessoas, qtdPessoas, consultas, qtdConsultas, pathSaida);
                 break;
 
 

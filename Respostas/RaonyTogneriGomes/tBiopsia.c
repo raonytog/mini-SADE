@@ -16,8 +16,12 @@ struct tBiopsia {
 
 tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int qtdLesoes, 
                         char *nomeMedico, char *CRM, char *data) {
+
+    int peloMenosUma = 0;
     for (int i = 0; i < qtdLesoes; i++)
-        if (!NecessitaCirurgia(lesoes[i])) return NULL;
+        if (NecessitaCirurgia(lesoes[i])) peloMenosUma++;
+
+    if (!peloMenosUma) return NULL;
 
     tBiopsia * b = malloc(sizeof(tBiopsia));
     if (!b) return NULL;

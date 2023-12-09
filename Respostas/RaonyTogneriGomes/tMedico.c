@@ -28,6 +28,7 @@ tMedico * CriaMedico () {
 void DesalocaMedico(tMedico * medico) {
     if (!medico) return;
     DesalocaLogin(medico->login);
+    DesalocaPessoa(medico->pessoa);
     free(medico);
 }
 

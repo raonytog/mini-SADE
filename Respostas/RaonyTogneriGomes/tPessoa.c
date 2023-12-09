@@ -29,6 +29,8 @@ tPessoa * CriaPessoa() {
 void DesalocaPessoa(void * dado) {
     tPessoa * pessoa = (tPessoa *) dado;
     if (!pessoa) return;
+
+    DesalocaData(pessoa->data);
     free(pessoa);
 }
 

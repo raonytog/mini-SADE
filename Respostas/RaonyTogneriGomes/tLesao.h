@@ -5,7 +5,7 @@
 
 typedef struct tLesao tLesao;
 
-tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao);
+tLesao * CriaLesao (int rotulo, char * diagnosticoClinico, char * regiaoDoCorpo, int tamLesao, int precisaCirurgia, int precisaCrioterapia);
 
 void ImprimeLesaoTela (tLesao * lesao);
 

@@ -27,6 +27,7 @@ tSecretario * CriaSecretario () {
 void DesalocaSecretario(tSecretario * secretario) {
     if (!secretario) return;
     DesalocaLogin(secretario->login);
+    DesalocaPessoa(secretario->pessoa);
     free(secretario);
 }
 
