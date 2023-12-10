@@ -262,8 +262,6 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     DesalocaSecretario(secretarios[i]);
                 }
                 free(secretarios);
-
-                DesalocaLista(listaBusca);
                 
                 desalocaFila(fila);
                 exit(1);
