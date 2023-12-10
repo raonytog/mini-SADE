@@ -57,15 +57,25 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
 void DesalocaConsulta (tConsulta * consulta) {
     if (!consulta) return;
 
+    tReceita ** receita;
+    tBiopsia * biopsia;
+    tEncaminhamento ** encaminhamento;
+
     // if (consulta->paciente) DesalocaPessoa(consulta->paciente);
     // if (consulta->medico) DesalocaMedico(consulta->medico);
-    if (consulta->dataConsulta != NULL) {
-        DesalocaData(consulta->dataConsulta);
-    }
+    if (consulta->dataConsulta != NULL) DesalocaData(consulta->dataConsulta);
 
     for (int i = 0; i < consulta->qtdLesoes; i++) 
         DesalocaLesao(consulta->lesao[i]);
     free(consulta->lesao);
+
+    for (int i = 0; i < consulta->qtdReceitas; i++) 
+        desalocaReceita(consulta->receita[i]);
+    free(consulta->receita);
+
+    for (int i = 0; i < consulta->qtdEncaminhamentos; i++) 
+        DesalocaEncaminhamento(consulta->encaminhamento[i]);
+    free(consulta->encaminhamento);
 
     free(consulta);
 }

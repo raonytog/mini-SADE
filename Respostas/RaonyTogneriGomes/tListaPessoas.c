@@ -39,12 +39,11 @@ void AdiconaPessoaLista (tListaPessoas * lista, tPessoa * pessoa) {
 
 void DesalocaLista (void * data) {
     tListaPessoas * lista = (tListaPessoas *) data;
-    // if (!lista) return;
+    if (!lista) return;
 
     // for (int i = 0; i < lista->qtdPessoas; i++)
-    //     DesalocaPessoa(lista->pessoas[i]);
+    //      DesalocaPessoa(lista->pessoas[i]);
 
-    if (lista && lista->pessoas) free(lista->pessoas);
     
     free(lista);
 }
