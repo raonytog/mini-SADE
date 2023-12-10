@@ -42,7 +42,7 @@ tData * CriaDataNULL () {
     data->mes = 0;
     data->dia = 0;
     data->dataString[0] = '\0';
-    
+    return data;
 }
 
 void DesalocaData (tData * data) {

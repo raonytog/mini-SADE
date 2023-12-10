@@ -167,11 +167,11 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
                         if (cargo != MEDICO) { // se for secretario
                             consultas[qtdConsultas-1] = CriaConsulta(pessoas[indiceConsulta], medicoNULL);
-                            ExecutaConsulta(consultas[qtdConsultas-1], fila);
+                            ExecutaConsulta(consultas[qtdConsultas-1], fila, 0);
 
                         } else { // se for medico mesmo
                             consultas[qtdConsultas-1] = CriaConsulta(pessoas[indiceConsulta], medicos[indiceMedicoLogado]);
-                            ExecutaConsulta(consultas[qtdConsultas-1], fila);
+                            ExecutaConsulta(consultas[qtdConsultas-1], fila, 1);
                         }
 
                         sair++;

@@ -31,7 +31,8 @@ tMedico * CriaMedicoNULL () {
 
     medico->pessoa = CriaPessoaNULL();
     medico->CRM[0] = '\0';
-    medico->login = NULL;
+    medico->login = CriaLoginNULL();;
+    return medico;
 }
 
 void DesalocaMedico(tMedico * medico) {

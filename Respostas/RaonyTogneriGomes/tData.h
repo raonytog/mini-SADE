@@ -1,6 +1,8 @@
 #ifndef _TDATA_H_
 #define _TDATA_H_
 
+#include <stdio.h>
+
 typedef struct tData tData;
 
 tData * LeData ();

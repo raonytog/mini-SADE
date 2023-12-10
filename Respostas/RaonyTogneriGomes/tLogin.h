@@ -5,6 +5,7 @@ typedef struct tMedico tMedico;
 typedef struct tSecretario tSecretario;
 
 #include <stdbool.h>
+#include <stdio.h>
 #include "tPessoa.h"
 #include "tMedico.h"
 #include "tSecretario.h"

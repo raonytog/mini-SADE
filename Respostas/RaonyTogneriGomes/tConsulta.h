@@ -20,10 +20,9 @@ tConsulta * CriaConsulta ();
 
 void DesalocaConsulta (tConsulta * consulta);
 
-void ExecutaConsulta (tConsulta * consulta, tFila * fila);
+void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico);
 
 void ImprimeErroConsulta (char * cpf);
-
 
 
 void LeReceitaConsulta (tConsulta * consulta, tFila * fila);

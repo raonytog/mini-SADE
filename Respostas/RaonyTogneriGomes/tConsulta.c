@@ -67,12 +67,15 @@ void DesalocaConsulta (tConsulta * consulta) {
     consulta = NULL;
 }
 
-void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
+void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
     char tipo[7], 
          nomeMedicamento[21], 
          tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO], 
          instrucoes[MAX_TAM_INSTRUCOES], motivo[300], 
-         especialidade[50];
+         especialidade[50],
+         vazio[10];
+
+    vazio[0] = '\0';
 
     char nomePaciente[100], cpfPaciente[15], nomeMedico[100], crmMedico[12], stringDataConsulta[10];
     strcpy(nomePaciente, ObtemNomePessoa(consulta->paciente));
@@ -115,9 +118,16 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila) {
                 else if (strcmp(tipo, "TOPICO") == 0)
                     tipoUso = TOPICO;
 
-                tReceita * r = criaReceita(nomePaciente, tipoUso, nomeMedicamento, 
+                tReceita * r;
+                if (EhMedico) {
+                    r = criaReceita(nomePaciente, tipoUso, nomeMedicamento, 
                                     tipoMedicamento, instrucoes, qtd, nomeMedico, crmMedico, 
                                     stringDataConsulta);
+                } else {
+                r = criaReceita(nomePaciente, tipoUso, nomeMedicamento, 
+                                tipoMedicamento, instrucoes, qtd, "\0", "\0", 
+                                stringDataConsulta);
+                }
 
                 insereDocumentoFila(fila, r, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
                 printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
@@ -170,36 +180,6 @@ void ImprimeErroConsulta (char * cpf) {
     printf("############################################################\n");
 }
 
-void LeReceitaConsulta (tConsulta * consulta, tFila * fila) {
-    eTipoUso tipo;
-    int qtdMedicamento = 0;
-    char tipoUso[6], nomeMedicamento[MAX_TAM_NOME_MEDICAMENTO];
-    char tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO], instrucoes[300];
-    printf("#################### CONSULTA MEDICA #######################\n");
-    printf("RECEITA MEDICA:\n");
-    printf("TIPO DE USO: ");                    scanf("%[^\n]%*c", tipoUso);
-    printf("NOME DO MEDICAMENTO: ");            scanf("%[^\n]%*c", nomeMedicamento);
-    printf("TIPO DO MEDICAMENTO: ");            scanf("%[^\n]%*c", tipoMedicamento);
-    printf("QUANTIDADE: ");                     scanf("%d", &qtdMedicamento);
-    printf("INSTRUCOES DE USO: ");              scanf("%[\n]%*c", instrucoes);
-    printf("RECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-    printf("############################################################\n");
-    scanf("%*c");
-
-    if (strcmp(tipoUso, "ORAL") == 0)
-        tipo = ORAL;
-    
-    else if (strcmp(tipoUso, "TOPICO") == 0)
-        tipo = TOPICO;
-
-    tReceita * receita = criaReceita( ObtemNomePessoa(consulta->paciente), tipo, nomeMedicamento, tipoMedicamento, 
-                                       instrucoes, qtdMedicamento, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
-                                       ObtemDataString(consulta->dataConsulta) );
-
-    tDocumento * doc = criaDocumento(receita, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
-    insereDocumentoFila(fila, doc, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
-}
-
 void LeLesaoConsulta (tConsulta * consulta) {
     char diagonostico[20], regiao[20];
     int tamanho, cirurgia, crioterapia;
@@ -217,42 +197,6 @@ void LeLesaoConsulta (tConsulta * consulta) {
     (consulta->qtdLesoes)++;
     consulta->lesao = realloc(consulta->lesao, consulta->qtdLesoes * sizeof(tLesao *));
     consulta->lesao[consulta->qtdLesoes-1] = CriaLesao(consulta->qtdLesoes, diagonostico, regiao, tamanho, cirurgia, crioterapia);
-}
-
-void LeBiopsiaConsulta (tConsulta * consulta, tFila * fila) {
-    int precisa = 0;
-    for (int i = 0; i < consulta->qtdLesoes; i++) 
-        if (NecessitaCirurgia(consulta->lesao[i])) precisa++;
-    
-    if (!precisa) return;
-
-    printf("#################### CONSULTA MEDICA #######################\n");
-    printf("SOLICITACAO DE BIOPSIA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
-    printf("#################### CONSULTA MEDICA #######################\n");
-    scanf("%*c");
-
-    tBiopsia * biopsia = CriaBiopsia(ObtemNomePessoa(consulta->paciente), ObtemCPFPessoa(consulta->paciente),
-                                     consulta->lesao, consulta->qtdLesoes, ObtemNomeMedico(consulta->medico), 
-                                     ObtemCRM(consulta->medico), ObtemDataString(consulta->dataConsulta));
-    tDocumento * doc = criaDocumento(biopsia, ImprimeBiopsiaTela, ImprimeBiopsiaArquivo, DesalocaBiopsia);
-    insereDocumentoFila(fila, doc, ImprimeBiopsiaTela, ImprimeBiopsiaArquivo, DesalocaBiopsia);
-}
-
-void LeEncaminhamentoConsulta (tConsulta * consulta, tFila * fila) {
-    char especialidade[50], motivo[300];
-    printf("#################### CONSULTA MEDICA #######################\n");
-    printf("ENCAMINHAMENTO:\n"); 
-    printf("ESPECIALIDADE ENCAMINHADA: ");          scanf("%[^\n]%*c", especialidade);
-    printf("MOTIVO: ");                             scanf("%[^\n]%*c", motivo);
-    printf("ENCAMINHAMENTO ENVIADO PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR");
-    printf("############################################################\n");
-    scanf("%*c");
-
-    tEncaminhamento * encaminhamento = CriaEncaminhamento(ObtemNomePessoa(consulta->paciente), ObtemCPFPessoa(consulta->paciente), 
-                                                               especialidade, motivo, ObtemNomeMedico(consulta->medico), ObtemCRM(consulta->medico), 
-                                                               ObtemDataString(consulta->dataConsulta));
-    tDocumento * doc = criaDocumento(encaminhamento, ImprimeEncaminhamentoTela, ImprimeEncaminhamentoArquivo, DesalocaEncaminhamento);
-    insereDocumentoFila(fila, encaminhamento, ImprimeEncaminhamentoTela, ImprimeEncaminhamentoArquivo, DesalocaEncaminhamento);
 }
 
 int RetornaQtdLesoesConsulta (tConsulta * consulta) {
