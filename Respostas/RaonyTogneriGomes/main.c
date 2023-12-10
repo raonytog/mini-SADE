@@ -24,19 +24,19 @@
 #include "tConsulta.h"
 #include "tMenu.h"
 
-// int main (int agrc, char * argv[]) { /* main ofc */
-//     char path[1001], bdPath[1001], pathSaida[1001], pathBancoDados[1001];
-//     if (agrc <= 1) {
-//         printf("ERRO: diretorio de arquivos nao informado\n");
-//         exit(1);
-//     }
+int main (int agrc, char * argv[]) { /* main ofc */
+    char path[1001], bdPath[1001], pathSaida[1001], pathBancoDados[1001];
+    if (agrc <= 1) {
+        printf("ERRO: diretorio de arquivos nao informado\n");
+        exit(1);
+    }
 
-//     sprintf(path, "%s", argv[1]);
-//     sprintf(pathSaida, "%s/saida", argv[1]);
+    sprintf(path, "%s", argv[1]);
+    sprintf(pathSaida, "%s/saida", argv[1]);
 
-    int main () { /* main de testes */
-    char path[1001], bdPath[1001], pathSaida[1001];
-    strcpy(pathSaida, "Casos/1");
+    // int main () { /* main de testes */
+    // char path[1001], bdPath[1001], pathSaida[1001];
+    // strcpy(pathSaida, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
@@ -52,6 +52,7 @@
     printf("################################################\n");
     printf("Caminho do banco de dados: %s\n", bdPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
+    sprintf(pathBancoDados, "%s/%s", path, bdPath);
 
     printf("#################### CADASTRO SECRETARIO #######################\n");
     qtdSecretarios++;
@@ -243,10 +244,10 @@
 
 
             case FINALIZAR_O_PROGRAMA:
-                SalvaPessoaBinario(pessoas, qtdPessoas, bdPath);
-                SalvaMedicoBinario(medicos, qtdMedicos, bdPath);
-                SalvaSecretarioBinario(secretarios, qtdSecretarios, bdPath);
-                SalvaConsultaBinario(consultas, qtdConsultas, bdPath);
+                SalvaPessoaBinario(pessoas, qtdPessoas, pathBancoDados);
+                SalvaMedicoBinario(medicos, qtdMedicos, pathBancoDados);
+                SalvaSecretarioBinario(secretarios, qtdSecretarios, pathBancoDados);
+                SalvaConsultaBinario(consultas, qtdConsultas, pathBancoDados);
                 
                 for (int i = 0; i < qtdPessoas; i++) {
                     DesalocaPessoa(pessoas[i]);

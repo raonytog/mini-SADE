@@ -13,14 +13,14 @@ CRIANDO O DIRETÓRIO DE RESULTADO PARA RaonyTogneriGomes:
  - Arquivos criados: ok!
 
 CHECKANDO OS ARQUIVOS DO ALUNO:
- - Arquivo esperado 'Respostas/RaonyTogneriGomes/tFila.c' não encontrado!
+ - Arquivo esperado 'Respostas/RaonyTogneriGomes/tFila.c' encontrado!
  - Arquivo esperado 'Respostas/RaonyTogneriGomes/tFila.h' encontrado!
- - Arquivo esperado 'Respostas/RaonyTogneriGomes/tDocumento.c' não encontrado!
+ - Arquivo esperado 'Respostas/RaonyTogneriGomes/tDocumento.c' encontrado!
  - Arquivo esperado 'Respostas/RaonyTogneriGomes/tDocumento.h' encontrado!
- - Arquivo esperado 'Respostas/RaonyTogneriGomes/tReceita.c' não encontrado!
+ - Arquivo esperado 'Respostas/RaonyTogneriGomes/tReceita.c' encontrado!
  - Arquivo esperado 'Respostas/RaonyTogneriGomes/tReceita.h' encontrado!
  - Arquivo esperado 'Respostas/RaonyTogneriGomes/main.c' encontrado!
- - Arquivos esperados enviados: Faltando!
+ - Arquivos esperados enviados: Ok!
 
 COPIANDO OS ARQUIVOS PARA A PASTA DE RESULTADO DO ALUNO:
  - Pasta tFila:
@@ -50,10 +50,6 @@ COPIANDO OS ARQUIVOS PARA A PASTA DE RESULTADO DO ALUNO:
  - Arquivos copiados: ok!
 
 COMPILANDO OS ARQUIVOS NA PASTA DE RESULTADO DO ALUNO:
- - Erro de compilação! Verifique os arquivos da pasta tFila.
- - Erro de compilação! Verifique os arquivos da pasta tDocumento.
- - Erro de compilação! Verifique os arquivos da pasta tReceita.
- - Arquivos Compilados: Erro!: 3 arquivos com erros de compilacao.
  - Copiando os arquivos objetos do professor para cada subpasta do Resultado do RaonyTogneriGomes:
  - Copiando o Gabarito-obj/tFila.o para a pasta Resultados/RaonyTogneriGomes/tDocumento
  - Copiando o Gabarito-obj/tFila.o para a pasta Resultados/RaonyTogneriGomes/tReceita
@@ -72,178 +68,196 @@ COMPILANDO OS ARQUIVOS NA PASTA DE RESULTADO DO ALUNO:
 LINKANDO OS ARQUIVOS COMPILADOS:
  - Pasta tFila:
  - Gerando o binário prog linkando com o(s) arquivo(s) tFila/*.o
- - Arquivos Linkados: Erro! Binário prog não gerado.
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/result_linking.txt
  - Pasta tDocumento:
  - Gerando o binário prog linkando com o(s) arquivo(s) tDocumento/*.o
- - Arquivos Linkados: Erro! Binário prog não gerado.
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/result_linking.txt
  - Pasta tReceita:
  - Gerando o binário prog linkando com o(s) arquivo(s) tReceita/*.o
- - Arquivos Linkados: Erro! Binário prog não gerado.
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/result_linking.txt
  - Pasta completo:
  - Gerando o binário prog linkando com o(s) arquivo(s) completo/*.o
- - Arquivos Linkados: Erro! Binário prog não gerado.
+ - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/result_linking.txt
  - Pasta main:
  - Gerando o binário prog linkando com o(s) arquivo(s) main/*.o
  - Arquivos Linkados: Ok! Binário prog gerado com sucesso.
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/result_linking.txt
- - Arquivos Linkados: Erro! 4 arquivos com erros de linkagem.
 
 EXECUTANDO O VALGRIND EM CADA CASO:
  - Pasta tFila / Caso 1:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/1/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/1/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/1/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/1/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/1/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/1/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 72, frees: 72, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tFila / Caso 2:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/2/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/2/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/2/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/2/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/2/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/2/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 116, frees: 116, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tFila / Caso 3:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/3/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/3/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/3/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/3/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/3/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/3/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 141, frees: 141, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tFila / Caso 4:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/4/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/4/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/4/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/4/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/4/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/4/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 154, frees: 154, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tFila / Caso 5:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/5/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/5/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/5/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/5/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/5/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/5/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 147, frees: 147, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tFila / Caso 6:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/6/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/6/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/6/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/6/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tFila/Casos/6/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tFila/Casos/6/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 170, frees: 170, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 1:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/1/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/1/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/1/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/1/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/1/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/1/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 72, frees: 72, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 2:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/2/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/2/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/2/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/2/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/2/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/2/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 116, frees: 116, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 3:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/3/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/3/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/3/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/3/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/3/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/3/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 141, frees: 141, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 4:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/4/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/4/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/4/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/4/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/4/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/4/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 154, frees: 154, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 5:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/5/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/5/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/5/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/5/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/5/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/5/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 147, frees: 147, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tDocumento / Caso 6:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/6/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/6/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/6/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/6/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tDocumento/Casos/6/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tDocumento/Casos/6/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 170, frees: 170, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 1:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/1/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/1/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/1/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/1/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/1/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/1/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 71, frees: 71, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 2:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/2/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/2/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/2/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/2/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/2/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/2/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 115, frees: 115, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 3:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/3/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/3/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/3/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/3/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/3/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/3/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 139, frees: 139, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 4:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/4/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/4/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/4/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/4/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/4/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/4/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 152, frees: 152, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 5:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/5/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/5/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/5/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/5/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/5/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/5/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 146, frees: 146, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta tReceita / Caso 6:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/6/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/6/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/6/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/6/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/tReceita/Casos/6/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/tReceita/Casos/6/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 169, frees: 169, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 1:
- - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/1/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/1/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/1/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/1/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/1/saida/relatorio_geral.txt, considerando resultado incorreto!
+ - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/1/result_valgrind.txt.
+ - Valgrind: Ok! allocs: 65, frees: 65, errors: 0 | Desconto do valgrind: 0.0%
+ - Resultado para o biopsia.txt: Ok! Peso: 1.0
+ - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Resultado para o lista_busca.txt: Ok! Peso: 3.0
+ - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 2:
  - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
@@ -252,7 +266,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/2/saida/lista_busca.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/2/saida/receita.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/2/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/2/saida/saida.txt, considerando resultado incorreto!
  - Pasta completo / Caso 3:
  - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/3/saida/biopsia.txt, considerando resultado incorreto!
@@ -260,7 +274,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/3/saida/lista_busca.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/3/saida/receita.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/3/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/3/saida/saida.txt, considerando resultado incorreto!
  - Pasta completo / Caso 4:
  - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/4/saida/biopsia.txt, considerando resultado incorreto!
@@ -268,7 +282,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/4/saida/lista_busca.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/4/saida/receita.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/4/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/4/saida/saida.txt, considerando resultado incorreto!
  - Pasta completo / Caso 5:
  - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/5/saida/biopsia.txt, considerando resultado incorreto!
@@ -276,7 +290,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/5/saida/lista_busca.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/5/saida/receita.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/5/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/5/saida/saida.txt, considerando resultado incorreto!
  - Pasta completo / Caso 6:
  - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/6/saida/biopsia.txt, considerando resultado incorreto!
@@ -284,61 +298,9 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/6/saida/lista_busca.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/6/saida/receita.txt, considerando resultado incorreto!
  - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/6/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 1:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/1/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 56, frees: 56, errors: 14 | Desconto do valgrind 40.00%
- - Resultado para o biopsia.txt: Ok! Peso: 1.0
- - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
- - Resultado para o lista_busca.txt: Ok! Peso: 3.0
- - Resultado para o receita.txt: Ok! Peso: 1.0
- - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 2:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/2/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 12, frees: 0, errors: 4005794 | Desconto do valgrind 40.00%
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/2/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/2/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/2/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/2/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/2/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 3:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/3/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 12, frees: 0, errors: 4138944 | Desconto do valgrind 40.00%
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/3/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/3/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/3/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/3/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/3/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 4:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/4/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 12, frees: 0, errors: 0 | Desconto do valgrind 40.00%
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/4/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/4/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/4/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/4/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/4/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 5:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/5/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 12, frees: 0, errors: 5141852 | Desconto do valgrind 40.00%
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/5/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/5/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/5/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/5/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/5/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
- - Pasta main / Caso 6:
- - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/6/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 12, frees: 0, errors: 5358542 | Desconto do valgrind 40.00%
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/6/saida/biopsia.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/6/saida/encaminhamento.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/6/saida/lista_busca.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/6/saida/receita.txt, considerando resultado incorreto!
- - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/main/Casos/6/saida/relatorio_geral.txt, considerando resultado incorreto!
- - Resultado para o saida.txt: Incorreto!
+ - O aluno não gerou o arquivo de saída Resultados/RaonyTogneriGomes/completo/Casos/6/saida/saida.txt, considerando resultado incorreto!
+ - Pasta main / Caso *:
+ - Valgrind: Incorreto! Verifique se o binário prog foi gerado corretamente. Ou se o Valgrind está instalado.
 
 #######################################
 RESULTADOS FINAIS
@@ -347,20 +309,20 @@ RESULTADOS FINAIS
 ----------------------------------------------------------------------------
 Nome 0: RaonyTogneriGomes
  - Resumo dos Resultados:
- - Resumo das Compilações: 2 compilações corretas de 5 no total
- - Resumo das Linkagens: 1 linkagens corretas de 5 no total
- - Valgrinds Corretos tFila: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta tFila, olhar detalhamento nos prints acima!)
- - Valgrinds Corretos tDocumento: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta tDocumento, olhar detalhamento nos prints acima!)
- - Valgrinds Corretos tReceita: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta tReceita, olhar detalhamento nos prints acima!)
- - Valgrinds Corretos completo: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta completo, olhar detalhamento nos prints acima!)
+ - Resumo das Compilações: 5 compilações corretas de 5 no total
+ - Resumo das Linkagens: 5 linkagens corretas de 5 no total
+ - Valgrinds Corretos tFila: 6 valgrinds corretos de 6 (não teve desconto na nota)
+ - Valgrinds Corretos tDocumento: 6 valgrinds corretos de 6 (não teve desconto na nota)
+ - Valgrinds Corretos tReceita: 6 valgrinds corretos de 6 (não teve desconto na nota)
+ - Valgrinds Corretos completo: 1 valgrinds corretos de 6 (teve desconto na nota para a pasta completo, olhar detalhamento nos prints acima!)
  - Valgrinds Corretos main: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta main, olhar detalhamento nos prints acima!)
  - Cômputo final das Notas:
- - Pasta tFila (peso 1.0): 0 resultados corretos de 36 / Nota 0
- - Pasta tDocumento (peso 1.0): 0 resultados corretos de 36 / Nota 0
- - Pasta tReceita (peso 0.5): 0 resultados corretos de 36 / Nota 0
- - Pasta completo (peso 0.0): 0 resultados corretos de 36 / Nota 0
- - Pasta main (peso 7.5): 5 resultados corretos de 36 / Nota .75
- - Nota Final RaonyTogneriGomes: .75
+ - Pasta tFila (peso 1.0): 30 resultados corretos de 36 / Nota 1.00
+ - Pasta tDocumento (peso 1.0): 30 resultados corretos de 36 / Nota 1.00
+ - Pasta tReceita (peso 0.5): 30 resultados corretos de 36 / Nota .50
+ - Pasta completo (peso 0.0): 5 resultados corretos de 36 / Nota 0
+ - Pasta main (peso 7.5): 0 resultados corretos de 36 / Nota 0
+ - Nota Final RaonyTogneriGomes: 2.50
 
 ----------------------------------------------------------------------------
 
