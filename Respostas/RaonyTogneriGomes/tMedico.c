@@ -28,8 +28,11 @@ tMedico * CriaMedico () {
 void DesalocaMedico(tMedico * medico) {
     if (!medico) return;
     DesalocaLogin(medico->login);
+    medico->login = NULL;
     DesalocaPessoa(medico->pessoa);
+    medico->pessoa = NULL;
     free(medico);
+    medico = NULL;
 }
 
 bool ExisteMedicoCpf(tMedico ** medicos, int qtdMedicos, tMedico * medicoEmAnalise) {

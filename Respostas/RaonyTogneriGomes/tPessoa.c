@@ -31,7 +31,10 @@ void DesalocaPessoa(void * dado) {
     if (!pessoa) return;
 
     DesalocaData(pessoa->data);
+    pessoa->data = NULL;
+
     free(pessoa);
+    pessoa = NULL;
 }
 
 bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnalise) {

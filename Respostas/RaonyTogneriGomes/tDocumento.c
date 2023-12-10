@@ -28,9 +28,12 @@ tDocumento *criaDocumento(void *dado,
 }
 
 void desalocaDocumento(tDocumento *doc) {
-    // if (!doc) return;
+    if (!doc) return;
     doc->desaloca(doc->dado);
+    doc->dado = NULL;
+
     free(doc);
+    doc = NULL;
 }
 
 void imprimeNaTelaDocumento(tDocumento *doc) {

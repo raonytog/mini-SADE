@@ -27,8 +27,11 @@ tSecretario * CriaSecretario () {
 void DesalocaSecretario(tSecretario * secretario) {
     if (!secretario) return;
     DesalocaLogin(secretario->login);
+    secretario->login = NULL;
     DesalocaPessoa(secretario->pessoa);
+    secretario->pessoa = NULL;
     free(secretario);
+    secretario = NULL;
 }
 
 bool ExisteSecretarioCpf(tSecretario ** secretarios, int qtdSecretarios, tSecretario * secretarioEmAnalise) {

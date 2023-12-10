@@ -18,11 +18,15 @@ tFila *criaFila() {
 
 void desalocaFila(tFila *f) {
     if (!f) return;
-    for (int i = 0; i < f->qtdDoc; i++)
+    for (int i = 0; i < f->qtdDoc; i++) {
         desalocaDocumento(f->documentos[i]);
-
+        f->documentos[i] = NULL;
+    }
     free(f->documentos);
+    f->documentos = NULL;
+    
     free(f);
+    f = NULL;
 }
 
 void insereDocumentoFila(tFila *f, void *dado, func_ptr_imprimeNaTela imprimeNaTela,

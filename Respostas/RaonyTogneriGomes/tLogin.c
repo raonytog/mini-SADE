@@ -23,7 +23,9 @@ tLogin * CriaLogin () {
 }
 
 void DesalocaLogin (tLogin * login) {
+    if (!login) return;
     free(login);
+    login = NULL;
 }
 
 CARGO_LOGADO VerificaAutenticacao (tMedico ** medicos, int qtdMedicos, 

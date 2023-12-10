@@ -20,7 +20,6 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     int peloMenosUma = 0;
     for (int i = 0; i < qtdLesoes; i++)
         if (NecessitaCirurgia(lesoes[i])) peloMenosUma++;
-
     if (!peloMenosUma) return NULL;
 
     tBiopsia * b = calloc(1, sizeof(tBiopsia));
@@ -28,9 +27,10 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
 
     strcpy(b->nomePaciente, nomePaciente);
     strcpy(b->cpf, CPF);
+    strcpy(b->data, data);
     b->qtdLesoes = qtdLesoes;
 
-    b->lesoes = calloc(1, qtdLesoes * sizeof(tLesao *));
+    b->lesoes = calloc(qtdLesoes, sizeof(tLesao *));
     for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
 
@@ -40,15 +40,23 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     if (CRM != NULL) strcpy(b->CRM, CRM);
     else b->CRM[0] = '\0';
     
-    strcpy(b->data, data);
 
     return b;
 }
 
 void DesalocaBiopsia (void * data) {
     tBiopsia * b = (tBiopsia *) data;
-    // if (!b) return;
+    if (!b) return;
+
+    // for (int i = 0; i < b->qtdLesoes; i++) {
+    //     DesalocaLesao(b->lesoes[i]);
+    //     b->lesoes[i] = NULL;
+    // }
+    // free(b->lesoes);
+    // b->lesoes = NULL;
+    
     free(b);
+    b = NULL;
 }
 
 void ImprimeBiopsiaTela (void * data) {

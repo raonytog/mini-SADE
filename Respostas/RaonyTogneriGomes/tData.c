@@ -35,8 +35,9 @@ tData * LeDataConsulta () {
 }
 
 void DesalocaData (tData * data) {
-    // if (!data) return;
+    if (!data) return;
     free(data);
+    data = NULL;
 }
 
 char * ObtemDataString (tData * data) {

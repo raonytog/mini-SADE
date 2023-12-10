@@ -101,6 +101,7 @@ void DesalocaRelatorioGeral (void * data) {
     tRelatorioGeral * relatorio = (tRelatorioGeral *) data;
     if (!relatorio) return;
     free(relatorio);
+    relatorio = NULL;
 }
 
 int CalculaMediaIdadeRelatorioGeral (tPessoa ** pessoas, int qtdPessoas) {

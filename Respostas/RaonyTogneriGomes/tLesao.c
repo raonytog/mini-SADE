@@ -43,6 +43,7 @@ void ImprimeLesaoArquivo (tLesao * lesao, FILE * arquivo) {
 void DesalocaLesao (tLesao * lesao) {
     if (!lesao) return;
     free(lesao);
+    lesao = NULL;
 }
 
 int ObtemRotulo (tLesao * lesao) {

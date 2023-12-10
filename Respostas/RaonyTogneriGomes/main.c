@@ -242,28 +242,36 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case FINALIZAR_O_PROGRAMA:
-                for (int i = 0; i < qtdConsultas; i++) {
-                    DesalocaConsulta(consultas[i]);
-                }
-                free(consultas);
 
                 for (int i = 0; i < qtdPessoas; i++) {
                     DesalocaPessoa(pessoas[i]);
+                    pessoas[i] = NULL;
                 }
                 free(pessoas);
 
                 for (int i = 0; i < qtdMedicos; i++) {
                     DesalocaMedico(medicos[i]);
+                    medicos[i] = NULL;
                 }
-                DesalocaMedico(medicoNULL);
                 free(medicos);
+                medicos = NULL;
 
                 for (int i = 0; i < qtdSecretarios; i++) {
                     DesalocaSecretario(secretarios[i]);
+                    secretarios[i] = NULL;
                 }
                 free(secretarios);
-                
+                secretarios = NULL;
+
+                for (int i = 0; i < qtdConsultas; i++) {
+                    DesalocaConsulta(consultas[i]);
+                    consultas[i] = NULL;
+                }
+                free(consultas);
+                consultas = NULL;
+
                 desalocaFila(fila);
+                
                 exit(1);
                 break;
         }

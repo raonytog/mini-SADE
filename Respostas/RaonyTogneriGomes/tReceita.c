@@ -48,6 +48,7 @@ void desalocaReceita(void *dado) {
 
     tReceita * receita = (tReceita*) dado;
     free(receita);
+    receita = NULL;
 }
 
 void imprimeNaTelaReceita(void *dado) {

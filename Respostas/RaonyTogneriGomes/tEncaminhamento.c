@@ -34,8 +34,9 @@ tEncaminhamento * CriaEncaminhamento (char * nomePaciente, char * CPF, char * es
 
 void DesalocaEncaminhamento (void * data) {
     tEncaminhamento * encaminhamento = (tEncaminhamento *) data;
-    // if (!encaminhamento) return;
+    if (!encaminhamento) return;
     free(encaminhamento);
+    encaminhamento = NULL;
 }
 
 void ImprimeEncaminhamentoTela (void * data) {
