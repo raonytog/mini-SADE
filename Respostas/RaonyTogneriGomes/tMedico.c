@@ -31,7 +31,7 @@ tMedico * CriaMedicoNULL () {
 
     medico->pessoa = CriaPessoaNULL();
     medico->CRM[0] = '\0';
-    medico->login = CriaLoginNULL();;
+    medico->login = CriaLoginNULL();
     return medico;
 }
 

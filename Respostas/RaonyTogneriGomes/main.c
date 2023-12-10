@@ -53,6 +53,8 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("Caminho do banco de dados: %s\n", bdPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
 
+    
+
     printf("#################### CADASTRO SECRETARIO #######################\n");
     qtdSecretarios++;
     secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
