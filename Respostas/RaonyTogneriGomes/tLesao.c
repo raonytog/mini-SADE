@@ -94,7 +94,7 @@ tLesao * RecuperaLesao (FILE * arquivo) {
 
 void SalvaLesaoBinario (tLesao ** lesoes, int qtdLesoes, char * path) {
     char dir[1001];
-    sprintf(dir, "%/lesoes.bin", path);
+    sprintf(dir, "%s/lesoes.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para salvar\n");

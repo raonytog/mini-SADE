@@ -229,7 +229,7 @@ int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice) {
 
 void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path) {
     char dir[1001];
-    sprintf(dir, "%/consultas.bin", path);
+    sprintf(dir, "%s/consultas.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para salvar\n");
@@ -238,7 +238,7 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
     
     fwrite(&qtdConsultas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdConsultas; i++) {
-        SalvaLesaoBinario(consultas[i]->lesao, consultas[i]->qtdLesoes, arquivo);
+        SalvaLesaoBinario(consultas[i]->lesao, consultas[i]->qtdLesoes, path);
     }
 
     fclose(arquivo);

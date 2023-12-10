@@ -90,7 +90,7 @@ tSecretario * RecuperaSecretario (FILE * arquivo) {
 
 void SalvaSecretarioBinario (tSecretario ** secretarios, int qtdSecretarios, char * path) {
     char dir[1001];
-    sprintf(dir, "%/secretarios.bin", path);
+    sprintf(dir, "%s/secretarios.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para salvar\n");
@@ -98,8 +98,10 @@ void SalvaSecretarioBinario (tSecretario ** secretarios, int qtdSecretarios, cha
     }
 
     fwrite(&qtdSecretarios, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtdSecretarios; i++)
-        SalvaPessoa(secretarios[i], arquivo);
+    for (int i = 0; i < qtdSecretarios; i++) {
+        SalvaPessoa(secretarios[i]->pessoa, arquivo);
+        SalvaLogin(secretarios[i]->login, arquivo);
+    }
 
     fclose(arquivo);
 }

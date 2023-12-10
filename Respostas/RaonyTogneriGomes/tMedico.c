@@ -100,7 +100,7 @@ tMedico * RecuperaMedico (FILE * arquivo) {
 
 void SalvaMedicoBinario (tMedico ** medicos, int qtdMedicos, char * path) {
     char dir[1001];
-    sprintf(dir, "%/medicos.bin", path);
+    sprintf(dir, "%s/medicos.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para salvar\n");
@@ -108,8 +108,10 @@ void SalvaMedicoBinario (tMedico ** medicos, int qtdMedicos, char * path) {
     }
 
     fwrite(&qtdMedicos, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtdMedicos; i++)
-        SalvaPessoa(medicos[i], arquivo);
+    for (int i = 0; i < qtdMedicos; i++) {
+        SalvaPessoa(medicos[i]->pessoa, arquivo);
+        SalvaLogin(medicos[i]->login, arquivo);
+    }
 
     fclose(arquivo);
 }

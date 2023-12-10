@@ -14,7 +14,7 @@ struct tPessoa {
     char genero[10];
 };
 
-tPessoa * CriaPessoa() {
+tPessoa * CriaPessoa () {
     tPessoa * pessoa = calloc(1, sizeof(tPessoa));
     if (!pessoa) return NULL;
 
@@ -107,7 +107,7 @@ tPessoa * RecuperaPessoa (FILE * arquivo) {
 
 void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
     char dir[1001];
-    sprintf(dir, "%/pessoas.bin", path);
+    sprintf(dir, "%s/pessoas.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para salvar\n");
