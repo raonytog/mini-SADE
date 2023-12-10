@@ -53,12 +53,6 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
 void DesalocaConsulta (tConsulta * consulta) {
     if (!consulta) return;
 
-    // DesalocaPessoa(consulta->paciente);
-    // consulta->paciente = NULL;
-
-    // DesalocaMedico(consulta->medico);
-    // consulta->medico = NULL;
-
     DesalocaData(consulta->dataConsulta);
     consulta->dataConsulta = NULL;
 

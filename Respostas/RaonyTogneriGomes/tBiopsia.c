@@ -48,12 +48,8 @@ void DesalocaBiopsia (void * data) {
     tBiopsia * b = (tBiopsia *) data;
     if (!b) return;
 
-    // for (int i = 0; i < b->qtdLesoes; i++) {
-    //     DesalocaLesao(b->lesoes[i]);
-    //     b->lesoes[i] = NULL;
-    // }
-    // free(b->lesoes);
-    // b->lesoes = NULL;
+    free(b->lesoes);
+    b->lesoes = NULL;
     
     free(b);
     b = NULL;
