@@ -53,12 +53,11 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("Caminho do banco de dados: %s\n", bdPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
 
-    
-
     printf("#################### CADASTRO SECRETARIO #######################\n");
     qtdSecretarios++;
     secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
     secretarios[qtdSecretarios-1] = CriaSecretario();
+    
 
     CARGO_LOGADO cargo;
     char login[20], password[20];
@@ -244,7 +243,11 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case FINALIZAR_O_PROGRAMA:
-
+                SalvaPessoaBinario(pessoas, qtdPessoas, bdPath);
+                SalvaMedicoBinario(medicos, qtdMedicos, bdPath);
+                SalvaSecretarioBinario(secretarios, qtdSecretarios, bdPath);
+                SalvaConsultaBinario(consultas, qtdConsultas, bdPath);
+                
                 for (int i = 0; i < qtdPessoas; i++) {
                     DesalocaPessoa(pessoas[i]);
                     pessoas[i] = NULL;

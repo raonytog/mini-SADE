@@ -26,4 +26,10 @@ int NecessitaCrioterapia (tLesao * lesao);
 
 int ObtemTamanhoLesao (tLesao * lesao);
 
+void SalvaLesao (tLesao * lesao, FILE * arquivo);
+
+tLesao * RecuperaLesa (FILE * arquivo);
+
+void SalvaLesaoBinario (tLesao ** lesoes, int qtdLesoes, char * path);
+
 #endif

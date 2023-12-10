@@ -42,4 +42,6 @@ int RetornaPrecisaDeCrioterapiaConsulrta (tConsulta * consulta);
 
 int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice);
 
+void SalvaMedicoBinario (tConsulta ** consultas, int qtdConsultas, char * path);
+
 #endif 

@@ -77,3 +77,33 @@ int ObtemTamanhoLesao (tLesao * lesao) {
     if (!lesao) return 0;
     return lesao->tamanhoLesao;
 }
+
+void SalvaLesao (tLesao * lesao, FILE * arquivo) {
+    fwrite(lesao, sizeof(tLesao), 1, arquivo);
+}
+
+tLesao * RecuperaLesao (FILE * arquivo) {
+    tLesao * lesao = (tLesao *) malloc (sizeof(tLesao));
+    if (!lesao) {
+        printf("Erro ao recuperar a lesao\n");
+        exit(EXIT_FAILURE);
+    }
+    fread(lesao, sizeof(tLesao), 1, arquivo);
+    return lesao;
+}
+
+void SalvaLesaoBinario (tLesao ** lesoes, int qtdLesoes, char * path) {
+    char dir[1001];
+    sprintf(dir, "%/lesoes.bin", path);
+    FILE * arquivo = fopen(dir, "wb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para salvar\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fwrite(&qtdLesoes, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtdLesoes; i++)
+        SalvaLesao(lesoes[i], arquivo);
+
+    fclose(arquivo);
+}

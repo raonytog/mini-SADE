@@ -104,3 +104,19 @@ tPessoa * RecuperaPessoa (FILE * arquivo) {
     pessoa->data = RecuperaData(arquivo);
     return pessoa;
 }
+
+void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
+    char dir[1001];
+    sprintf(dir, "%/pessoas.bin", path);
+    FILE * arquivo = fopen(dir, "wb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para salvar\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
+    for (int i = 0; i < qtdPessoas; i++)
+        SalvaPessoa(pessoas[i], arquivo);
+
+    fclose(arquivo);
+}
