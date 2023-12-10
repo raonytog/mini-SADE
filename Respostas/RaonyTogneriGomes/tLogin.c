@@ -22,6 +22,15 @@ tLogin * CriaLogin () {
     return login;
 }
 
+tLogin * CriaLoginNULL () {
+     tLogin * login = calloc(1, sizeof(tLogin));
+    if (!login) return NULL;
+
+    login->user[0] = '\0';
+    login->password[0] = '\0';
+    return login;
+}
+
 void DesalocaLogin (tLogin * login) {
     if (!login) return;
     free(login);
@@ -78,4 +87,18 @@ bool VerificaSenha (tLogin * login, char * senha) {
 bool VerificaUsuarioESenha (tLogin * login, char * usuario, char * senha) {
     if (VerificaUser(login, usuario) && VerificaSenha(login, senha)) return true;
     else return false;
+}
+
+void SalvaLogin (tLogin * login, FILE * arquivo) {
+    fwrite(login, sizeof(tLogin), 1, arquivo);
+}
+
+tLogin * RecuperaLogin (FILE * arquivo) {
+    tLogin * login = (tLogin *) malloc (sizeof(tLogin));
+    if (!login) {
+        printf("Falha ao alocar memoria para recuperar login\n");
+        exit(EXIT_FAILURE);
+    }
+    fread(login, sizeof(tLogin), 1, arquivo);
+    return login;
 }

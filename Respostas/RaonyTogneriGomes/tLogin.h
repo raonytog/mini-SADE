@@ -20,6 +20,8 @@ typedef enum {
 
 tLogin * CriaLogin ();
 
+tLogin * CriaLoginNULL ();
+
 void DesalocaLogin (tLogin * login);
 
 CARGO_LOGADO VerificaAutenticacao (tMedico ** medicos, int qtdMedicos, 
@@ -38,8 +40,9 @@ bool VerificaUsuarioESenha (tLogin * login, char * usuario, char * senha);
 
 bool CadastradoAnteriormente (void ** data, int qtd, char tipo, void * analisado);
 
+void SalvaLogin (tLogin * login, FILE * arquivo);
 
-
+tLogin * RecuperaLogin (FILE * arquivo);
 
 
 #endif 

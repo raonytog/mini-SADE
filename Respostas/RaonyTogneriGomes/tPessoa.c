@@ -26,6 +26,18 @@ tPessoa * CriaPessoa() {
     return pessoa;
 }
 
+tPessoa * CriaPessoaNULL () {
+    tPessoa * pessoa = calloc(1, sizeof(tPessoa));
+    if (!pessoa) return NULL;
+
+    pessoa->cpf[0] = '\0';
+    pessoa->data = CriaDataNULL();
+    pessoa->genero[0] = '\0';
+    pessoa->nome[0] = '\0';
+    pessoa->telefone[0] = '\0';
+    return pessoa;
+}
+
 void DesalocaPessoa(void * dado) {
     tPessoa * pessoa = (tPessoa *) dado;
     if (!pessoa) return;
@@ -74,4 +86,21 @@ char * ObtemGeneroPessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
     char * genero = pessoa->genero;
     return genero;
+}
+
+void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
+    fwrite(pessoa, sizeof(tPessoa), 1, arquivo);
+    SalvaData(pessoa->data, arquivo);
+}
+
+tPessoa * RecuperaPessoa (FILE * arquivo) {
+    tPessoa * pessoa = (tPessoa *) sizeof(tPessoa);
+    if (!pessoa) {
+        printf("Erro ao alocar memória para recuperar pessoa\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fread(pessoa, sizeof(tPessoa), 1, arquivo);
+    pessoa->data = RecuperaData(arquivo);
+    return pessoa;
 }

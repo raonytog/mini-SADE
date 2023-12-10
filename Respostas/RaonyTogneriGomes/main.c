@@ -25,7 +25,7 @@
 #include "tMenu.h"
 
 int main (int agrc, char * argv[]) { /* main ofc */
-    char path[1001], bdPath[1001], pathSaida[1001];
+    char path[1001], bdPath[1001], pathSaida[1001], pathBancoDados[1001];
     if (agrc <= 1) {
         printf("ERRO: diretorio de arquivos nao informado\n");
         exit(1);
@@ -40,7 +40,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     tPessoa ** pessoas = NULL;
-    tMedico ** medicos = NULL;          tMedico * medicoNULL = NULL;
+    tMedico ** medicos = NULL;          tMedico * medicoNULL = CriaMedicoNULL();
     tSecretario ** secretarios = NULL;
     tListaPessoas * listaBusca =  NULL;
     tConsulta ** consultas = NULL;
@@ -253,6 +253,8 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     DesalocaMedico(medicos[i]);
                     medicos[i] = NULL;
                 }
+                DesalocaMedico(medicoNULL);
+                medicoNULL = NULL;
                 free(medicos);
                 medicos = NULL;
 

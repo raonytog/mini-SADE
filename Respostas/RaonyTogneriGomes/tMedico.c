@@ -25,6 +25,15 @@ tMedico * CriaMedico () {
     return medico;
 }
 
+tMedico * CriaMedicoNULL () {
+    tMedico * medico = calloc(1, sizeof(tMedico));
+    if (!medico) return NULL;
+
+    medico->pessoa = CriaPessoaNULL();
+    medico->CRM[0] = '\0';
+    medico->login = NULL;
+}
+
 void DesalocaMedico(tMedico * medico) {
     if (!medico) return;
     DesalocaLogin(medico->login);
@@ -66,4 +75,24 @@ char * ObtemMedicoCPF (tMedico * medico) {
 tLogin * ObtemMedicoLogin (tMedico * medico) {
     if (!medico) return NULL;
     return medico->login;
+}
+
+void SalvaMedico (tMedico * medico, FILE * arquivo) {
+    fwrite(medico, sizeof(tMedico), 1, arquivo);
+    SalvaPessoa(medico->pessoa, arquivo);
+    SalvaLogin(medico->login, arquivo);
+}
+
+tMedico * RecuperaMedico (FILE * arquivo) {
+    tMedico * medico = (tMedico *) malloc (sizeof(tMedico));
+    if (!medico) {
+        printf("Falha ao alocar memoria para recuperar medico\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fread(medico, 1, sizeof(tMedico), arquivo);
+    medico->pessoa = RecuperaPessoa(arquivo);
+    medico->login = RecuperaLogin(arquivo);
+
+    return medico;
 }

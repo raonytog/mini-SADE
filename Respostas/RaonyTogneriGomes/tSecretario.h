@@ -5,6 +5,7 @@
 #include "tLogin.h"
 
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct tSecretario tSecretario;
 
@@ -19,5 +20,9 @@ bool SecretarioEhUser (tSecretario * secretario);
 bool SecretarioEhAdmin (tSecretario * secretario);
 
 tLogin * ObtemSecretarioLogin (tSecretario * secretario);
+
+void SalvaSecretario (tSecretario * secretario, FILE * arquivo);
+
+tSecretario * RecuperaSecretario (FILE * arquivo);
 
 #endif

@@ -9,6 +9,8 @@ typedef struct tPessoa tPessoa;
 
 tPessoa * CriaPessoa ();
 
+tPessoa * CriaPessoaNULL ();
+
 void DesalocaPessoa (void * dado);
 
 bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnalise);
@@ -24,5 +26,9 @@ char * ObtemCPFPessoa (tPessoa * pessoa);
 char * ObtemTelefonePessoa (tPessoa * pessoa);
 
 char * ObtemGeneroPessoa (tPessoa * pessoa);
+
+void SalvaPessoa (tPessoa * pessoa, FILE * arquivo);
+
+tPessoa * RecuperaPessoa (FILE * arquivo);
 
 #endif

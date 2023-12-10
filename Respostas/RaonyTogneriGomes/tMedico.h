@@ -12,6 +12,8 @@ typedef struct tMedico tMedico;
 
 tMedico * CriaMedico ();
 
+tMedico * CriaMedicoNULL ();
+
 void DesalocaMedico(tMedico * medico);
 
 bool ExisteMedicoCpf(tMedico ** medicos, int qtdMedicos, tMedico * medicoEmAnalise);
@@ -23,5 +25,9 @@ char * ObtemCRM (tMedico * medico);
 char * ObtemMedicoCPF (tMedico * medico);
 
 tLogin * ObtemMedicoLogin (tMedico * medico);
+
+void SalvaMedico (tMedico * medico, FILE * arquivo);
+
+tMedico * RecuperaMedico (FILE * arquivo);
 
 #endif

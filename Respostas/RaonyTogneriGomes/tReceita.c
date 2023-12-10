@@ -11,9 +11,9 @@ struct tReceita {
     char nomeMedicamento[MAX_TAM_NOME_MEDICAMENTO];
     char tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO];
     char instrucoes[MAX_TAM_INSTRUCOES];
-    char nomeMedico[21];
+    char nomeMedico[50];
     char CRM[13];
-    char dataString[11];
+    char dataString[15];
 };
 
 tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicamento,
@@ -32,7 +32,7 @@ tReceita *criaReceita(char *nomePaciente, eTipoUso tipoUso, char *nomeMedicament
     strcpy(receita->instrucoes, instrucoes);
 
     if (nomeMedico != NULL) strcpy(receita->nomeMedico, nomeMedico);
-    else receita->nomeMedicamento[0] = '\0';
+    else receita->nomeMedico[0] = '\0';
 
     if (CRM != NULL) strcpy(receita->CRM, CRM);
     else receita->CRM[0] = '\0';

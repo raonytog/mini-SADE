@@ -34,6 +34,17 @@ tData * LeDataConsulta () {
     return data;
 }
 
+tData * CriaDataNULL () {
+    tData * data = calloc(1, sizeof(tData));
+    if (!data) return NULL;
+
+    data->ano = 0;
+    data->mes = 0;
+    data->dia = 0;
+    data->dataString[0] = '\0';
+    
+}
+
 void DesalocaData (tData * data) {
     if (!data) return;
     free(data);
@@ -58,4 +69,15 @@ int CalculaIdade(tData * data) {
     if (mes > 11 || (mes == 11 && dia >= 9)) idade++; 
     return idade;
 }
+
+void SalvaData (tData * data, FILE * arquivo) {
+    fwrite(data, sizeof(tData), 1, arquivo);
+}
+
+tData * RecuperaData (FILE * arquivo) {
+    tData * data = (tData *) malloc (sizeof(tData));
+    fread(data, sizeof(tData), 1, arquivo);
+    return data;
+}
+
 //09/11/2023
