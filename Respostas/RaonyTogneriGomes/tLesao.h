@@ -28,7 +28,7 @@ int ObtemTamanhoLesao (tLesao * lesao);
 
 void SalvaLesao (tLesao * lesao, FILE * arquivo);
 
-tLesao * RecuperaLesa (FILE * arquivo);
+tLesao * RecuperaLesao (FILE * arquivo);
 
 void SalvaLesaoBinario (tLesao ** lesoes, int qtdLesoes, char * path);
 

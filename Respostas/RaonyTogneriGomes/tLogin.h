@@ -33,6 +33,7 @@ int EncontraIndiceMedicoLogado (tMedico ** medicos, int qtdMedicos, char * user,
 
 int EncontraIndiceSecretarioLogado (tSecretario ** secretarios, int qtdSecretarios, char * user, char * password);
 
+
 bool VerificaUser (tLogin * login, char * usuario);
 
 bool VerificaSenha (tLogin * login, char * senha);
@@ -40,6 +41,7 @@ bool VerificaSenha (tLogin * login, char * senha);
 bool VerificaUsuarioESenha (tLogin * login, char * usuario, char * senha);
 
 bool CadastradoAnteriormente (void ** data, int qtd, char tipo, void * analisado);
+
 
 void SalvaLogin (tLogin * login, FILE * arquivo);
 

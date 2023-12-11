@@ -44,4 +44,10 @@ int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice);
 
 void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path);
 
+void SalvaConsulta (tConsulta * tConsulta, FILE * arquivo);
+
+tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas);
+
+
+
 #endif 

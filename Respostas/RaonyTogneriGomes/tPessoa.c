@@ -93,15 +93,19 @@ void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
     SalvaData(pessoa->data, arquivo);
 }
 
-tPessoa * RecuperaPessoa (FILE * arquivo) {
-    tPessoa * pessoa = (tPessoa *) sizeof(tPessoa);
+tPessoa ** RecuperaPessoa (FILE * arquivo, int * qtdPessoas) {
+    fread(&qtdPessoas, sizeof(int), 1, arquivo);
+    tPessoa ** pessoa = (tPessoa **) calloc(*qtdPessoas, sizeof(tPessoa *));
     if (!pessoa) {
         printf("Erro ao alocar memória para recuperar pessoa\n");
         exit(EXIT_FAILURE);
     }
 
-    fread(pessoa, sizeof(tPessoa), 1, arquivo);
-    pessoa->data = RecuperaData(arquivo);
+    for (int i = 0; i < *qtdPessoas; i++) {
+        fread(pessoa[i], sizeof(tPessoa *), 1, arquivo);
+        pessoa[i]->data = RecuperaData(arquivo);
+    }
+    
     return pessoa;
 }
 
@@ -110,7 +114,7 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
     sprintf(dir, "%s/pessoas.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo para salvar\n");
+        printf("Erro ao abrir o arquivo para salvar pessoa no binario\n");
         exit(EXIT_FAILURE);
     }
 

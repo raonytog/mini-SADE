@@ -25,7 +25,7 @@
 #include "tMenu.h"
 
 int main (int agrc, char * argv[]) { /* main ofc */
-    char path[1001], bdPath[1001], pathSaida[1001], pathBancoDados[1001];
+    char path[500], bdPath[500], pathSaida[500], pathBancoDados[1000];
     if (agrc <= 1) {
         printf("ERRO: diretorio de arquivos nao informado\n");
         exit(1);
@@ -54,12 +54,26 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("Caminho da pasta de saida: %s\n", pathSaida);
     sprintf(pathBancoDados, "%s/%s", path, bdPath);
 
-    printf("#################### CADASTRO SECRETARIO #######################\n");
-    qtdSecretarios++;
-    secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
-    secretarios[qtdSecretarios-1] = CriaSecretario();
-    
+    char pessoasBin[1001];      sprintf(pessoasBin, "%s/pessoas.bin", argv[1]);
+    char medicosBin[1001];      sprintf(medicosBin, "%s/medicos.bin", argv[1]);
+    char secretariosBin[1001];  sprintf(secretariosBin, "%s/secretarios.bin", argv[1]);
+    char consultasBin[1001];    sprintf(consultasBin, "%s/consultas.bin", argv[1]);
+    char lesoesBin[1001];       sprintf(lesoesBin, "%s/lesoes.bin", argv[1]);
 
+    FILE * fPessoas = fopen(pessoasBin, "rb"), 
+         * fSecretarios = fopen(secretariosBin, "rb"), 
+         * fMedicos = fopen(medicosBin, "rb"), 
+         * fConsultas = fopen(consultasBin, "rb"), 
+         * fLesoes = fopen(lesoesBin, "rb");
+    
+    printf("Tem %d secretarios cadastro\n", qtdSecretarios);
+    if (qtdSecretarios == 0) {
+        printf("#################### CADASTRO SECRETARIO #######################\n");
+        qtdSecretarios++;
+        secretarios = realloc(secretarios, qtdSecretarios * sizeof(tSecretario *));
+        secretarios[qtdSecretarios-1] = CriaSecretario();
+    }
+    
     CARGO_LOGADO cargo;
     char login[20], password[20];
     while (1) {

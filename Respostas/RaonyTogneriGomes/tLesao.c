@@ -83,7 +83,7 @@ void SalvaLesao (tLesao * lesao, FILE * arquivo) {
 }
 
 tLesao * RecuperaLesao (FILE * arquivo) {
-    tLesao * lesao = (tLesao *) malloc (sizeof(tLesao));
+    tLesao * lesao = (tLesao *) calloc (1, sizeof(tLesao));
     if (!lesao) {
         printf("Erro ao recuperar a lesao\n");
         exit(EXIT_FAILURE);

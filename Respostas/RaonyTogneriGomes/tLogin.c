@@ -94,7 +94,7 @@ void SalvaLogin (tLogin * login, FILE * arquivo) {
 }
 
 tLogin * RecuperaLogin (FILE * arquivo) {
-    tLogin * login = (tLogin *) malloc (sizeof(tLogin));
+    tLogin * login = (tLogin *) calloc (1, sizeof(tLogin));
     if (!login) {
         printf("Falha ao alocar memoria para recuperar login\n");
         exit(EXIT_FAILURE);

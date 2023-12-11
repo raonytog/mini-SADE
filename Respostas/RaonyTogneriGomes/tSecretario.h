@@ -23,7 +23,7 @@ tLogin * ObtemSecretarioLogin (tSecretario * secretario);
 
 void SalvaSecretario (tSecretario * secretario, FILE * arquivo);
 
-tSecretario * RecuperaSecretario (FILE * arquivo);
+tSecretario ** RecuperaSecretario (FILE * arquivo, int * qtdSecretarios);
 
 void SalvaSecretarioBinario (tSecretario ** secretarios, int qtdSecretarios, char * path);
 

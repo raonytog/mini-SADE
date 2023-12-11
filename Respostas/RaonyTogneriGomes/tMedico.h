@@ -28,7 +28,7 @@ tLogin * ObtemMedicoLogin (tMedico * medico);
 
 void SalvaMedico (tMedico * medico, FILE * arquivo);
 
-tMedico * RecuperaMedico (FILE * arquivo);
+tMedico ** RecuperaMedico (FILE * arquivo, int * qtdMedicos);
 
 void SalvaMedicoBinario (tMedico ** medicos, int qtdMedicos, char * path);
 

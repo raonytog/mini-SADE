@@ -227,6 +227,28 @@ int RetornaTamanhoLesaoConsulta (tConsulta * consulta, int indice) {
     return ObtemTamanhoLesao(consulta->lesao[indice]);
 }
 
+void SalvaConsulta (tConsulta * consulta, FILE * arquivo) {
+    fwrite(consulta, sizeof(tConsulta), 1, arquivo);
+}
+
+tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas) {
+    fread(&qtdConsultas, sizeof(int), 1, arquivo);
+    tConsulta ** consulta = (tConsulta **) calloc(*qtdConsultas, sizeof(tConsulta *));
+    if (!consulta) {
+        printf("Erro ao alocar memória para recuperar consulta\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < *qtdConsultas; i++) {
+        fread(consulta[i], sizeof(tConsulta), 1, arquivo);
+        for (int j = 0; j < consulta[i]->qtdLesoes; j++) {
+                consulta[i]->lesao[i] = RecuperaLesao(arquivo);
+        }
+    }
+
+    return consulta;
+}
+
 void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path) {
     char dir[1001];
     sprintf(dir, "%s/consultas.bin", path);
@@ -243,3 +265,4 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
 
     fclose(arquivo);
 }
+

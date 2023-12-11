@@ -29,7 +29,7 @@ char * ObtemGeneroPessoa (tPessoa * pessoa);
 
 void SalvaPessoa (tPessoa * pessoa, FILE * arquivo);
 
-tPessoa * RecuperaPessoa (FILE * arquivo);
+tPessoa ** RecuperaPessoa (FILE * arquivo, int * qtdPessoas);
 
 void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path);
 
