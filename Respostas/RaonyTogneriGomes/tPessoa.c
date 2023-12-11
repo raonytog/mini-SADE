@@ -12,12 +12,13 @@ struct tPessoa {
     tData * data;
     char telefone[14];
     char genero[10];
+    int jaConsultado;
 };
 
 tPessoa * CriaPessoa () {
     tPessoa * pessoa = calloc(1, sizeof(tPessoa));
     if (!pessoa) return NULL;
-
+    pessoa->jaConsultado = 0;
     printf("NOME COMPLETO: ");          scanf("%[^\n]%*c", pessoa->nome);
     printf("CPF: ");                    scanf("%[^\n]%*c", pessoa->cpf);
     pessoa->data = LeData();
@@ -88,6 +89,14 @@ char * ObtemGeneroPessoa (tPessoa * pessoa) {
     return genero;
 }
 
+int ObtemSeFoiAtendido (tPessoa * pessoa) {
+    return pessoa->jaConsultado;
+}
+
+void AtualizaPessoaComoAtendida (tPessoa * pessoa) {
+    pessoa->jaConsultado = 1;
+}
+
 void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
     fwrite(pessoa, sizeof(tPessoa), 1, arquivo);
     SalvaData(pessoa->data, arquivo);
@@ -129,6 +138,7 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
 
     fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdPessoas; i++) {
+        pessoas[i]->jaConsultado = 0;
         fwrite(pessoas[i], sizeof(tPessoa), 1, arquivo);
         SalvaData(pessoas[i]->data, arquivo);
     }

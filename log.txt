@@ -261,7 +261,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 2:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/2/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 105, frees: 37, errors: 154 | Desconto do valgrind 40.00%
+ - Valgrind: Incorreto! allocs: 105, frees: 37, errors: 162 | Desconto do valgrind 40.00%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -315,7 +315,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 2:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/2/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 106, frees: 37, errors: 167 | Desconto do valgrind 40.00%
+ - Valgrind: Incorreto! allocs: 106, frees: 37, errors: 175 | Desconto do valgrind 40.00%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0

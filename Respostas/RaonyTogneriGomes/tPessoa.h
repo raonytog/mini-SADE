@@ -27,12 +27,19 @@ char * ObtemTelefonePessoa (tPessoa * pessoa);
 
 char * ObtemGeneroPessoa (tPessoa * pessoa);
 
+int ObtemSeFoiAtendido (tPessoa * pessoa);
+
 void SalvaPessoa (tPessoa * pessoa, FILE * arquivo);
+
+void AtualizaPessoaComoAtendida (tPessoa * pessoa);
+
 
 tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas);
 
 tPessoa * RecuperaUmaPessoa (FILE * arquivo);
 
 void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path);
+
+
 
 #endif

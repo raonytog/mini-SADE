@@ -19,7 +19,7 @@ struct tRelatorioGeral {
 
 tRelatorioGeral * CriaRelatorioGeral (tPessoa ** pessoas, int qtdPessoas, tConsulta ** consultas, int qtdConsultas) {
     tRelatorioGeral * relatorio = calloc(1, sizeof(tRelatorioGeral));
-    relatorio->pacientesAtendidos = qtdConsultas;
+    relatorio->pacientesAtendidos = RetornaQtdPessoasAtentidas(pessoas, qtdPessoas);
     relatorio->idadeMedia = CalculaMediaIdadeRelatorioGeral(pessoas, qtdPessoas);
     relatorio->qtdFem = RetornaQtdMulheresRelatorioGeral(pessoas, qtdPessoas);
     relatorio->qtdMasc = RetornaQtdHomensRelatorioGeral(pessoas, qtdPessoas);
@@ -133,6 +133,14 @@ int RetornaQtdOutrosRelatorioGeral (tPessoa ** pessoas, int qtdPessoas) {
     int cont = 0;
     for (int i = 0; i < qtdPessoas; i++) {
         if (strcmp(ObtemGeneroPessoa(pessoas[i]), "OUTROS") == 0) cont++;
+    }
+    return cont;
+}
+
+int RetornaQtdPessoasAtentidas (tPessoa ** pessoas, int qtdPessoas) {
+    int cont = 0;
+    for (int i = 0; i < qtdPessoas; i++) {
+        if (ObtemSeFoiAtendido(pessoas[i])) cont++;
     }
     return cont;
 }

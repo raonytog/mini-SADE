@@ -26,6 +26,8 @@ int RetornaQtdHomensRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
 int RetornaQtdOutrosRelatorioGeral (tPessoa ** pessoas, int qtdPessoas);
 
+int RetornaQtdPessoasAtentidas (tPessoa ** pessoas, int qtdPessoas);
+
 int TamanhoMedioLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
 
 int RetornaQtdCirurgiasRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
