@@ -1,16 +1,7 @@
 {
     "files.associations": {
-        "tbiopsia.h": "c",
-        "encaminhamento.h": "c",
-        "tpessoa.h": "c",
-        "tmedico.h": "c",
-        "tsecretario.h": "c",
-        "stdio.h": "c",
-        "string.h": "c",
-        "stdlib.h": "c",
-        "tfila.h": "c",
-        "tlogin.h": "c",
-        "stdbool.h": "c",
-        "tmenu.h": "c"
+        "array": "c",
+        "string": "c",
+        "string_view": "c"
     }
 }

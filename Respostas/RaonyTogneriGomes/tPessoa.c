@@ -104,6 +104,7 @@ tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
     for (int i = 0; i < *qtdPessoas; i++) {
         pessoa[i] = malloc(sizeof(tPessoa));
         fread(pessoa[i], sizeof(tPessoa), 1, arquivo);
+
         pessoa[i]->data = RecuperaData(arquivo);
     }
     
@@ -113,6 +114,7 @@ tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
 tPessoa * RecuperaUmaPessoa (FILE * arquivo) {
     tPessoa * pessoa = (tPessoa *) calloc (1, sizeof(tPessoa));
     fread(pessoa, sizeof(tPessoa), 1, arquivo);
+    pessoa->data = RecuperaData(arquivo);
     return pessoa;
 }
 
@@ -127,7 +129,7 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
 
     fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdPessoas; i++) {
-        SalvaPessoa(pessoas[i], arquivo);
+        fwrite(pessoas[i], sizeof(tPessoa), 1, arquivo);
         SalvaData(pessoas[i]->data, arquivo);
     }
 

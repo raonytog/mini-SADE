@@ -6,7 +6,7 @@
 
 struct tData {
     int dia, mes, ano;
-    char dataString[10];
+    char dataString[20];
 };
 
 

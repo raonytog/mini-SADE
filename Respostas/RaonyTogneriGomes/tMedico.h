@@ -30,6 +30,8 @@ void SalvaMedico (tMedico * medico, FILE * arquivo);
 
 tMedico ** RecuperaMedicos (FILE * arquivo, int * qtdMedicos);
 
+tMedico * RecuperaUmMedico (FILE * arquivo);
+
 void SalvaMedicoBinario (tMedico ** medicos, int qtdMedicos, char * path);
 
 #endif

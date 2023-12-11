@@ -33,9 +33,9 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
     strcpy(path, argv[1]);
 
-    // int main () { /* main de testes */
-    // char path[500], rPath[500], pathSaida[500], pathBancoDados[1000];
-    // strcpy(path, "Casos/1");
+// int main () { /* main de testes */
+//     char path[500], rPath[500], pathSaida[1000], pathBancoDados[1000];
+//     strcpy(path, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
     sprintf(pathSaida, "%s/saida", path);

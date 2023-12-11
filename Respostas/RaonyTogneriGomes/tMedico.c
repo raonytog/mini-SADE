@@ -85,18 +85,28 @@ void SalvaMedico (tMedico * medico, FILE * arquivo) {
 }
 
 tMedico ** RecuperaMedicos (FILE * arquivo, int * qtdMedicos){
-    tMedico ** medico = (tMedico **) malloc (sizeof(tMedico *));
+    fread(qtdMedicos, sizeof(int), 1, arquivo);
+    tMedico ** medico = (tMedico **) malloc (*qtdMedicos * sizeof(tMedico *));
     if (!medico) {
         printf("Falha ao alocar memoria para recuperar medico\n");
         exit(EXIT_FAILURE);
     }
 
-    fread(qtdMedicos, 1, sizeof(int), arquivo);
     for (int i = 0; i < *qtdMedicos; i++) {
+        medico[i] = malloc(sizeof(tMedico));
+        fread(medico[i], sizeof(tMedico), 1, arquivo);
+
         medico[i]->pessoa = RecuperaUmaPessoa(arquivo);
         medico[i]->login = RecuperaLogin(arquivo);
     }
 
+    return medico;
+}
+
+tMedico * RecuperaUmMedico (FILE * arquivo) {
+    tMedico * medico = (tMedico *) calloc (1, sizeof(tMedico));
+    fread(medico, sizeof(tMedico), 1, arquivo);
+    medico->login = RecuperaLogin(arquivo);
     return medico;
 }
 
@@ -111,6 +121,7 @@ void SalvaMedicoBinario (tMedico ** medicos, int qtdMedicos, char * path) {
 
     fwrite(&qtdMedicos, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdMedicos; i++) {
+        fwrite(medicos[i], sizeof(tMedico), 1, arquivo);
         SalvaPessoa(medicos[i]->pessoa, arquivo);
         SalvaLogin(medicos[i]->login, arquivo);
     }

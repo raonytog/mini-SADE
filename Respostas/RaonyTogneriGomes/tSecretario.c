@@ -77,14 +77,14 @@ void SalvaSecretario (tSecretario * secretario, FILE * arquivo) {
 
 tSecretario ** RecuperaSecretario (FILE * arquivo, int * qtdSecretarios) {
     fread(qtdSecretarios, sizeof(int), 1, arquivo);
-    tSecretario ** secretario = (tSecretario **) calloc(*qtdSecretarios, sizeof(tSecretario *));
+    tSecretario ** secretario = (tSecretario **) malloc(*qtdSecretarios * sizeof(tSecretario *));
     if (!secretario) {
         printf("Erro ao alocar memória para recuperar secretario\n");
         exit(EXIT_FAILURE);
     }
 
     for (int i = 0; i < *qtdSecretarios; i++) {
-        secretario[i] = realloc(secretario[i], sizeof(tSecretario));
+        secretario[i] = malloc(sizeof(tSecretario));
         fread(secretario[i], sizeof(tSecretario), 1, arquivo);
         
         secretario[i]->pessoa = RecuperaUmaPessoa(arquivo);
@@ -105,6 +105,7 @@ void SalvaSecretarioBinario (tSecretario ** secretarios, int qtdSecretarios, cha
 
     fwrite(&qtdSecretarios, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdSecretarios; i++) {
+        fwrite(secretarios[i], sizeof(tSecretario), 1, arquivo);
         SalvaPessoa(secretarios[i]->pessoa, arquivo);
         SalvaLogin(secretarios[i]->login, arquivo);
     }

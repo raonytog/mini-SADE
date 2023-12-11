@@ -239,14 +239,16 @@ tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas) {
         exit(EXIT_FAILURE);
     }
 
-    consulta = realloc(consulta, *qtdConsultas * sizeof(tConsulta));
     for (int i = 0; i < *qtdConsultas; i++) {
+        consulta[i] = malloc (sizeof(tConsulta));
         fread(consulta[i], sizeof(tConsulta), 1, arquivo);
+        consulta[i]->paciente = RecuperaUmaPessoa(arquivo);
+        consulta[i]->medico = RecuperaUmMedico(arquivo);
+        consulta[i]->dataConsulta = RecuperaData(arquivo);
 
-        consulta[i]->lesao = realloc(consulta[i]->lesao, RetornaQtdLesoesConsulta(consulta[i]) * sizeof(tLesao *));
+        consulta[i]->lesao = malloc(consulta[i]->qtdLesoes * sizeof(tLesao *));
         for (int j = 0; j < consulta[i]->qtdLesoes; j++) {
-            consulta[i]->lesao[j] = realloc (consulta[i]->lesao[j], sizeof(tLesao *));
-            fread(consulta[i]->lesao[j], sizeof(tLesao *), consulta[i]->qtdLesoes, arquivo);
+            consulta[i]->lesao[j] = RecuperaLesao(arquivo);
         }
     }
 
@@ -264,11 +266,14 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
     
     fwrite(&qtdConsultas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdConsultas; i++) {
-        fwrite(consultas[i]->paciente, sizeof(tPessoa *), 1, arquivo);
+        fwrite(consultas[i], sizeof(tConsulta), 1, arquivo);
 
-        for (int j = 0; j < consultas[i]->qtdLesoes; j++) {
-            fwrite(consultas[i]->lesao, sizeof(tLesao *), 1, arquivo);
-        }
+        SalvaPessoa(consultas[i]->paciente, arquivo);
+        SalvaMedico(consultas[i]->medico, arquivo);
+        SalvaData(consultas[i]->dataConsulta, arquivo);
+
+        for (int j = 0; j < consultas[i]->qtdLesoes; j++)
+            SalvaLesao(consultas[i]->lesao[j], arquivo);
     }
 
     fclose(arquivo);
