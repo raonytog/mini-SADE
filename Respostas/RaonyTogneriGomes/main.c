@@ -32,13 +32,13 @@ int main (int agrc, char * argv[]) { /* main ofc */
     }
 
     strcpy(path, argv[1]);
-    sprintf(pathSaida, "%s/saida", path);
 
     // int main () { /* main de testes */
-    // char path[500], bdPath[500], pathSaida[500], pathBancoDados[1000];
+    // char path[500], rPath[500], pathSaida[500], pathBancoDados[1000];
     // strcpy(path, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
+    sprintf(pathSaida, "%s/saida", path);
 
     printf("################################################\n");
     printf("DIGITE O CAMINHO DO BANCO DE DADOS: ");
@@ -46,20 +46,17 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("################################################\n");
     printf("Caminho do banco de dados: %s\n", rPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
-    strcpy(pathBancoDados, path);
-    sprintf(pathBancoDados, "/%s", rPath);
+    sprintf(pathBancoDados, "%s/%s", path ,rPath);
 
     char pessoasBin[2001];      sprintf(pessoasBin, "%s/pessoas.bin", pathBancoDados);
     char medicosBin[2001];      sprintf(medicosBin, "%s/medicos.bin", pathBancoDados);
     char secretariosBin[2001];  sprintf(secretariosBin, "%s/secretarios.bin", pathBancoDados);
     char consultasBin[2001];    sprintf(consultasBin, "%s/consultas.bin", pathBancoDados);
-    char lesoesBin[2001];       sprintf(lesoesBin, "%s/lesoes.bin", pathBancoDados);
 
     FILE * fPessoas = fopen(pessoasBin, "rb");
     FILE * fSecretarios = fopen(secretariosBin, "rb"); 
     FILE * fMedicos = fopen(medicosBin, "rb"); 
     FILE * fConsultas = fopen(consultasBin, "rb"); 
-    FILE * fLesoes = fopen(lesoesBin, "rb");
 
     tPessoa ** pessoas = NULL;
     if (fPessoas) {
