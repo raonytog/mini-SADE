@@ -30,7 +30,7 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     strcpy(b->data, data);
     b->qtdLesoes = qtdLesoes;
 
-    b->lesoes = calloc(qtdLesoes, sizeof(tLesao *));
+    b->lesoes = calloc(peloMenosUma, sizeof(tLesao *));
     for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
 
@@ -63,7 +63,7 @@ void ImprimeBiopsiaTela (void * data) {
 
     printf("SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
     for (int i = 0; i < biopsia->qtdLesoes; i++)
-        ImprimeLesaoTela(biopsia->lesoes[i]);
+        if (NecessitaCirurgia(biopsia->lesoes[i])) ImprimeLesaoTela(biopsia->lesoes[i]);
 
     printf("\n%s (%s)\n", biopsia->nomeMedico, biopsia->CRM);
     printf("%s\n\n", biopsia->data);
@@ -82,7 +82,7 @@ void ImprimeBiopsiaArquivo (void * data, char * path) {
 
     fprintf(fBiopsia, "SOLICITACAO DE BIOPSIA PARA AS LESOES:\n");
     for (int i = 0; i < biopsia->qtdLesoes; i++) {
-        ImprimeLesaoArquivo(biopsia->lesoes[i], fBiopsia);
+        if (NecessitaCirurgia(biopsia->lesoes[i])) ImprimeLesaoArquivo(biopsia->lesoes[i], fBiopsia);
     }
 
     fprintf(fBiopsia, "\n%s (%s)\n", biopsia->nomeMedico, biopsia->CRM);
