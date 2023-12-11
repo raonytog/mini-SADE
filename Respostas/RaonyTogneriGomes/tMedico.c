@@ -84,16 +84,16 @@ void SalvaMedico (tMedico * medico, FILE * arquivo) {
     SalvaLogin(medico->login, arquivo);
 }
 
-tMedico * RecuperaMedico (FILE * arquivo) {
-    tMedico * medico = (tMedico *) malloc (sizeof(tMedico));
+tMedico ** RecuperaMedico (FILE * arquivo, int * qtdMedicos){
+    tMedico ** medico = (tMedico **) malloc (sizeof(tMedico *));
     if (!medico) {
         printf("Falha ao alocar memoria para recuperar medico\n");
         exit(EXIT_FAILURE);
     }
 
     fread(medico, 1, sizeof(tMedico), arquivo);
-    medico->pessoa = RecuperaPessoa(arquivo);
-    medico->login = RecuperaLogin(arquivo);
+    // medico->pessoa = RecuperaPessoa(arquivo, 1);
+    // medico->login = RecuperaLogin(arquivo);
 
     return medico;
 }
