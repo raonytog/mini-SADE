@@ -102,8 +102,8 @@ tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
     }
 
     for (int i = 0; i < *qtdPessoas; i++) {
-        pessoa[i] = realloc(pessoa[i], sizeof(tPessoa *));
-        fread(pessoa[i], sizeof(tPessoa *), 1, arquivo);
+        pessoa[i] = malloc(sizeof(tPessoa));
+        fread(pessoa[i], sizeof(tPessoa), 1, arquivo);
         pessoa[i]->data = RecuperaData(arquivo);
     }
     
