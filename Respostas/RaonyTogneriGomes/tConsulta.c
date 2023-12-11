@@ -232,7 +232,7 @@ void SalvaConsulta (tConsulta * consulta, FILE * arquivo) {
 }
 
 tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas) {
-    fread(&qtdConsultas, sizeof(int), 1, arquivo);
+    fread(qtdConsultas, sizeof(int), 1, arquivo);
     tConsulta ** consulta = (tConsulta **) calloc(*qtdConsultas, sizeof(tConsulta *));
     if (!consulta) {
         printf("Erro ao alocar memória para recuperar consulta\n");

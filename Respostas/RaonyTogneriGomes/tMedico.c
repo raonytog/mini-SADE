@@ -91,7 +91,7 @@ tMedico ** RecuperaMedicos (FILE * arquivo, int * qtdMedicos){
         exit(EXIT_FAILURE);
     }
 
-    fread(&qtdMedicos, 1, sizeof(int), arquivo);
+    fread(qtdMedicos, 1, sizeof(int), arquivo);
     for (int i = 0; i < *qtdMedicos; i++) {
         medico[i]->pessoa = RecuperaUmaPessoa(arquivo);
         medico[i]->login = RecuperaLogin(arquivo);

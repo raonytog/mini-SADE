@@ -94,7 +94,7 @@ void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
 }
 
 tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
-    fread(&qtdPessoas, sizeof(int), 1, arquivo);
+    fread(qtdPessoas, sizeof(int), 1, arquivo);
     tPessoa ** pessoa = (tPessoa **) calloc(*qtdPessoas, sizeof(tPessoa *));
     if (!pessoa) {
         printf("Erro ao alocar memória para recuperar pessoa\n");
@@ -126,8 +126,10 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
     }
 
     fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
-    for (int i = 0; i < qtdPessoas; i++)
+    for (int i = 0; i < qtdPessoas; i++) {
         SalvaPessoa(pessoas[i], arquivo);
+        SalvaData(pessoas[i]->data, arquivo);
+    }
 
     fclose(arquivo);
 }
