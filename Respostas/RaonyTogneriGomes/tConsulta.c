@@ -240,13 +240,10 @@ tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas) {
     }
 
     for (int i = 0; i < *qtdConsultas; i++) {
-        consulta[i] = malloc (sizeof(tConsulta));
+        consulta[i] = calloc (1, sizeof(tConsulta));
         fread(consulta[i], sizeof(tConsulta), 1, arquivo);
-        consulta[i]->paciente = RecuperaUmaPessoa(arquivo);
-        consulta[i]->medico = RecuperaUmMedico(arquivo);
-        consulta[i]->dataConsulta = RecuperaData(arquivo);
-
-        consulta[i]->lesao = malloc(consulta[i]->qtdLesoes * sizeof(tLesao *));
+        
+        consulta[i]->lesao = calloc(consulta[i]->qtdLesoes, sizeof(tLesao *));
         for (int j = 0; j < consulta[i]->qtdLesoes; j++) {
             consulta[i]->lesao[j] = RecuperaLesao(arquivo);
         }
@@ -267,11 +264,6 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
     fwrite(&qtdConsultas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdConsultas; i++) {
         fwrite(consultas[i], sizeof(tConsulta), 1, arquivo);
-
-        SalvaPessoa(consultas[i]->paciente, arquivo);
-        SalvaMedico(consultas[i]->medico, arquivo);
-        SalvaData(consultas[i]->dataConsulta, arquivo);
-
         for (int j = 0; j < consultas[i]->qtdLesoes; j++)
             SalvaLesao(consultas[i]->lesao[j], arquivo);
     }
