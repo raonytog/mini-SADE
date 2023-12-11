@@ -166,13 +166,11 @@ int RetornaQtdCirurgiasRelatorioGeral (tConsulta ** consultas, int qtdConsultas)
 }
 
 int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
-    int cont = 0, qtd = 0;
+    int cont = 0;
     for (int i = 0; i < qtdConsultas; i++) {
         cont += RetornaPrecisaDeCrioterapiaConsulrta(consultas[i]);
-        qtd++;
     }
-    if (qtd != 0) return cont/qtd;
-    return 0;
+    return cont;
 }
 
 int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {

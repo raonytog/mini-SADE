@@ -86,8 +86,6 @@ int main (int agrc, char * argv[]) { /* main ofc */
     tListaPessoas * listaBusca =  NULL;
     tFila * fila = criaFila();
 
-    
-    printf("Tem %d secretarios cadastro\n", qtdSecretarios);
     if (qtdSecretarios == 0) {
         printf("#################### CADASTRO SECRETARIO #######################\n");
         qtdSecretarios++;

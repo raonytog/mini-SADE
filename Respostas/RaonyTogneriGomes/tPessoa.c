@@ -138,7 +138,6 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
 
     fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdPessoas; i++) {
-        pessoas[i]->jaConsultado = 0;
         fwrite(pessoas[i], sizeof(tPessoa), 1, arquivo);
         SalvaData(pessoas[i]->data, arquivo);
     }

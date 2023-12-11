@@ -29,9 +29,9 @@ struct tConsulta {
 
 tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     
+    AtualizaPessoaComoAtendida(pessoa);
     tConsulta * consulta = calloc(1, sizeof(tConsulta));
     if (!consulta) return NULL;
-    AtualizaPessoaComoAtendida(pessoa);
     consulta->paciente = pessoa;
     consulta->medico = medico;
 
