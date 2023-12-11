@@ -1,5 +1,4 @@
 #include "tConsulta.h"
-#include "tData.h"
 #include "tPessoa.h"
 #include "tMedico.h"
 #include "tFila.h"
@@ -16,9 +15,14 @@
 #include <stdlib.h>
 
 struct tConsulta {
-    tPessoa * paciente;
-    tMedico * medico;
-    tData * dataConsulta;
+    char nomePaciente[100];
+    char cpf[15];
+
+    char nomeMedico[100];
+    char crm[15];
+
+    int dia, mes, ano;
+    char data[20];
 
     tLesao ** lesao;
     int qtdLesoes;
@@ -32,14 +36,22 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     AtualizaPessoaComoAtendida(pessoa);
     tConsulta * consulta = calloc(1, sizeof(tConsulta));
     if (!consulta) return NULL;
-    consulta->paciente = pessoa;
-    consulta->medico = medico;
+    strcpy(consulta->nomePaciente, ObtemNomePessoa(pessoa));
+    strcpy(consulta->cpf, ObtemCPFPessoa(pessoa));
+
+    if (!medico) {
+        strcpy(consulta->nomeMedico, ObtemNomeMedico(medico));
+        strcpy(consulta->crm, ObtemCRM(medico));
+
+    } else {
+        consulta->nomeMedico[0] = '\0';
+        consulta->crm[0] = '\0';
+    }
 
     consulta->lesao = NULL;
     consulta->qtdLesoes = 0;
 
-    consulta->dataConsulta = LeDataConsulta();;
-
+    printf("DATA DA CONSULTA: ");                   scanf("%d/%d/%d", &consulta->dia, &consulta->mes, &consulta->ano);
     printf("POSSUI DIABETES: ");                    scanf("%d%*c",  &consulta->diabetico);
     printf("FUMANTE: ");                            scanf("%d%*c",  &consulta->fumante);
     printf("ALERGIA A MEDICAMENTO: ");              scanf("%d%*c",  &consulta->alergico);
@@ -47,14 +59,12 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     printf("TIPO DE PELE: ");                       scanf("%[^\n]%*c",  consulta->tipoPele);
     printf("\n############################################################\n");
 
+    sprintf(consulta->data, "%d/%d/%d", consulta->dia, consulta->mes, consulta->ano);
     return consulta;
 }
 
 void DesalocaConsulta (tConsulta * consulta) {
     if (!consulta) return;
-
-    DesalocaData(consulta->dataConsulta);
-    consulta->dataConsulta = NULL;
 
     for (int i = 0; i < consulta->qtdLesoes; i++) {
         DesalocaLesao(consulta->lesao[i]);
@@ -75,19 +85,15 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
          especialidade[50],
          vazio[10];
 
-    vazio[0] = '\0';
+    // char nomePaciente[100], cpfPaciente[15], nomeMedico[100], crmMedico[12], stringDataConsulta[10];
+    // strcpy(nomePaciente, ObtemNomePessoa(consulta->paciente));
+    // strcpy(cpfPaciente, ObtemCPFPessoa(consulta->paciente));
 
-    char nomePaciente[100], cpfPaciente[15], nomeMedico[100], crmMedico[12], stringDataConsulta[10];
-    strcpy(nomePaciente, ObtemNomePessoa(consulta->paciente));
-    strcpy(cpfPaciente, ObtemCPFPessoa(consulta->paciente));
+    // if (consulta->medico) strcpy(nomeMedico, ObtemNomeMedico(consulta->medico));
+    // else nomeMedico[0] = '\0';
 
-    if (consulta->medico) strcpy(nomeMedico, ObtemNomeMedico(consulta->medico));
-    else nomeMedico[0] = '\0';
-
-    if (consulta->medico) strcpy(crmMedico, ObtemCRM(consulta->medico));
-    else crmMedico[0] = '\0';
-
-    strcpy(stringDataConsulta, ObtemDataString(consulta->dataConsulta));
+    // if (consulta->medico) strcpy(crmMedico, ObtemCRM(consulta->medico));
+    // else crmMedico[0] = '\0';
 
     int opcao = 0, qtd = 0;
     eTipoUso tipoUso;
@@ -119,15 +125,9 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
                     tipoUso = TOPICO;
 
                 tReceita * r;
-                if (EhMedico) {
-                    r = criaReceita(nomePaciente, tipoUso, nomeMedicamento, 
-                                    tipoMedicamento, instrucoes, qtd, nomeMedico, crmMedico, 
-                                    stringDataConsulta);
-                } else {
-                r = criaReceita(nomePaciente, tipoUso, nomeMedicamento, 
-                                tipoMedicamento, instrucoes, qtd, "\0", "\0", 
-                                stringDataConsulta);
-                }
+                r = criaReceita(consulta->nomePaciente, tipoUso, nomeMedicamento, tipoMedicamento, 
+                    instrucoes, qtd, consulta->nomeMedico, consulta->crm, consulta->data);
+
 
                 insereDocumentoFila(fila, r, imprimeNaTelaReceita, imprimeEmArquivoReceita, desalocaReceita);
                 printf("\nRECEITA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
@@ -137,9 +137,8 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
 
             case SOLICITACAO_DE_BIOPSIA:
                 printf("#################### CONSULTA MEDICA #######################\n");
-                tBiopsia * b = CriaBiopsia(nomePaciente, cpfPaciente, 
-                                    consulta->lesao, consulta->qtdLesoes, nomeMedico, crmMedico, 
-                                    stringDataConsulta);
+                tBiopsia * b = CriaBiopsia(consulta->nomePaciente, consulta->cpf, consulta->lesao, 
+                            consulta->qtdLesoes, consulta->nomeMedico, consulta->crm, consulta->data);
                 insereDocumentoFila(fila,b , ImprimeBiopsiaTela, ImprimeBiopsiaArquivo, DesalocaBiopsia);
                 
                 printf("\nSOLICITACAO DE BIOPSIA ENVIADA PARA FILA DE IMPRESSAO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");
@@ -153,9 +152,8 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
                 printf("ESPECIALIDADE ENCAMINHADA: ");          scanf("%[^\n]%*c", especialidade);
                 printf("MOTIVO: ");                             scanf("%[^\n]%*c", motivo);
 
-                tEncaminhamento * e = CriaEncaminhamento(nomePaciente, cpfPaciente, 
-                                    especialidade, motivo, nomeMedico, crmMedico, 
-                                    stringDataConsulta);
+                tEncaminhamento * e = CriaEncaminhamento(consulta->nomePaciente, consulta->cpf, especialidade, motivo, 
+                                consulta->nomeMedico, consulta->crm, consulta->data);
 
                 insereDocumentoFila(fila, e, ImprimeEncaminhamentoTela, ImprimeEncaminhamentoArquivo, 
                                     DesalocaEncaminhamento);

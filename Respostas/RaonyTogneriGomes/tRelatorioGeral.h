@@ -36,5 +36,7 @@ int RetornaQtdCrioterapiaRelatorioGeral (tConsulta ** consultas, int qtdConsulta
 
 int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas);
 
+int CalculaIdade(tPessoa * pessoa);
+
 #endif // !_TRELATORIOGERAL_H_
 

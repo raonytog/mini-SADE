@@ -3,9 +3,8 @@
 
 typedef struct tPessoa tPessoa;
 
-#include "tData.h"
-
 #include <stdbool.h>
+#include <stdio.h>
 
 tPessoa * CriaPessoa ();
 
@@ -17,7 +16,7 @@ bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnali
 
 bool EhCpfPessoa(tPessoa * pessoa, char * cpf);
 
-tData * ObtemDataPessoa (tPessoa * pessoa);
+char * ObtemDataPessoa (tPessoa * pessoa);
 
 char * ObtemNomePessoa (tPessoa * pessoa);
 
@@ -28,6 +27,12 @@ char * ObtemTelefonePessoa (tPessoa * pessoa);
 char * ObtemGeneroPessoa (tPessoa * pessoa);
 
 int ObtemSeFoiAtendido (tPessoa * pessoa);
+
+int ObtemDiaPessoa (tPessoa * pessoa);
+
+int ObtemMesPessoa (tPessoa * pessoa);
+
+int ObtemAnoPessoa (tPessoa * pessoa);
 
 void SalvaPessoa (tPessoa * pessoa, FILE * arquivo);
 

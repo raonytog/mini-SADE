@@ -197,7 +197,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
                         consultas = realloc(consultas, qtdConsultas * sizeof(tConsulta *));
 
                         printf("-NOME: %s\n", ObtemNomePessoa(pessoas[indiceConsulta]));
-                        printf("-DATA DE NASCIMENTO: %s\n", ObtemDataString( ObtemDataPessoa(pessoas[indiceConsulta]) ));
+                        printf("-DATA DE NASCIMENTO: %s\n", ObtemDataPessoa(pessoas[indiceConsulta]));
                         printf("---\n");
 
                         if (cargo != MEDICO) { // se for secretario

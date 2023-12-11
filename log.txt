@@ -252,7 +252,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 1:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/1/result_valgrind.txt.
- - Valgrind: Ok! allocs: 67, frees: 67, errors: 0 | Desconto do valgrind: 0.0%
+ - Valgrind: Ok! allocs: 61, frees: 61, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -261,7 +261,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 2:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/2/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 100, frees: 101, errors: 1 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 87, frees: 87, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -270,16 +270,16 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 3:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/3/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 109, frees: 110, errors: 6 | Desconto do valgrind 40.00%
- - Resultado para o biopsia.txt: Ok! Peso: 1.0
- - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Valgrind: Incorreto! allocs: 96, frees: 95, errors: 4 | Desconto do valgrind 40.00%
+ - Resultado para o biopsia.txt: Incorreto!
+ - Resultado para o encaminhamento.txt: Incorreto!
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
- - Resultado para o receita.txt: Ok! Peso: 1.0
+ - Resultado para o receita.txt: Incorreto!
  - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 4:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/4/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 120, frees: 121, errors: 10 | Desconto do valgrind 40.00%
+ - Valgrind: Incorreto! allocs: 107, frees: 105, errors: 7 | Desconto do valgrind 40.00%
  - Resultado para o biopsia.txt: Incorreto!
  - Resultado para o encaminhamento.txt: Incorreto!
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -288,7 +288,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 5:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/5/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 110, frees: 114, errors: 4 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 95, frees: 95, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -297,7 +297,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta completo / Caso 6:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/completo/Casos/6/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 126, frees: 131, errors: 5 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 111, frees: 111, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -306,7 +306,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 1:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/1/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 68, frees: 68, errors: 14 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 62, frees: 62, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -315,7 +315,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 2:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/2/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 101, frees: 102, errors: 15 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 88, frees: 88, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -324,16 +324,16 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 3:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/3/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 111, frees: 112, errors: 113 | Desconto do valgrind 40.00%
- - Resultado para o biopsia.txt: Ok! Peso: 1.0
- - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
+ - Valgrind: Incorreto! allocs: 98, frees: 97, errors: 4 | Desconto do valgrind 40.00%
+ - Resultado para o biopsia.txt: Incorreto!
+ - Resultado para o encaminhamento.txt: Incorreto!
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
  - Resultado para o receita.txt: Incorreto!
  - Resultado para o relatorio_geral.txt: Ok! Peso: 4.0
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 4:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/4/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 122, frees: 123, errors: 105 | Desconto do valgrind 40.00%
+ - Valgrind: Incorreto! allocs: 109, frees: 107, errors: 7 | Desconto do valgrind 40.00%
  - Resultado para o biopsia.txt: Incorreto!
  - Resultado para o encaminhamento.txt: Incorreto!
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -342,7 +342,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 5:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/5/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 111, frees: 115, errors: 18 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 96, frees: 96, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -351,7 +351,7 @@ EXECUTANDO O VALGRIND EM CADA CASO:
  - Resultado para o saida.txt: Incorreto!
  - Pasta main / Caso 6:
  - Arquivo de output gerado: Resultados/RaonyTogneriGomes/main/Casos/6/result_valgrind.txt.
- - Valgrind: Incorreto! allocs: 127, frees: 132, errors: 33 | Desconto do valgrind 40.00%
+ - Valgrind: Ok! allocs: 112, frees: 112, errors: 0 | Desconto do valgrind: 0.0%
  - Resultado para o biopsia.txt: Ok! Peso: 1.0
  - Resultado para o encaminhamento.txt: Ok! Peso: 1.0
  - Resultado para o lista_busca.txt: Ok! Peso: 3.0
@@ -371,15 +371,15 @@ Nome 0: RaonyTogneriGomes
  - Valgrinds Corretos tFila: 6 valgrinds corretos de 6 (não teve desconto na nota)
  - Valgrinds Corretos tDocumento: 6 valgrinds corretos de 6 (não teve desconto na nota)
  - Valgrinds Corretos tReceita: 6 valgrinds corretos de 6 (não teve desconto na nota)
- - Valgrinds Corretos completo: 1 valgrinds corretos de 6 (teve desconto na nota para a pasta completo, olhar detalhamento nos prints acima!)
- - Valgrinds Corretos main: 0 valgrinds corretos de 6 (teve desconto na nota para a pasta main, olhar detalhamento nos prints acima!)
+ - Valgrinds Corretos completo: 4 valgrinds corretos de 6 (teve desconto na nota para a pasta completo, olhar detalhamento nos prints acima!)
+ - Valgrinds Corretos main: 4 valgrinds corretos de 6 (teve desconto na nota para a pasta main, olhar detalhamento nos prints acima!)
  - Cômputo final das Notas:
  - Pasta tFila (peso 1.0): 30 resultados corretos de 36 / Nota 1.00
  - Pasta tDocumento (peso 1.0): 30 resultados corretos de 36 / Nota 1.00
  - Pasta tReceita (peso 0.5): 30 resultados corretos de 36 / Nota .50
- - Pasta completo (peso 0.0): 27 resultados corretos de 36 / Nota 0
- - Pasta main (peso 7.5): 26 resultados corretos de 36 / Nota 4.20
- - Nota Final RaonyTogneriGomes: 6.70
+ - Pasta completo (peso 0.0): 24 resultados corretos de 36 / Nota 0
+ - Pasta main (peso 7.5): 24 resultados corretos de 36 / Nota 6.04
+ - Nota Final RaonyTogneriGomes: 8.54
 
 ----------------------------------------------------------------------------
 

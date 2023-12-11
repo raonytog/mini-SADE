@@ -108,7 +108,7 @@ int CalculaMediaIdadeRelatorioGeral (tPessoa ** pessoas, int qtdPessoas) {
     if (qtdPessoas == 0) return 0;
     int cont = 0;
     for (int i = 0; i < qtdPessoas; i++) {
-        cont += CalculaIdade(ObtemDataPessoa(pessoas[i]));
+        cont += CalculaIdade(pessoas[i]);
     }
     return cont/qtdPessoas;
 }
@@ -182,4 +182,14 @@ int RetornaQtdLesoesRelatorioGeral (tConsulta ** consultas, int qtdConsultas) {
     }
 
     return qtd;
+}
+
+int CalculaIdade(tPessoa * pessoa) {
+    int dia = ObtemDiaPessoa(pessoa),
+        mes = ObtemMesPessoa(pessoa), 
+        ano = ObtemAnoPessoa(pessoa),
+        idade = 2023 - ano;
+
+    if (mes > 11 || (mes == 11 && dia >= 9)) idade++; 
+    return idade;
 }

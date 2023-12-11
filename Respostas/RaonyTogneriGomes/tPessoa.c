@@ -9,7 +9,8 @@
 struct tPessoa {
     char nome[100];
     char cpf[15];
-    tData * data;
+    int dia, mes, ano;
+    char data[20];
     char telefone[14];
     char genero[10];
     int jaConsultado;
@@ -21,9 +22,11 @@ tPessoa * CriaPessoa () {
     pessoa->jaConsultado = 0;
     printf("NOME COMPLETO: ");          scanf("%[^\n]%*c", pessoa->nome);
     printf("CPF: ");                    scanf("%[^\n]%*c", pessoa->cpf);
-    pessoa->data = LeData();
+    printf("DATA DE NASCIMENTO: ");     scanf("%d/%d/%d%*c", &pessoa->dia, &pessoa->mes, &pessoa->ano);
     printf("TELEFONE: ");               scanf("%[^\n]%*c", pessoa->telefone);
     printf("GENERO: ");                 scanf("%[^\n]%*c", pessoa->genero);
+
+    sprintf(pessoa->data, "%d/%d/%d", pessoa->dia, pessoa->mes, pessoa->ano);
     return pessoa;
 }
 
@@ -32,7 +35,7 @@ tPessoa * CriaPessoaNULL () {
     if (!pessoa) return NULL;
 
     pessoa->cpf[0] = '\0';
-    pessoa->data = CriaDataNULL();
+    pessoa->data[0] = '\0';
     pessoa->genero[0] = '\0';
     pessoa->nome[0] = '\0';
     pessoa->telefone[0] = '\0';
@@ -43,8 +46,6 @@ void DesalocaPessoa(void * dado) {
     tPessoa * pessoa = (tPessoa *) dado;
     if (!pessoa) return;
 
-    DesalocaData(pessoa->data);
-    pessoa->data = NULL;
 
     free(pessoa);
     pessoa = NULL;
@@ -60,9 +61,10 @@ bool ExistePessoaCpf(tPessoa ** pessoas, int qtdPessoas, tPessoa * pessoaEmAnali
     return false;
 }
 
-tData * ObtemDataPessoa (tPessoa * pessoa) {
+char * ObtemDataPessoa (tPessoa * pessoa) {
     if (!pessoa) return NULL;
-    return pessoa->data;
+    char * data = pessoa->data;
+    return data;
 }
 
 char * ObtemNomePessoa (tPessoa * pessoa) {
@@ -93,13 +95,27 @@ int ObtemSeFoiAtendido (tPessoa * pessoa) {
     return pessoa->jaConsultado;
 }
 
+int ObtemDiaPessoa (tPessoa * pessoa) {
+    if (!pessoa) return 0;
+    return pessoa->dia;
+}
+
+int ObtemMesPessoa (tPessoa * pessoa) {
+    if (!pessoa) return 0;
+    return pessoa->mes;
+}
+
+int ObtemAnoPessoa (tPessoa * pessoa) {
+    if (!pessoa) return 0;
+    return pessoa->ano;
+}
+
 void AtualizaPessoaComoAtendida (tPessoa * pessoa) {
     pessoa->jaConsultado = 1;
 }
 
 void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
     fwrite(pessoa, sizeof(tPessoa), 1, arquivo);
-    SalvaData(pessoa->data, arquivo);
 }
 
 tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
@@ -113,8 +129,6 @@ tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
     for (int i = 0; i < *qtdPessoas; i++) {
         pessoa[i] = malloc(sizeof(tPessoa));
         fread(pessoa[i], sizeof(tPessoa), 1, arquivo);
-
-        pessoa[i]->data = RecuperaData(arquivo);
     }
     
     return pessoa;
@@ -123,7 +137,6 @@ tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
 tPessoa * RecuperaUmaPessoa (FILE * arquivo) {
     tPessoa * pessoa = (tPessoa *) calloc (1, sizeof(tPessoa));
     fread(pessoa, sizeof(tPessoa), 1, arquivo);
-    pessoa->data = RecuperaData(arquivo);
     return pessoa;
 }
 
@@ -139,7 +152,6 @@ void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
     fwrite(&qtdPessoas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdPessoas; i++) {
         fwrite(pessoas[i], sizeof(tPessoa), 1, arquivo);
-        SalvaData(pessoas[i]->data, arquivo);
     }
 
     fclose(arquivo);
