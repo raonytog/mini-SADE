@@ -83,9 +83,11 @@ tSecretario ** RecuperaSecretario (FILE * arquivo, int * qtdSecretarios) {
         exit(EXIT_FAILURE);
     }
 
-    secretario = RecuperaPessoa(arquivo, 1);
     for (int i = 0; i < *qtdSecretarios; i++) {
+        secretario[i] = realloc(secretario[i], sizeof(tSecretario));
         fread(secretario[i], sizeof(tSecretario), 1, arquivo);
+        
+        secretario[i]->pessoa = RecuperaUmaPessoa(arquivo);
         secretario[i]->login = RecuperaLogin(arquivo);
     }
     

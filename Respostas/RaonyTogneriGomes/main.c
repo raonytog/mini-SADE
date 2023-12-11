@@ -25,46 +25,70 @@
 #include "tMenu.h"
 
 int main (int agrc, char * argv[]) { /* main ofc */
-    char path[500], bdPath[500], pathSaida[500], pathBancoDados[1000];
+    char path[500], rPath[500], pathSaida[1000], pathBancoDados[1000];
     if (agrc <= 1) {
         printf("ERRO: diretorio de arquivos nao informado\n");
         exit(1);
     }
 
-    sprintf(path, "%s", argv[1]);
-    sprintf(pathSaida, "%s/saida", argv[1]);
+    strcpy(path, argv[1]);
+    sprintf(pathSaida, "%s/saida", path);
 
     // int main () { /* main de testes */
-    // char path[1001], bdPath[1001], pathSaida[1001];
-    // strcpy(pathSaida, "Casos/1");
+    // char path[500], bdPath[500], pathSaida[500], pathBancoDados[1000];
+    // strcpy(path, "Casos/1");
 
     int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
-    tPessoa ** pessoas = NULL;
-    tMedico ** medicos = NULL;          tMedico * medicoNULL = CriaMedicoNULL();
-    tSecretario ** secretarios = NULL;
-    tListaPessoas * listaBusca =  NULL;
-    tConsulta ** consultas = NULL;
-    tFila * fila = criaFila();
 
     printf("################################################\n");
     printf("DIGITE O CAMINHO DO BANCO DE DADOS: ");
-    scanf("%[^\n]%*c", bdPath);
+    scanf("%[^\n]%*c", rPath);
     printf("################################################\n");
-    printf("Caminho do banco de dados: %s\n", bdPath);
+    printf("Caminho do banco de dados: %s\n", rPath);
     printf("Caminho da pasta de saida: %s\n", pathSaida);
-    sprintf(pathBancoDados, "%s/%s", path, bdPath);
+    strcpy(pathBancoDados, path);
+    sprintf(pathBancoDados, "/%s", rPath);
 
-    char pessoasBin[1001];      sprintf(pessoasBin, "%s/pessoas.bin", argv[1]);
-    char medicosBin[1001];      sprintf(medicosBin, "%s/medicos.bin", argv[1]);
-    char secretariosBin[1001];  sprintf(secretariosBin, "%s/secretarios.bin", argv[1]);
-    char consultasBin[1001];    sprintf(consultasBin, "%s/consultas.bin", argv[1]);
-    char lesoesBin[1001];       sprintf(lesoesBin, "%s/lesoes.bin", argv[1]);
+    char pessoasBin[2001];      sprintf(pessoasBin, "%s/pessoas.bin", pathBancoDados);
+    char medicosBin[2001];      sprintf(medicosBin, "%s/medicos.bin", pathBancoDados);
+    char secretariosBin[2001];  sprintf(secretariosBin, "%s/secretarios.bin", pathBancoDados);
+    char consultasBin[2001];    sprintf(consultasBin, "%s/consultas.bin", pathBancoDados);
+    char lesoesBin[2001];       sprintf(lesoesBin, "%s/lesoes.bin", pathBancoDados);
 
-    FILE * fPessoas = fopen(pessoasBin, "rb"), 
-         * fSecretarios = fopen(secretariosBin, "rb"), 
-         * fMedicos = fopen(medicosBin, "rb"), 
-         * fConsultas = fopen(consultasBin, "rb"), 
-         * fLesoes = fopen(lesoesBin, "rb");
+    FILE * fPessoas = fopen(pessoasBin, "rb");
+    FILE * fSecretarios = fopen(secretariosBin, "rb"); 
+    FILE * fMedicos = fopen(medicosBin, "rb"); 
+    FILE * fConsultas = fopen(consultasBin, "rb"); 
+    FILE * fLesoes = fopen(lesoesBin, "rb");
+
+    tPessoa ** pessoas = NULL;
+    if (fPessoas) {
+        pessoas = RecuperaPessoas(fPessoas, &qtdPessoas);
+        fclose(fPessoas);
+    }
+
+    tMedico * medicoNULL = CriaMedicoNULL();
+    tMedico ** medicos = NULL;
+    if (fMedicos) {
+        medicos = RecuperaMedicos(fMedicos, &qtdMedicos);
+        fclose(fMedicos);
+    }
+
+    tSecretario ** secretarios = NULL;
+    if (fSecretarios) {
+        secretarios = RecuperaSecretario(fSecretarios, &qtdSecretarios);
+        fclose(fSecretarios);
+    }
+
+    tConsulta ** consultas = NULL;
+    if (fConsultas) {
+        consultas = RecuperaConsulta(fConsultas, &qtdConsultas);
+        fclose(fConsultas);
+    }
+
+    tListaPessoas * listaBusca =  NULL;
+    tFila * fila = criaFila();
+
     
     printf("Tem %d secretarios cadastro\n", qtdSecretarios);
     if (qtdSecretarios == 0) {

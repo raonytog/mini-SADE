@@ -93,7 +93,7 @@ void SalvaPessoa (tPessoa * pessoa, FILE * arquivo) {
     SalvaData(pessoa->data, arquivo);
 }
 
-tPessoa ** RecuperaPessoa (FILE * arquivo, int * qtdPessoas) {
+tPessoa ** RecuperaPessoas (FILE * arquivo, int * qtdPessoas) {
     fread(&qtdPessoas, sizeof(int), 1, arquivo);
     tPessoa ** pessoa = (tPessoa **) calloc(*qtdPessoas, sizeof(tPessoa *));
     if (!pessoa) {
@@ -102,6 +102,7 @@ tPessoa ** RecuperaPessoa (FILE * arquivo, int * qtdPessoas) {
     }
 
     for (int i = 0; i < *qtdPessoas; i++) {
+        pessoa[i] = realloc(pessoa[i], sizeof(tPessoa *));
         fread(pessoa[i], sizeof(tPessoa *), 1, arquivo);
         pessoa[i]->data = RecuperaData(arquivo);
     }
@@ -109,8 +110,14 @@ tPessoa ** RecuperaPessoa (FILE * arquivo, int * qtdPessoas) {
     return pessoa;
 }
 
+tPessoa * RecuperaUmaPessoa (FILE * arquivo) {
+    tPessoa * pessoa = (tPessoa *) calloc (1, sizeof(tPessoa));
+    fread(pessoa, sizeof(tPessoa), 1, arquivo);
+    return pessoa;
+}
+
 void SalvaPessoaBinario (tPessoa ** pessoas, int qtdPessoas, char * path) {
-    char dir[1001];
+    char dir[1500];
     sprintf(dir, "%s/pessoas.bin", path);
     FILE * arquivo = fopen(dir, "wb");
     if (arquivo == NULL) {

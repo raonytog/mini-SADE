@@ -75,7 +75,7 @@ void SalvaData (tData * data, FILE * arquivo) {
 }
 
 tData * RecuperaData (FILE * arquivo) {
-    tData * data = (tData *) malloc (sizeof(tData));
+    tData * data = (tData *) calloc (1, sizeof(tData));
     fread(data, sizeof(tData), 1, arquivo);
     return data;
 }
