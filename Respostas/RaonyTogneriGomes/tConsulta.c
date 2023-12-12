@@ -39,7 +39,7 @@ tConsulta * CriaConsulta (tPessoa * pessoa, tMedico * medico) {
     strcpy(consulta->nomePaciente, ObtemNomePessoa(pessoa));
     strcpy(consulta->cpf, ObtemCPFPessoa(pessoa));
 
-    if (!medico) {
+    if (medico) {
         strcpy(consulta->nomeMedico, ObtemNomeMedico(medico));
         strcpy(consulta->crm, ObtemCRM(medico));
 
@@ -82,18 +82,7 @@ void ExecutaConsulta (tConsulta * consulta, tFila * fila, int EhMedico) {
          nomeMedicamento[21], 
          tipoMedicamento[MAX_TAM_TIPO_MEDICAMENTO], 
          instrucoes[MAX_TAM_INSTRUCOES], motivo[300], 
-         especialidade[50],
-         vazio[10];
-
-    // char nomePaciente[100], cpfPaciente[15], nomeMedico[100], crmMedico[12], stringDataConsulta[10];
-    // strcpy(nomePaciente, ObtemNomePessoa(consulta->paciente));
-    // strcpy(cpfPaciente, ObtemCPFPessoa(consulta->paciente));
-
-    // if (consulta->medico) strcpy(nomeMedico, ObtemNomeMedico(consulta->medico));
-    // else nomeMedico[0] = '\0';
-
-    // if (consulta->medico) strcpy(crmMedico, ObtemCRM(consulta->medico));
-    // else crmMedico[0] = '\0';
+         especialidade[50];
 
     int opcao = 0, qtd = 0;
     eTipoUso tipoUso;
@@ -192,7 +181,7 @@ void LeLesaoConsulta (tConsulta * consulta) {
     printf("############################################################\n");
     scanf("%*c");
 
-    (consulta->qtdLesoes)++;
+    consulta->qtdLesoes++;
     consulta->lesao = realloc(consulta->lesao, consulta->qtdLesoes * sizeof(tLesao *));
     consulta->lesao[consulta->qtdLesoes-1] = CriaLesao(consulta->qtdLesoes, diagonostico, regiao, tamanho, cirurgia, crioterapia);
 }
