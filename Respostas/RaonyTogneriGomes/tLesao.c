@@ -6,8 +6,8 @@
 
 struct tLesao {
     int rotulo;
-    char diagnosticoClinico[20];
-    char regiaoDoCorpo[20];
+    char diagnosticoClinico[30];
+    char regiaoDoCorpo[30];
 
     int tamanhoLesao;         //em milimetros
     int necessitaCirurgia;    // true or false
