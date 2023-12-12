@@ -225,14 +225,17 @@ int main (int agrc, char * argv[]) { /* main ofc */
             case BUSCAR_PACIENTES:
                 achouPessoa = 0;
                 printf("#################### BUSCAR PACIENTES #######################\n");
-                listaBusca =  CriaListaBusca();
                 printf("NOME DO PACIENTE: ");               scanf("%[^\n]%*c", nomePacienteBusca);
 
-                for (int i = 0; i < qtdPessoas; i++)
+                int stop = 0;
+                for (int i = 0; i < qtdPessoas; i++) {
                     if (strcmp(nomePacienteBusca, ObtemNomePessoa(pessoas[i])) == 0) {
+                        if (!stop) listaBusca =  CriaListaBusca();
                         AdiconaPessoaLista(listaBusca, pessoas[i]);
                         achouPessoa++;
+                        stop = 1;
                     }
+                }
 
                 if (!achouPessoa) {
                     printf("NENHUM PACIENTE FOI ENCONTRADO. PRESSIONE QUALQUER TECLA PARA RETORNAR AO MENU ANTERIOR\n");

@@ -168,8 +168,8 @@ void ImprimeErroConsulta (char * cpf) {
 }
 
 void LeLesaoConsulta (tConsulta * consulta) {
-    char diagonostico[20], regiao[20];
-    int tamanho, cirurgia, crioterapia;
+    char diagonostico[30], regiao[30];
+    int tamanho = 0, cirurgia = 0, crioterapia = 0;
     printf("#################### CONSULTA MEDICA #######################\n");
     printf("CADASTRO DE LESAO:\n");
     printf("DIAGONISTICO CLINICO: ");               scanf("%[^\n]%*c", diagonostico);

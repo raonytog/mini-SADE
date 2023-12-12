@@ -30,7 +30,7 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
     strcpy(b->data, data);
     b->qtdLesoes = qtdLesoes;
 
-    b->lesoes = calloc(peloMenosUma, sizeof(tLesao *));
+    b->lesoes = calloc(qtdLesoes, sizeof(tLesao *));
     for (int i = 0; i < qtdLesoes; i++)
         b->lesoes[i] = lesoes[i];
 
