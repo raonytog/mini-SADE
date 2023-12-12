@@ -3,6 +3,9 @@
 
 #include "tLogin.h"
 
+/**
+ * opcoes disponiveis nos menus principais
+*/
 typedef enum {
     CADASTRAR_SECRETARIO = 1,
     CADASTRAR_MEDICO = 2,
@@ -20,6 +23,9 @@ void ImprimeMenuUser ();
 
 void ImprimeMenuMedico ();
 
+/**
+ * Imprime o menu de acordo com o cargo logado
+*/
 void ImprimeMenu(CARGO_LOGADO cargo);
 
 void ImprimeMenuConsulta ();
@@ -28,4 +34,4 @@ void ImprimeMenuRelatorio ();
 
 void ImprimeMenuFilaImpressao ();
 
-#endif // !_TMENU_H_
+#endif

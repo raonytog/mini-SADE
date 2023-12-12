@@ -48,6 +48,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
     printf("Caminho da pasta de saida: %s\n", pathSaida);
     sprintf(pathBancoDados, "%s/%s", path ,rPath);
 
+    /** Recupera as informacoes dos binarios */
     char pessoasBin[2001];      sprintf(pessoasBin, "%s/pessoas.bin", pathBancoDados);
     char medicosBin[2001];      sprintf(medicosBin, "%s/medicos.bin", pathBancoDados);
     char secretariosBin[2001];  sprintf(secretariosBin, "%s/secretarios.bin", pathBancoDados);
@@ -86,6 +87,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
     tListaPessoas * listaBusca =  NULL;
     tFila * fila = criaFila();
 
+    /** se nao houver secretarios no banco, cadastra, obrigartoriamente, o secretario*/
     if (qtdSecretarios == 0) {
         printf("#################### CADASTRO SECRETARIO #######################\n");
         qtdSecretarios++;
@@ -93,6 +95,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
         secretarios[qtdSecretarios-1] = CriaSecretario();
     }
     
+    /** verifia login do agente */
     CARGO_LOGADO cargo;
     char login[20], password[20];
     while (1) {
@@ -122,7 +125,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
         switch (opcaoMenu) {
             case CADASTRAR_SECRETARIO:
-                if (cargo != ADMIN) break;
+                if (cargo == MEDICO || cargo == USER) break;
 
                 printf("#################### CADASTRO SECRETARIO #######################\n");
                 qtdSecretarios++;
@@ -145,6 +148,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case CADASTRAR_MEDICO:
+                if (cargo == MEDICO) break; 
                 printf("#################### CADASTRO MEDICO #######################\n");
                 qtdMedicos++;
                 medicos = realloc(medicos, qtdMedicos * sizeof(tMedico *));
@@ -156,7 +160,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     medicos = realloc(medicos, qtdMedicos * sizeof(tMedico *));
                     printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA.\n");
 
-                } else {
+                } else { // se nao existir medico
                     printf("\nCADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                     printf("###############################################################\n");
                     scanf("%*c");
@@ -166,6 +170,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case CADASTRAR_PACIENTE:
+                if (cargo == MEDICO) break;
                 printf("#################### CADASTRO PACIENTE #######################\n");
                 qtdPessoas++;
                 pessoas = realloc(pessoas, qtdPessoas * sizeof(tPessoa *));
@@ -177,7 +182,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     pessoas = realloc(pessoas, qtdPessoas * sizeof(tPessoa *));
                     printf("CPF JA EXISTENTE. OPERACAO NAO PERMITIDA.\n");
 
-                } else {
+                } else { // se nao tiver pessoa nenhuma com o cpf 
                     printf("\nCADASTRO REALIZADO COM SUCESSO. PRESSIONE QUALQUER TECLA PARA VOLTAR PARA O MENU INICIAL\n");
                     printf("###############################################################\n");
                     scanf("%*c");
@@ -187,6 +192,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 
 
             case REALIZAR_CONSULTA:
+                if (cargo == USER) break;
                 printf("#################### CONSULTA MEDICA #######################\n");
                 printf("CPF DO PACIENTE: ");                     scanf("%[^\n]%*c", cpf);
                 printf("---\n");
@@ -208,7 +214,6 @@ int main (int agrc, char * argv[]) { /* main ofc */
                             consultas[qtdConsultas-1] = CriaConsulta(pessoas[indiceConsulta], medicos[indiceMedicoLogado]);
                             ExecutaConsulta(consultas[qtdConsultas-1], fila, 1);
                         }
-
                         sair++;
                     }
                     if (sair) break;
@@ -242,7 +247,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
                     printf("############################################################\n");
                     scanf("%*c");
 
-                } else {
+                } else { // se achou pessoa
                     ImprimeNomeRequisitadoTela(listaBusca);
                     ImprimeMenuBuscarPacientes(fila, listaBusca);
                 }
@@ -323,8 +328,3 @@ int main (int agrc, char * argv[]) { /* main ofc */
     
     return 0;
 }
-
-/** metas do trabalho
- * relatorio geral
- * binario
-**/
