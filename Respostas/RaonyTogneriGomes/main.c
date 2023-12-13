@@ -37,7 +37,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
 //     char path[500], rPath[500], pathSaida[1000], pathBancoDados[1000];
 //     strcpy(path, "Casos/1");
 
-    int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0;
+    int qtdPessoas = 0, qtdMedicos = 0, qtdSecretarios = 0, qtdConsultas = 0, qtdLesoes = 0;
     sprintf(pathSaida, "%s/saida", path);
 
     printf("################################################\n");
@@ -53,11 +53,13 @@ int main (int agrc, char * argv[]) { /* main ofc */
     char medicosBin[2001];      sprintf(medicosBin, "%s/medicos.bin", pathBancoDados);
     char secretariosBin[2001];  sprintf(secretariosBin, "%s/secretarios.bin", pathBancoDados);
     char consultasBin[2001];    sprintf(consultasBin, "%s/consultas.bin", pathBancoDados);
+    // char lesoesBin[2001];       sprintf(lesoesBin, "%s/lesoes.bin", pathBancoDados);
 
     FILE * fPessoas = fopen(pessoasBin, "rb");
     FILE * fSecretarios = fopen(secretariosBin, "rb"); 
     FILE * fMedicos = fopen(medicosBin, "rb"); 
     FILE * fConsultas = fopen(consultasBin, "rb"); 
+    // FILE * fLesoes = fopen64(lesoesBin, "rb");
 
     tPessoa ** pessoas = NULL;
     if (fPessoas) {
@@ -83,6 +85,16 @@ int main (int agrc, char * argv[]) { /* main ofc */
         consultas = RecuperaConsulta(fConsultas, &qtdConsultas);
         fclose(fConsultas);
     }
+
+    // se precisar separar as lesoes das consultas
+    // tLesao ** lesoes = NULL;
+    // if (tLesao) {
+    //     while (!feof(fLesoes)) {
+    //         lesoes[qtdConsultas] = RecuperaLesao(fLesoes);
+    //         qtdConsultas++;
+    //     }
+    //     fclose(fLesao);
+    // }
 
     tListaPessoas * listaBusca =  NULL;
     tFila * fila = criaFila();
@@ -320,6 +332,14 @@ int main (int agrc, char * argv[]) { /* main ofc */
                 }
                 free(consultas);
                 consultas = NULL;
+
+                // se precisar separar as lesoes
+                // for (int i = 0; i < qtdLesoes; i++) {
+                //     DesalocaLesao(lesoes[i]);
+                //     lesoes[i] = NULL;
+                // }
+                // free(lesoes);
+                // lesoes = NULL;
 
                 desalocaFila(fila);
                 
