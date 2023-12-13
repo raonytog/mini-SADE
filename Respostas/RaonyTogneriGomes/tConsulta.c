@@ -258,6 +258,7 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
         qtdLesoes += RetornaQtdLesoesConsulta(consultas[i]);
     }
     fwrite(&qtdLesoes, sizeof(int), 1, arqLesao);
+    //
     
     fwrite(&qtdConsultas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdConsultas; i++) {
