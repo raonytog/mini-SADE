@@ -226,7 +226,6 @@ tConsulta ** RecuperaConsulta (FILE * arquivo, int * qtdConsultas) {
         exit(EXIT_FAILURE);
     }
 
-    int contLesoes = 0;
     for (int i = 0; i < *qtdConsultas; i++) {
         consulta[i] = calloc (1, sizeof(tConsulta));
         fread(consulta[i], sizeof(tConsulta), 1, arquivo);
@@ -252,18 +251,24 @@ void SalvaConsultaBinario (tConsulta ** consultas, int qtdConsultas, char * path
     char dirLesao[1001];
     sprintf(dirLesao, "%s/lesoes.bin", path);
     FILE * arqLesao = fopen(dirLesao, "wb");
+
+    // para saber qts lesoes terao no arquivo
+    int qtdLesoes = 0;
+    for (int i = 0; i < qtdConsultas; i++) {
+        qtdLesoes += RetornaQtdLesoesConsulta(consultas[i]);
+    }
+    fwrite(&qtdLesoes, sizeof(int), 1, arqLesao);
     
     fwrite(&qtdConsultas, sizeof(int), 1, arquivo);
     for (int i = 0; i < qtdConsultas; i++) {
         fwrite(consultas[i], sizeof(tConsulta), 1, arquivo);
-        
         for (int j = 0; j < consultas[i]->qtdLesoes; j++) {
             SalvaLesao(consultas[i]->lesao[j], arquivo);
             SalvaLesao(consultas[i]->lesao[j], arqLesao);
         }
     }
 
-    fclose(arquivo);
     fclose(arqLesao);
+    fclose(arquivo);
 }
 

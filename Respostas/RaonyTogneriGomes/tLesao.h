@@ -66,7 +66,7 @@ void SalvaLesao (tLesao * lesao, FILE * arquivo);
 tLesao * RecuperaLesao (FILE * arquivo);
 
 
-tLesao ** Recupesoes (FILE * arquivo);
+tLesao ** RecuperaLesoes (FILE * arquivo);
 
 /**
  * Salva as lesoes no arquivo 

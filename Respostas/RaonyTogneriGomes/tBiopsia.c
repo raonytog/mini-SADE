@@ -19,7 +19,9 @@ tBiopsia * CriaBiopsia (char * nomePaciente, char * CPF, tLesao ** lesoes, int q
 
     int peloMenosUma = 0;
     for (int i = 0; i < qtdLesoes; i++)
-        if (NecessitaCirurgia(lesoes[i])) peloMenosUma++;
+        if (NecessitaCirurgia(lesoes[i])) {
+            peloMenosUma++;
+        }
     if (!peloMenosUma) return NULL;
 
     tBiopsia * b = calloc(1, sizeof(tBiopsia));

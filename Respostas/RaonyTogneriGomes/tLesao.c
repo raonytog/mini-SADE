@@ -92,17 +92,18 @@ tLesao * RecuperaLesao (FILE * arquivo) {
     return lesao;
 }
 
-tLesao ** Recupesoes (FILE * arquivo) {
-    tLesao ** lesoes = (tLesao **) calloc (20, sizeof(tLesao *));
+tLesao ** RecuperaLesoes (FILE * arquivo) {
+    tLesao ** lesoes = (tLesao **) calloc (30, sizeof(tLesao *));
     if (!lesoes) {
         printf("Erro ao recuperar a lesao\n");
         exit(EXIT_FAILURE);
     }
 
-    int i = 0;
-    while (!feof(arquivo)) {
+    int tam = 0;
+    fread(&tam, sizeof(int), 1, arquivo);
+    for (int i = 0; i < tam; i++) {
+        lesoes[i] = calloc(1, sizeof(tLesao));
         fread(lesoes[i], sizeof(tLesao), 1, arquivo);
-        i++;
     }
 
     return lesoes;
