@@ -92,6 +92,22 @@ tLesao * RecuperaLesao (FILE * arquivo) {
     return lesao;
 }
 
+tLesao ** Recupesoes (FILE * arquivo) {
+    tLesao ** lesoes = (tLesao **) calloc (20, sizeof(tLesao *));
+    if (!lesoes) {
+        printf("Erro ao recuperar a lesao\n");
+        exit(EXIT_FAILURE);
+    }
+
+    int i = 0;
+    while (!feof(arquivo)) {
+        fread(lesoes[i], sizeof(tLesao), 1, arquivo);
+        i++;
+    }
+
+    return lesoes;
+}
+
 void SalvaLesaoBinario (tLesao ** lesoes, int qtdLesoes, char * path) {
     char dir[1001];
     sprintf(dir, "%s/lesoes.bin", path);
