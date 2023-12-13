@@ -227,6 +227,8 @@ int main (int agrc, char * argv[]) { /* main ofc */
                 }
                 break;
 
+
+
             case BUSCAR_PACIENTES:
                 achouPessoa = 0;
                 printf("#################### BUSCAR PACIENTES #######################\n");
@@ -288,7 +290,7 @@ int main (int agrc, char * argv[]) { /* main ofc */
                 SalvaPessoaBinario(pessoas, qtdPessoas, pathBancoDados);
                 SalvaMedicoBinario(medicos, qtdMedicos, pathBancoDados);
                 SalvaSecretarioBinario(secretarios, qtdSecretarios, pathBancoDados);
-                SalvaConsultaBinario(consultas, qtdConsultas, pathBancoDados);
+                SalvaConsultaBinario(consultas, qtdConsultas, pathBancoDados); // salva a lesao bin tb
                 
                 for (int i = 0; i < qtdPessoas; i++) {
                     DesalocaPessoa(pessoas[i]);
